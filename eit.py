@@ -1,4 +1,8 @@
-from json import load
+print("Now")
+import sys
+CONFIG_YML = sys.argv[1]
+print(CONFIG_YML)
+
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
@@ -10,15 +14,15 @@ from datetime import datetime
 import pandas as pd
 import os
 
+nownow = datetime.now()
+print(nownow.strftime("%Y%m%d%H%M%S%f"))
 device="cpu" if not torch.cuda.is_available() else "cuda:0"
+print(f"Using: {device}")
 
 DATA_PATH = "./data/eit/24x24_Images_11Cond_30k_2022-02-23.csv"
 RESULTS_PATH = "./results"
-LOSS_TRACKER_PATH = './results/lablab.csv'
-CONFIG_YML = './results/2023100122281.yml'
-
-if not os.path.exists(RESULTS_PATH):
-    os.makedirs(RESULTS_PATH)
+LOSS_TRACKER_PATH = './results/loss_tracker.csv'
+YML_ID = CONFIG_YML[-8:-4]
 
 def load_yml(yml_path):
     with open(yml_path,'r') as config_file:
@@ -67,7 +71,7 @@ def encoder_build(block_config):
         if 'layer' in config:
             attrs = config['layer']
             layers.append(
-                nn.Conv2d(attrs[0], attrs[1], attrs[2], 
+                nn.Conv2d(attrs[0], attrs[1], attrs[2],
                         stride=attrs[3], padding=attrs[4]))
         elif 'act' in config:
             if config['act'] == 'ReLU':
@@ -82,7 +86,7 @@ def decoder_build(block_config):
         if 'layer' in config:
             attrs = config['layer']
             layers.append(
-                nn.ConvTranspose2d(attrs[0], attrs[1], attrs[2], 
+                nn.ConvTranspose2d(attrs[0], attrs[1], attrs[2],
                         stride=attrs[3], padding=attrs[4],
                         output_padding=attrs[5]))
         elif 'act' in config:
@@ -107,7 +111,7 @@ class AutoencoderEIT_config(nn.Module):
 def loss_build(loss_config):
     if loss_config == 'MSELoss':
         return nn.MSELoss()
-    
+
 def optimizer_build(optimizer_config,model:AutoencoderEIT_config):
 
     if 'Adam' in optimizer_config:
@@ -115,22 +119,22 @@ def optimizer_build(optimizer_config,model:AutoencoderEIT_config):
         return torch.optim.Adam(model.parameters(),
                              lr=adam['learning_rate'],
                              weight_decay=adam['weight_decay'])
-    
+
 model = AutoencoderEIT_config()
 criterion = loss_build(loss_config)
 optimizer = optimizer_build(optimizer_config,model)
 
-id_config = datetime.now().strftime("%Y%m%d%H%M%S%f")
+id_config = f"{YML_ID}.{nownow.strftime('%Y%m%d%H%M%S%f')}"
 losses = []
 for epoch in range(epochs):
     for i, (img) in enumerate(dataloader):
         recon = model(img)
         loss = criterion(recon, img)
-        
+
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-    
+
     if epoch % (epochs//10) == 0:
         print(f'ID_config:{id_config} Epoch:{epoch+1}, Loss:{loss.item():.6f}')
     losses.append(loss.item())
@@ -138,3 +142,8 @@ for epoch in range(epochs):
 loss_tracker = pd.read_csv(LOSS_TRACKER_PATH,header=None,index_col=0)
 loss_tracker.loc[id_config] = losses
 loss_tracker.to_csv(LOSS_TRACKER_PATH,header=None)
+
+config['criterion']['min_loss'] = min(losses)
+with open(f"{RESULTS_PATH}/{YML_ID}", 'w') as f:
+    yaml.dump(config, f)
+print(f"End - {datetime.now().strftime('%Y%m%d%H%M%S%f')}")
