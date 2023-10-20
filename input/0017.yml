@@ -1,0 +1,24 @@
+encoder:
+  - layer: [1,48,7,1,0]
+  - act: "ReLU"
+  - layer: [48,96,7,1,0]
+  - act: "ReLU"
+  - layer: [96,192,3,2,1]
+  - act: "ReLU"
+decoder:
+  - layer: [192,96,3,2,1,1]
+  - act: "ReLU"
+  - layer: [96,48,7,1,0,0]
+  - act: "ReLU"
+  - layer: [48,1,7,1,0,0]
+  - act: "Tanh"
+criterion: 
+  loss: "MSELoss"
+  final_loss: 0.000276
+epochs: 100
+seed: 123
+batch_size: 64
+optimizer: 
+  Adam: 
+    learning_rate: 0.001
+    weight_decay: 0.00001

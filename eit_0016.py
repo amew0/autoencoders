@@ -20,7 +20,7 @@ device="cpu" if not torch.cuda.is_available() else "cuda:0"
 print(f"Using: {device}")
 
 DATA_PATH = "./data/eit/24x24_Images_11Cond_30k_2022-02-23.csv"
-RESULTS_PATH = "./results"
+# RESULTS_PATH = "./results"
 LOSS_TRACKER_PATH = './results/loss_tracker.csv'
 YML_ID = CONFIG_YML[-8:-4]
 
@@ -124,7 +124,7 @@ model = AutoencoderEIT_config()
 criterion = loss_build(loss_config)
 optimizer = optimizer_build(optimizer_config,model)
 
-id_config = f"{YML_ID}.{nownow.strftime('%Y%m%d%H%M%S%f')}"
+id_config = f"16.{YML_ID}.{nownow.strftime('%Y%m%d%H%M%S%f')}"
 losses = []
 for epoch in range(epochs):
     for i, (img) in enumerate(dataloader):
@@ -143,7 +143,7 @@ loss_tracker = pd.read_csv(LOSS_TRACKER_PATH,header=None,index_col=0)
 loss_tracker.loc[id_config] = losses
 loss_tracker.to_csv(LOSS_TRACKER_PATH,header=None)
 
-config['criterion']['min_loss'] = min(losses)
-with open(f"{RESULTS_PATH}/{YML_ID}.yml", 'w') as f:
-    yaml.dump(config, f)
+# config['criterion']['min_loss'] = min(losses)
+# with open(f"{RESULTS_PATH}/{YML_ID}", 'w') as f:
+#     yaml.dump(config, f)
 print(f"End - {datetime.now().strftime('%Y%m%d%H%M%S%f')}")
