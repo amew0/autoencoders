@@ -1,4 +1,3 @@
-print("Now")
 import sys
 CONFIG_YML = sys.argv[1]
 print(CONFIG_YML)
@@ -12,17 +11,22 @@ import numpy as np
 import yaml
 from datetime import datetime
 import pandas as pd
-import os
+import time
 
 nownow = datetime.now()
+start = time.time()
 print(nownow.strftime("%Y%m%d%H%M%S%f"))
 device="cpu" if not torch.cuda.is_available() else "cuda:0"
 print(f"Using: {device}")
 
 DATA_PATH = "./data/eit/24x24_Images_11Cond_30k_2022-02-23.csv"
-RESULTS_PATH = "./results"
-LOSS_TRACKER_PATH = './results/loss_tracker.csv'
-YML_ID = CONFIG_YML[-8:-4]
+TRAIN_PATH = "./data/eit/train_images.csv"
+TEST_PATH = "./data/eit/test_images.csv"
+# RESULTS_PATH = "./results"
+# TRAIN_LOSS_TRACKER_PATH = './results/loss_tracker.csv'
+TEST_LOSS_TRACKER_PATH = './results/loss_tracker_test.csv'
+YML_ID = CONFIG_YML[-8:-4] # /../../xxxx.yml => xxxx
+MODEL_SAVE_PATH = f"./models/{YML_ID}.pth"
 
 def load_yml(yml_path):
     with open(yml_path,'r') as config_file:
@@ -56,14 +60,16 @@ class CustomDataset(Dataset):
         if self.transform:
             image = self.transform(image)
 
-        return image
+        return image.to(device)
 
 transform = transforms.Compose([
     transforms.ToTensor(),
 ])
 
-dataset = CustomDataset(csv_file=DATA_PATH, transform=transform)
-dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+train_dataset = CustomDataset(csv_file=TRAIN_PATH, transform=transform)
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+test_dataset = CustomDataset(csv_file=TEST_PATH, transform=transform)
+test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
 
 def encoder_build(block_config):
     layers = nn.Sequential()
@@ -120,14 +126,15 @@ def optimizer_build(optimizer_config,model:AutoencoderEIT_config):
                              lr=adam['learning_rate'],
                              weight_decay=adam['weight_decay'])
 
-model = AutoencoderEIT_config()
+model = AutoencoderEIT_config().to(device)
 criterion = loss_build(loss_config)
 optimizer = optimizer_build(optimizer_config,model)
 
 id_config = f"{YML_ID}.{nownow.strftime('%Y%m%d%H%M%S%f')}"
-losses = []
+train_losses = []
 for epoch in range(epochs):
-    for i, (img) in enumerate(dataloader):
+    for i, (img) in enumerate(train_dataloader):
+        img = img.to(device )
         recon = model(img)
         loss = criterion(recon, img)
 
@@ -137,13 +144,26 @@ for epoch in range(epochs):
 
     if epoch % (epochs//10) == 0:
         print(f'ID_config:{id_config} Epoch:{epoch+1}, Loss:{loss.item():.6f}')
-    losses.append(loss.item())
+    train_losses.append(loss.item())
 
-loss_tracker = pd.read_csv(LOSS_TRACKER_PATH,header=None,index_col=0)
-loss_tracker.loc[id_config] = losses
-loss_tracker.to_csv(LOSS_TRACKER_PATH,header=None)
+model.eval()
+test_losses = [] 
+with torch.no_grad():
+    for img in test_dataloader:
+        img = img.to(device)  # Move batch of testing images to the GPU
+        recon = model(img)
+        loss = criterion(recon, img)
+        test_losses.append(loss.item())
 
-config['criterion']['min_loss'] = min(losses)
-with open(f"{RESULTS_PATH}/{YML_ID}.yml", 'w') as f:
-    yaml.dump(config, f)
-print(f"End - {datetime.now().strftime('%Y%m%d%H%M%S%f')}")
+avg_test_loss = sum(test_losses) / len(test_losses)
+train_losses.append(avg_test_loss)
+
+loss_tracker = pd.read_csv(TEST_LOSS_TRACKER_PATH,header=None,index_col=0)
+loss_tracker.loc[id_config] = train_losses
+loss_tracker.to_csv(TEST_LOSS_TRACKER_PATH,header=None)
+
+torch.save(model.state_dict(), MODEL_SAVE_PATH)
+
+# with open(f"{RESULTS_PATH}/{YML_ID}.yml", 'w') as f:
+#     yaml.dump(config, f)
+print(f"Elapsed time: {time.time() - start} seconds.")
