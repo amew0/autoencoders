@@ -11,7 +11,4 @@
  
 module purge
 module load miniconda/3
-module load cuda/11.4
-module load gcc/9.3
-
-nvidia-smi
+python -c "import torch;print(torch.cuda.is_available())"
