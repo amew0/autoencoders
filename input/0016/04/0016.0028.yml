@@ -1,0 +1,56 @@
+batch_size: 64
+criterion:
+  loss: MSELoss
+decoder:
+- layer:
+  - 192
+  - 96
+  - 2
+  - 2
+  - 2
+  - 0
+- act: ReLU
+- layer:
+  - 96
+  - 48
+  - 2
+  - 2
+  - 2
+  - 0
+- act: ReLU
+- layer:
+  - 48
+  - 1
+  - 2
+  - 2
+  - 0
+  - 0
+- act: Tanh
+encoder:
+- layer:
+  - 1
+  - 48
+  - 2
+  - 2
+  - 0
+- act: ReLU
+- layer:
+  - 48
+  - 96
+  - 5
+  - 1
+  - 0
+- act: ReLU
+- layer:
+  - 96
+  - 192
+  - 3
+  - 1
+  - 0
+- act: ReLU
+epochs: 100
+optimizer:
+  Adam:
+    learning_rate: 0.001
+    weight_decay: 1.0e-05
+seed: 123
