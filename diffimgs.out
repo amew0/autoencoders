@@ -1,0 +1,26 @@
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!!
+Training started!!
+Epoch:1, Loss:0.019411
+Epoch:11, Loss:0.018412
+Epoch:21, Loss:0.016647
+Epoch:31, Loss:0.009855
+Epoch:41, Loss:0.009785
+Epoch:51, Loss:0.011453
+Epoch:61, Loss:0.014024
+Epoch:71, Loss:0.014611
+Epoch:81, Loss:0.014690
+Epoch:91, Loss:0.019221
+Epoch:101, Loss:0.011440
+Epoch:111, Loss:0.096676
+Epoch:121, Loss:0.011020
+Epoch:131, Loss:0.015744
+Epoch:141, Loss:0.014286
+Epoch:151, Loss:0.009056
+Epoch:161, Loss:0.013272
+Epoch:171, Loss:0.016515
+Epoch:181, Loss:0.015566
+Epoch:191, Loss:0.011269
+Avg Test Loss: 0.014276899471680852
+Elapsed time: 574.0447218418121 seconds.

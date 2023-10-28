@@ -1,3 +1,16 @@
+./input/0001.yml
+./input/0002.yml
+./input/0003.yml
+./input/0004.yml
+./input/0005.yml
+./input/0006.yml
+./input/0007.yml
+./input/0008.yml
+./input/0009.yml
+./input/0010.yml
+./input/0011.yml
+./input/0012.yml
+./input/0013.yml
 ./input/0014.yml
 ./input/0015.yml
 ./input/0016.yml

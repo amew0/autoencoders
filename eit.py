@@ -19,7 +19,7 @@ print(nownow.strftime("%Y%m%d%H%M%S%f"))
 device="cpu" if not torch.cuda.is_available() else "cuda:0"
 print(f"Using: {device}")
 
-DATA_PATH = "./data/eit/24x24_Images_11Cond_30k_2022-02-23.csv"
+# DATA_PATH = "./data/eit/24x24_Images_11Cond_30k_2022-02-23.csv"
 TRAIN_PATH = "./data/eit/train_images.csv"
 TEST_PATH = "./data/eit/test_images.csv"
 # RESULTS_PATH = "./results"
@@ -156,6 +156,7 @@ with torch.no_grad():
         test_losses.append(loss.item())
 
 avg_test_loss = sum(test_losses) / len(test_losses)
+print(f"Avg Test Loss: {avg_test_loss}")
 train_losses.append(avg_test_loss)
 
 loss_tracker = pd.read_csv(TEST_LOSS_TRACKER_PATH,header=None,index_col=0)
