@@ -1,0 +1,19 @@
+encoder:
+  - layer: [1,32,3,1,0]
+  - act: "ReLU"
+  - layer: [32,96,3,1,0]
+  - act: "ReLU"
+  - layer: [96,192,3,2,1]
+  - act: "ReLU"
+criterion: 
+  loss: "MSELoss"
+epochs: 200
+seed: 123
+batch_size: 64
+optimizer: 
+  Adam: 
+    learning_rate: 0.001
+    weight_decay: 0.00001
+summary:
+  - ch: [1,32,96,192]
+  - dim: [16,14,12,6]

@@ -6,12 +6,12 @@
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
-#SBATCH --output=diffimgs.out
-#SBATCH --error=diffimgs.err
+#SBATCH --output=./output/diffimgs%j.out
+#SBATCH --error=./output/diffimgs%j.err
 
 module purge
 module load miniconda/3
 
 conda activate eit
-
-python -u diffimg.py
+echo $1
+python -u diffimg.py $1
