@@ -10,9 +10,11 @@ from torchvision import transforms
 import time
 from datetime import datetime
 import sys
+from sklearn.preprocessing import MinMaxScaler
+
 print("Importing finished!!")
 start = time.time()
-seed = 646
+seed = 64
 batch_size = 8
 epochs = 200
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -38,22 +40,24 @@ class DiffImg(Dataset):
         self.data = pd.read_csv(csv_file,header=None)
         self.diff_transform = diff_transform
         self.img_transform = img_transform
-
+        self.scaler = MinMaxScaler()
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx):
         diff_image_data = np.array(self.data.iloc[idx].values,dtype=np.float32)
-        diff_data = diff_image_data[:256]
-        image_data = diff_image_data[256:]
+        diff = diff_image_data[:256]
+        image = diff_image_data[256:]
         
-        diff = diff_data.reshape(16, 16)
         if self.diff_transform:
+            diff = diff.reshape(16, 16)
             diff = self.diff_transform(diff)
         
-        image = np.tanh(image_data.reshape(24, 24))  # Reshape to 16x16
-        # image = image_data.reshape(24, 24)
         if self.img_transform:
+            # use minmaxscaler to transform image_data        
+            # image = self.scaler.fit_transform(image.reshape(-1,1))
+            image = image.reshape(24, 24)
+            image = np.tanh(image)  # Reshape to 16x16
             image = self.img_transform(image)
 
         return diff,image
@@ -63,13 +67,11 @@ diff_transform = transforms.Compose([
 ])
 
 img_transform = transforms.Compose([
-    transforms.ToTensor(),
-    # transforms.Normalize(mean=[0.485], std=[0.229])
+    transforms.ToTensor()
 ])
 
-
 train_dataset = DiffImg(csv_file=DIFFS_IMGS_TRAIN_PATH, diff_transform=diff_transform, img_transform=img_transform)
-train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
 test_dataset = DiffImg(csv_file=DIFFS_IMGS_TEST_PATH, diff_transform=diff_transform, img_transform=img_transform)
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 print("Dataset loaded!!")
@@ -85,37 +87,81 @@ class ResidualBlock(nn.Module):
         super().__init__()
         self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding)
         self.conv2 = nn.Conv2d(out_channels, out_channels, 3, 1, 1)
-        # self.bn = nn.BatchNorm2d(out_channels)
         self.relu = nn.ReLU()
         self.skip = nn.Conv2d(in_channels, out_channels, 1, 1, 0)  # Add a 1x1 convolution for the skip connection
     def forward(self, x):
-        out = self.conv2(self.relu(self.conv1(x)))
+        out = self.conv2(self.relu(self.conv1( x)))
         skip = self.skip(x)
-        # skip = torch.nn.functional.pad(skip, (0, out.size(3) - skip.size(3), 0, out.size(2) - skip.size(2)))
-        # print(f"out: {out.shape} skip: {skip.shape}")
         out += skip[:, :, :out.size(2), :out.size(3)]
         out = self.relu(out)
         return out
+class MinMax(nn.Module):
+    def __init__(self):
+        super().__init__()
+    def forward(self,x_:torch.Tensor):
+        min_vals, _ = x_.min(dim=2, keepdim=True)
+        max_vals, _ = x_.max(dim=2, keepdim=True)
+        max_vals = torch.where(min_vals == max_vals, min_vals + 1e-8, max_vals)
+        normalized = (x_ - min_vals) / (max_vals - min_vals)
+        # Clip values to the range [0, 1]
+        # normalized = torch.clamp(normalized, 0, 1)
+        return normalized
+class AutoencoderEIT(nn.Module):
+    def forward(self,x):
+        encoded = self.encoder(x)
+        decoded = self.decoder(encoded)
+        return encoded,decoded
 class VoltageAE(nn.Module):
     def __init__(self):
         super().__init__()
-        model_AE = torch.load("models/0014.pt")
-        for param in model_AE.parameters():
+        model = torch.load("./models/img/14.2.20231110000321.pt")
+        # make all model params untrainable
+        for param in model.parameters():
             param.requires_grad = False
         self.encoder_v = nn.Sequential(
-            ResidualBlock(1, 32, 3, 1, 1), # 32 16
-            ResidualBlock(32, 48, 5, 1, 0), # 48 12
-            *model_AE.encoder[2:]
-        )
+            # nn.Conv2d(1,32,3,1,1),   # ResidualBlock(1, 32, 3, 1, 1), # 32 16
+            # nn.ReLU(),
+            nn.Conv2d(1,48,5,1,0), # ResidualBlock(32, 48, 5, 1, 0), # 48 12
+            nn.ReLU(),
+            # nn.Conv2d(48,96,2,2,2), # ResidualBlock(48, 96, 2, 2, 2), # 96 8
+            # nn.ReLU(),
+            # nn.Conv2d(96,192,3,1,0), # ResidualBlock(96, 192, 3, 1, 0) # 192 6 +
+            # nn.ReLU(),
+            # nn.Conv2d(192, 24, 3, 2, 1), # N,24,3,3
+            # nn.ReLU(),
+            # nn.Flatten()
+            nn.Flatten(),
+            nn.Linear(48*12*12,48*9*9),
+            nn.ReLU(),
+            nn.Linear(48*9*9,48*3*3),
+            nn.ReLU(),
+            nn.Linear(48*3*3,24*3*3),
+            nn.ReLU()
+        ) 
         self.decoder = nn.Sequential(
-            *model_AE.decoder[:-1],
-            nn.Tanh()
+            *model.decoder[:-1] # last is flatten so ignored
         )
+        # for layer in self.encoder_v:
+        #     if isinstance(layer, nn.Conv2d):
+        #         mean_value = 1e-5
+        #         std_value = 1e-5
+        #         nn.init.normal_(layer.weight, mean=mean_value, std=std_value)
+        #         nn.init.constant_(layer.bias, 0)
+        # for layer in self.decoder:
+        #     if isinstance(layer, nn.ConvTranspose2d):
+        #         # You can change the mean and std values as needed
+        #         mean_value = 1e-4
+        #         std_value = 1e-1
+        #         nn.init.normal_(layer.weight, mean=mean_value, std=std_value)
+        #         nn.init.constant_(layer.bias, 0)
     def forward(self, x):
         encoded_v = self.encoder_v(x)
         decoded = self.decoder(encoded_v)
         return encoded_v,decoded
-    
+   
+# class AutoencoderEIT_v (nn.Module):
+
+
 def loss_build(loss_config):
     if loss_config == 'MSELoss':
         return nn.MSELoss()
@@ -130,7 +176,7 @@ def optimizer_build(optimizer_config,model):
 
 model_v = VoltageAE().to(device)
 criterion = loss_build('MSELoss')
-optimizer_config = {'Adam': {'learning_rate':5e-2,'weight_decay':1e-1}}
+optimizer_config = {'Adam': {'learning_rate':1e-3,'weight_decay':0}}
 optimizer = optimizer_build(optimizer_config,model_v)
 
 print(summary(model_v, (1,16,16)))
@@ -149,8 +195,8 @@ for epoch in range(epochs):
         loss.backward()
         optimizer.step()
 
-    if epoch % (epochs // 10) == 0:
-        print(f'Epoch:{epoch}, Loss:{loss.item():.6f}')
+    # if epoch % (epochs // 10) == 0:
+    print(f'Epoch:{epoch}, Loss:{loss.item():.6f}')
     train_losses.append(loss.item())
     # outputs.append((epoch, batch_img, batch_recon))
 
@@ -168,8 +214,6 @@ avg_test_loss = sum(test_losses) / len(test_losses)
 print(f"Avg Test Loss: {avg_test_loss}")
 train_losses.append(avg_test_loss)
 
-
-
 # try:
 loss_tracker = pd.read_csv(LOSS_TRACKER_PATH,header=None,index_col=0)
 # except:
@@ -182,5 +226,4 @@ torch.save(model_v.state_dict(), MODEL_STATEDICT_SAVE_PATH)
 print(f"written to: {MODEL_STATEDICT_SAVE_PATH}")
 torch.save(model_v, MODEL_SAVE_PATH) # this saves the model as-is
 print(f"written to: {MODEL_SAVE_PATH}")
-
 print(f"Elapsed time: {time.time() - start} seconds.")
