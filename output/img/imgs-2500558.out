@@ -1,0 +1,48 @@
+0.0
+linear_recon
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!!
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Linear-1               [-1, 1, 256]         147,712
+              ReLU-2               [-1, 1, 256]               0
+            Linear-3               [-1, 1, 128]          32,896
+              ReLU-4               [-1, 1, 128]               0
+            Linear-5                [-1, 1, 64]           8,256
+              ReLU-6                [-1, 1, 64]               0
+            Linear-7               [-1, 1, 128]           8,320
+              ReLU-8               [-1, 1, 128]               0
+            Linear-9               [-1, 1, 256]          33,024
+             ReLU-10               [-1, 1, 256]               0
+           Linear-11               [-1, 1, 576]         148,032
+             Tanh-12               [-1, 1, 576]               0
+================================================================
+Total params: 378,240
+Trainable params: 378,240
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.02
+Params size (MB): 1.44
+Estimated Total Size (MB): 1.47
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.012942
+Epoch:20, Loss:0.009206
+Epoch:40, Loss:0.008968
+Epoch:60, Loss:0.009012
+Epoch:80, Loss:0.008785
+Epoch:100, Loss:0.009144
+Epoch:120, Loss:0.008739
+Epoch:140, Loss:0.008838
+Epoch:160, Loss:0.009005
+Epoch:180, Loss:0.008842
+Last Epoch:199, Loss:0.008882
+Avg Test Loss: 0.0064879460386776675
+written to: ./results/loss_tracker_diffimg.csv
+written to: ./models/img/0.0.20231109181817.pth
+written to: ./models/img/0.0.20231109181817.pt
+Elapsed time: 1358.0400125980377 seconds.

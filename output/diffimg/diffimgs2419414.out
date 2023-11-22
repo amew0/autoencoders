@@ -1,0 +1,58 @@
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!!
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 32, 16, 16]             320
+       BatchNorm2d-2           [-1, 32, 16, 16]              64
+         LeakyReLU-3           [-1, 32, 16, 16]               0
+            Conv2d-4           [-1, 32, 16, 16]           9,248
+       BatchNorm2d-5           [-1, 32, 16, 16]              64
+         LeakyReLU-6           [-1, 32, 16, 16]               0
+            Conv2d-7           [-1, 32, 12, 12]          25,632
+       BatchNorm2d-8           [-1, 32, 12, 12]              64
+         LeakyReLU-9           [-1, 32, 12, 12]               0
+           Conv2d-10           [-1, 32, 12, 12]           9,248
+      BatchNorm2d-11           [-1, 32, 12, 12]              64
+        LeakyReLU-12           [-1, 32, 12, 12]               0
+           Conv2d-13           [-1, 48, 12, 12]          13,872
+      BatchNorm2d-14           [-1, 48, 12, 12]              96
+        LeakyReLU-15           [-1, 48, 12, 12]               0
+           Conv2d-16             [-1, 96, 8, 8]          18,528
+             ReLU-17             [-1, 96, 8, 8]               0
+           Conv2d-18            [-1, 192, 6, 6]         166,080
+             ReLU-19            [-1, 192, 6, 6]               0
+  ConvTranspose2d-20             [-1, 96, 8, 8]         165,984
+             ReLU-21             [-1, 96, 8, 8]               0
+  ConvTranspose2d-22           [-1, 48, 12, 12]          18,480
+             ReLU-23           [-1, 48, 12, 12]               0
+  ConvTranspose2d-24            [-1, 1, 24, 24]             433
+             Tanh-25            [-1, 1, 24, 24]               0
+================================================================
+Total params: 428,177
+Trainable params: 58,672
+Non-trainable params: 369,505
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.15
+Params size (MB): 1.63
+Estimated Total Size (MB): 2.79
+----------------------------------------------------------------
+None
+Training started!!
+Epoch:0, Loss:0.015238
+Epoch:20, Loss:0.013665
+Epoch:40, Loss:0.011032
+Epoch:60, Loss:0.007845
+Epoch:80, Loss:0.011906
+Epoch:100, Loss:0.014670
+Epoch:120, Loss:0.013030
+Epoch:140, Loss:0.011614
+Epoch:160, Loss:0.015558
+Epoch:180, Loss:0.011177
+Avg Test Loss: 0.07596237608726988
+written to: ./results/loss_tracker_diffimg.csv
+written to: ./models/22.20231101013954_diffimg.pth
+written to: ./models/22.20231101013954_diffimg.pt
+Elapsed time: 938.1924188137054 seconds.

@@ -1,0 +1,64 @@
+30
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!!
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 32, 16, 16]             320
+              ReLU-2           [-1, 32, 16, 16]               0
+            Conv2d-3           [-1, 32, 16, 16]           9,248
+            Conv2d-4           [-1, 32, 16, 16]              64
+              ReLU-5           [-1, 32, 16, 16]               0
+     ResidualBlock-6           [-1, 32, 16, 16]               0
+            Conv2d-7           [-1, 48, 12, 12]          38,448
+              ReLU-8           [-1, 48, 12, 12]               0
+            Conv2d-9           [-1, 48, 12, 12]          20,784
+           Conv2d-10           [-1, 48, 16, 16]           1,584
+             ReLU-11           [-1, 48, 12, 12]               0
+    ResidualBlock-12           [-1, 48, 12, 12]               0
+           Conv2d-13             [-1, 96, 8, 8]          18,528
+             ReLU-14             [-1, 96, 8, 8]               0
+           Conv2d-15             [-1, 96, 8, 8]          83,040
+           Conv2d-16           [-1, 96, 12, 12]           4,704
+             ReLU-17             [-1, 96, 8, 8]               0
+    ResidualBlock-18             [-1, 96, 8, 8]               0
+           Conv2d-19            [-1, 192, 6, 6]         166,080
+             ReLU-20            [-1, 192, 6, 6]               0
+           Conv2d-21            [-1, 192, 6, 6]         331,968
+           Conv2d-22            [-1, 192, 8, 8]          18,624
+             ReLU-23            [-1, 192, 6, 6]               0
+    ResidualBlock-24            [-1, 192, 6, 6]               0
+  ConvTranspose2d-25             [-1, 96, 8, 8]         165,984
+             ReLU-26             [-1, 96, 8, 8]               0
+  ConvTranspose2d-27           [-1, 48, 12, 12]          18,480
+             ReLU-28           [-1, 48, 12, 12]               0
+  ConvTranspose2d-29            [-1, 1, 24, 24]             433
+           MinMax-30            [-1, 1, 24, 24]               0
+================================================================
+Total params: 878,289
+Trainable params: 878,289
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.64
+Params size (MB): 3.35
+Estimated Total Size (MB): 4.99
+----------------------------------------------------------------
+None
+Training started!!
+Epoch:0, Loss:0.384649
+Epoch:20, Loss:nan
+Epoch:40, Loss:nan
+Epoch:60, Loss:nan
+Epoch:80, Loss:nan
+Epoch:100, Loss:nan
+Epoch:120, Loss:nan
+Epoch:140, Loss:nan
+Epoch:160, Loss:nan
+Epoch:180, Loss:nan
+Avg Test Loss: nan
+written to: ./results/loss_tracker_diffimg.csv
+written to: ./models/30.20231107132839_diffimg.pth
+written to: ./models/30.20231107132839_diffimg.pt
+Elapsed time: 4124.312862157822 seconds.

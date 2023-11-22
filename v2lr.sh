@@ -1,14 +1,17 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --job-name=import
-#SBATCH --time=02:00:00
+#SBATCH --job-name=v2lr-auto-vscode
+#SBATCH --time=0:59:59
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
-#SBATCH --output=i.%j.out
-#SBATCH --error=i.%j.err
- 
+#SBATCH --output=./output/v2lr/v2lr-%j.out
+
 module purge
 module load miniconda/3
-python -c "import torch;print(torch.cuda.is_available())"
+
+conda activate eit
+echo $1
+echo $2
+python -u v2lr.py $1

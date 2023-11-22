@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/kunet.ae/100053678/eit/autoencoders/diffimg.py", line 193, in <module>
+    loss_tracker.loc[id_config] = train_losses
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/pandas/core/indexing.py", line 885, in __setitem__
+    iloc._setitem_with_indexer(indexer, value, self.name)
+  File "/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/pandas/core/indexing.py", line 1883, in _setitem_with_indexer
+    self._setitem_with_indexer_missing(indexer, value)
+  File "/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/pandas/core/indexing.py", line 2219, in _setitem_with_indexer_missing
+    raise ValueError("cannot set a row with mismatched columns")
+ValueError: cannot set a row with mismatched columns

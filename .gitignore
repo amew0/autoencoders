@@ -2,4 +2,4 @@ data
 .vscode
 __pycache__
 models/
-output/
+# output/

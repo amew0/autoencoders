@@ -7,7 +7,6 @@
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
 #SBATCH --output=./output/img/imgs-%j.out
-#SBATCH --error=./output/img/imgs-%j.err
 
 module purge
 module load miniconda/3

@@ -1,0 +1,42 @@
+1.1
+2 cond 1,16_8,8_16,6,24,3 with duplicate conv
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 6880
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1              [-1, 8, 8, 8]              80
+            Conv2d-2              [-1, 8, 8, 8]             584
+              ReLU-3              [-1, 8, 8, 8]               0
+            Conv2d-4             [-1, 16, 6, 6]           1,168
+            Conv2d-5             [-1, 16, 6, 6]           2,320
+              ReLU-6             [-1, 16, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]           3,480
+            Conv2d-8             [-1, 24, 3, 3]           5,208
+              ReLU-9             [-1, 24, 3, 3]               0
+          Flatten-10                  [-1, 216]               0
+================================================================
+Total params: 12,840
+Trainable params: 12,840
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.03
+Params size (MB): 0.05
+Estimated Total Size (MB): 0.08
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.001888              		Task: InvProb, Epoch:1, Loss:0.000561
+Task: v2lr, Epoch:11, Loss:0.000832              		Task: InvProb, Epoch:11, Loss:0.000275
+Task: v2lr, Epoch:21, Loss:0.000704              		Task: InvProb, Epoch:21, Loss:0.000229
+Task: v2lr, Epoch:31, Loss:0.000579              		Task: InvProb, Epoch:31, Loss:0.000196
+Task: v2lr, Epoch:41, Loss:0.000507              		Task: InvProb, Epoch:41, Loss:0.000181
+Task: v2lr, Epoch:50, Loss:0.000464              		Task: InvProb, Epoch:50, Loss:0.000170
+Avg Test Loss: 0.00049291915350951
+Max Test Loss: 0.0009740773821249604
+Min Test Loss: 0.0001574013294884935
+written to: ./results/loss_tracker_v2lr.csv
+written to: ./models/v2lr/2_1.1.20231117021641_v2lr.pth
+written to: ./models/v2lr/2_1.1.20231117021641_v2lr.pt
+Elapsed time: 127.01606392860413 seconds.

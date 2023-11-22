@@ -35,12 +35,18 @@ Estimated Total Size (MB): 2.42
 ----------------------------------------------------------------
 None
 Training started!!
-Epoch:120, Loss:0.013027
-Epoch:140, Loss:0.011597
-Epoch:160, Loss:0.015604
-Epoch:180, Loss:0.011167
-Avg Test Loss: 0.014300597514560882
+Epoch:0, Loss:0.013314
+Epoch:20, Loss:0.013370
+Epoch:40, Loss:0.016752
+Epoch:60, Loss:0.016387
+Epoch:80, Loss:0.013480
+Epoch:100, Loss:0.015114
+Epoch:120, Loss:0.017309
+Epoch:140, Loss:0.015203
+Epoch:160, Loss:0.014147
+Epoch:180, Loss:0.015490
+Avg Test Loss: 0.014261510015088828
 written to: ./results/loss_tracker_diffimg.csv
-written to: ./models/20.20231101011816_diffimg.pth
-written to: ./models/20.20231101011816_diffimg.pt
-Elapsed time: 1408.2362024784088 seconds.
+written to: ./models/21.20231101013354_diffimg.pth
+written to: ./models/21.20231101013354_diffimg.pt
+Elapsed time: 633.1486406326294 seconds.

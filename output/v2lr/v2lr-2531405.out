@@ -1,0 +1,47 @@
+0
+2 cond 1 linear layer
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 6880
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 216]          55,512
+================================================================
+Total params: 55,512
+Trainable params: 55,512
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.00
+Params size (MB): 0.21
+Estimated Total Size (MB): 0.22
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.001412              		Task: InvProb, Epoch:1, Loss:0.000460
+Task: v2lr, Epoch:11, Loss:0.001339              		Task: InvProb, Epoch:11, Loss:0.000450
+Task: v2lr, Epoch:21, Loss:0.001337              		Task: InvProb, Epoch:21, Loss:0.000450
+Task: v2lr, Epoch:31, Loss:0.001337              		Task: InvProb, Epoch:31, Loss:0.000450
+Task: v2lr, Epoch:41, Loss:0.001339              		Task: InvProb, Epoch:41, Loss:0.000450
+Task: v2lr, Epoch:51, Loss:0.001340              		Task: InvProb, Epoch:51, Loss:0.000450
+Task: v2lr, Epoch:61, Loss:0.001339              		Task: InvProb, Epoch:61, Loss:0.000450
+Task: v2lr, Epoch:71, Loss:0.001339              		Task: InvProb, Epoch:71, Loss:0.000450
+Task: v2lr, Epoch:81, Loss:0.001339              		Task: InvProb, Epoch:81, Loss:0.000450
+Task: v2lr, Epoch:91, Loss:0.001339              		Task: InvProb, Epoch:91, Loss:0.000450
+Task: v2lr, Epoch:101, Loss:0.001340              		Task: InvProb, Epoch:101, Loss:0.000450
+Task: v2lr, Epoch:111, Loss:0.001338              		Task: InvProb, Epoch:111, Loss:0.000450
+Task: v2lr, Epoch:121, Loss:0.001338              		Task: InvProb, Epoch:121, Loss:0.000450
+Task: v2lr, Epoch:131, Loss:0.001338              		Task: InvProb, Epoch:131, Loss:0.000450
+Task: v2lr, Epoch:141, Loss:0.001339              		Task: InvProb, Epoch:141, Loss:0.000450
+Task: v2lr, Epoch:151, Loss:0.001338              		Task: InvProb, Epoch:151, Loss:0.000450
+Task: v2lr, Epoch:161, Loss:0.001339              		Task: InvProb, Epoch:161, Loss:0.000450
+Task: v2lr, Epoch:171, Loss:0.001339              		Task: InvProb, Epoch:171, Loss:0.000450
+Task: v2lr, Epoch:181, Loss:0.001340              		Task: InvProb, Epoch:181, Loss:0.000450
+Task: v2lr, Epoch:191, Loss:0.001340              		Task: InvProb, Epoch:191, Loss:0.000450
+Task: v2lr, Epoch:200, Loss:0.001339              		Task: InvProb, Epoch:200, Loss:0.000450
+Avg Test Loss: 0.001143269621361806
+written to: ./results/loss_tracker_v2lr.csv
+written to: ./models/v2lr/2_0.20231116212915_v2lr.pth
+written to: ./models/v2lr/2_0.20231116212915_v2lr.pt
+Elapsed time: 201.62310600280762 seconds.

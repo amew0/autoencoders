@@ -1,0 +1,30 @@
+0
+First_v2lr_flattenning_and_1_linear_layer
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!!
+Task: v2lr, Epoch:1, Loss:0.347687              		Task: InvProb, Epoch:1, Loss:0.033332
+Task: v2lr, Epoch:11, Loss:0.329025              		Task: InvProb, Epoch:11, Loss:0.032835
+Task: v2lr, Epoch:21, Loss:0.326427              		Task: InvProb, Epoch:21, Loss:0.032850
+Task: v2lr, Epoch:31, Loss:0.325765              		Task: InvProb, Epoch:31, Loss:0.032871
+Task: v2lr, Epoch:41, Loss:0.325516              		Task: InvProb, Epoch:41, Loss:0.032880
+Task: v2lr, Epoch:51, Loss:0.325419              		Task: InvProb, Epoch:51, Loss:0.032885
+Task: v2lr, Epoch:61, Loss:0.325377              		Task: InvProb, Epoch:61, Loss:0.032888
+Task: v2lr, Epoch:71, Loss:0.325352              		Task: InvProb, Epoch:71, Loss:0.032890
+Task: v2lr, Epoch:81, Loss:0.325342              		Task: InvProb, Epoch:81, Loss:0.032892
+Task: v2lr, Epoch:91, Loss:0.325338              		Task: InvProb, Epoch:91, Loss:0.032893
+Task: v2lr, Epoch:101, Loss:0.325335              		Task: InvProb, Epoch:101, Loss:0.032894
+Task: v2lr, Epoch:111, Loss:0.325334              		Task: InvProb, Epoch:111, Loss:0.032895
+Task: v2lr, Epoch:121, Loss:0.325334              		Task: InvProb, Epoch:121, Loss:0.032895
+Task: v2lr, Epoch:131, Loss:0.325335              		Task: InvProb, Epoch:131, Loss:0.032896
+Task: v2lr, Epoch:141, Loss:0.325337              		Task: InvProb, Epoch:141, Loss:0.032896
+Task: v2lr, Epoch:151, Loss:0.325340              		Task: InvProb, Epoch:151, Loss:0.032897
+Task: v2lr, Epoch:161, Loss:0.325345              		Task: InvProb, Epoch:161, Loss:0.032897
+Task: v2lr, Epoch:171, Loss:0.325348              		Task: InvProb, Epoch:171, Loss:0.032898
+Task: v2lr, Epoch:181, Loss:0.325351              		Task: InvProb, Epoch:181, Loss:0.032898
+Task: v2lr, Epoch:191, Loss:0.325352              		Task: InvProb, Epoch:191, Loss:0.032898
+Avg Test Loss: 0.646064047674338
+written to: ./results/loss_tracker_v2lr.csv
+written to: ./models/v2lr/0.20231116172829_vl2r.pth
+written to: ./models/v2lr/0.20231116172829_vl2r.pt
+Elapsed time: 744.0751883983612 seconds.
