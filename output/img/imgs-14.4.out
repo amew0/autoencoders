@@ -1,0 +1,350 @@
+14.4
+bunch of configs
+Importing finished!!
+cuda is going to be used!!
+[Linear(in_features=216, out_features=64, bias=True), ReLU(), Linear(in_features=64, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                   [-1, 64]          13,888
+             ReLU-11                   [-1, 64]               0
+           Linear-12                  [-1, 216]          14,040
+             ReLU-13                  [-1, 216]               0
+        Unflatten-14             [-1, 24, 3, 3]               0
+  ConvTranspose2d-15            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-16             [-1, 96, 8, 8]         165,984
+             ReLU-17             [-1, 96, 8, 8]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          18,480
+             ReLU-19           [-1, 48, 12, 12]               0
+  ConvTranspose2d-20            [-1, 1, 24, 24]             433
+================================================================
+Total params: 481,073
+Trainable params: 111,088
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.84
+Estimated Total Size (MB): 2.41
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.176844, MSE Loss: 0.014327, SSIM: 0.246494
+Epoch:10, Loss:0.132845, MSE Loss: 0.009311, SSIM: 0.185789
+Epoch:20, Loss:0.128218, MSE Loss: 0.008843, SSIM: 0.179379
+Epoch:30, Loss:0.130080, MSE Loss: 0.008294, SSIM: 0.182274
+Epoch:40, Loss:0.125606, MSE Loss: 0.007550, SSIM: 0.176202
+Epoch:50, Loss:0.121798, MSE Loss: 0.007696, SSIM: 0.170699
+Epoch:60, Loss:0.126557, MSE Loss: 0.007449, SSIM: 0.177604
+Epoch:70, Loss:0.087352, MSE Loss: 0.006726, SSIM: 0.121905
+Epoch:80, Loss:0.091090, MSE Loss: 0.006907, SSIM: 0.127168
+Epoch:90, Loss:0.091203, MSE Loss: 0.007074, SSIM: 0.127258
+Epoch:99, Loss:0.093058, MSE Loss: 0.006742, SSIM: 0.130050
+Avg Test Loss: MSE: 0.010664847081643529, SSIM: 0.11949595222569807
+Max Test Loss: MSE: 0.034497614949941635 SSIM: 0.5120970709303273
+Min Test Loss: MSE: 0.0007039236952550709 SSIM: 0.04881639734462451
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.4.20231123034105_img.pth
+written to: ./models/img/14.4.20231123034105_img.pt
+Elapsed time: 611.253851890564 seconds.
+[Linear(in_features=216, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                  [-1, 128]          27,776
+             ReLU-11                  [-1, 128]               0
+           Linear-12                  [-1, 216]          27,864
+             ReLU-13                  [-1, 216]               0
+        Unflatten-14             [-1, 24, 3, 3]               0
+  ConvTranspose2d-15            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-16             [-1, 96, 8, 8]         165,984
+             ReLU-17             [-1, 96, 8, 8]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          18,480
+             ReLU-19           [-1, 48, 12, 12]               0
+  ConvTranspose2d-20            [-1, 1, 24, 24]             433
+================================================================
+Total params: 508,785
+Trainable params: 138,800
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.94
+Estimated Total Size (MB): 2.52
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.170811, MSE Loss: 0.013176, SSIM: 0.238368
+Epoch:10, Loss:0.134199, MSE Loss: 0.009992, SSIM: 0.187431
+Epoch:20, Loss:0.125122, MSE Loss: 0.009397, SSIM: 0.174719
+Epoch:30, Loss:0.124847, MSE Loss: 0.009712, SSIM: 0.174190
+Epoch:40, Loss:0.121666, MSE Loss: 0.007367, SSIM: 0.170651
+Epoch:50, Loss:0.105715, MSE Loss: 0.007316, SSIM: 0.147885
+Epoch:60, Loss:0.096364, MSE Loss: 0.007614, SSIM: 0.134400
+Epoch:70, Loss:0.094719, MSE Loss: 0.007341, SSIM: 0.132166
+Epoch:80, Loss:0.092243, MSE Loss: 0.007219, SSIM: 0.128682
+Epoch:90, Loss:0.088357, MSE Loss: 0.006564, SSIM: 0.123411
+Epoch:99, Loss:0.090562, MSE Loss: 0.007087, SSIM: 0.126337
+Avg Test Loss: MSE: 0.008971090588020161, SSIM: 0.09901812198568659
+Max Test Loss: MSE: 0.032751090824604034 SSIM: 0.5564839639626955
+Min Test Loss: MSE: 0.0004666737513616681 SSIM: 0.0361930652533049
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.4.20231123035116_img.pth
+written to: ./models/img/14.4.20231123035116_img.pt
+Elapsed time: 1218.2017467021942 seconds.
+[Linear(in_features=216, out_features=512, bias=True), ReLU(), Linear(in_features=512, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                  [-1, 512]         111,104
+             ReLU-11                  [-1, 512]               0
+           Linear-12                  [-1, 216]         110,808
+             ReLU-13                  [-1, 216]               0
+        Unflatten-14             [-1, 24, 3, 3]               0
+  ConvTranspose2d-15            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-16             [-1, 96, 8, 8]         165,984
+             ReLU-17             [-1, 96, 8, 8]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          18,480
+             ReLU-19           [-1, 48, 12, 12]               0
+  ConvTranspose2d-20            [-1, 1, 24, 24]             433
+================================================================
+Total params: 675,057
+Trainable params: 305,072
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.58
+Params size (MB): 2.58
+Estimated Total Size (MB): 3.16
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.144345, MSE Loss: 0.015145, SSIM: 0.199716
+Epoch:10, Loss:0.136288, MSE Loss: 0.009565, SSIM: 0.190598
+Epoch:20, Loss:0.095685, MSE Loss: 0.006788, SSIM: 0.133784
+Epoch:30, Loss:0.090320, MSE Loss: 0.006358, SSIM: 0.126304
+Epoch:40, Loss:0.089063, MSE Loss: 0.005711, SSIM: 0.124785
+Epoch:50, Loss:0.086443, MSE Loss: 0.005849, SSIM: 0.120983
+Epoch:60, Loss:0.085474, MSE Loss: 0.005827, SSIM: 0.119608
+Epoch:70, Loss:0.089959, MSE Loss: 0.005960, SSIM: 0.125958
+Epoch:80, Loss:0.082916, MSE Loss: 0.005816, SSIM: 0.115959
+Epoch:90, Loss:0.085280, MSE Loss: 0.005767, SSIM: 0.119357
+Epoch:99, Loss:0.086627, MSE Loss: 0.005933, SSIM: 0.121210
+Avg Test Loss: MSE: 0.009258700180061473, SSIM: 0.10349686311134297
+Max Test Loss: MSE: 0.03353730961680412 SSIM: 0.4903562961637318
+Min Test Loss: MSE: 0.00045081693679094315 SSIM: 0.04123217258372425
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.4.20231123040123_img.pth
+written to: ./models/img/14.4.20231123040123_img.pt
+Elapsed time: 1824.1102786064148 seconds.
+[Linear(in_features=216, out_features=64, bias=True), ReLU(), Linear(in_features=64, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                   [-1, 64]          13,888
+             ReLU-11                   [-1, 64]               0
+           Linear-12                  [-1, 128]           8,320
+             ReLU-13                  [-1, 128]               0
+           Linear-14                  [-1, 216]          27,864
+             ReLU-15                  [-1, 216]               0
+        Unflatten-16             [-1, 24, 3, 3]               0
+  ConvTranspose2d-17            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-18             [-1, 96, 8, 8]         165,984
+             ReLU-19             [-1, 96, 8, 8]               0
+  ConvTranspose2d-20           [-1, 48, 12, 12]          18,480
+             ReLU-21           [-1, 48, 12, 12]               0
+  ConvTranspose2d-22            [-1, 1, 24, 24]             433
+================================================================
+Total params: 503,217
+Trainable params: 133,232
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.92
+Estimated Total Size (MB): 2.50
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.204765, MSE Loss: 0.017556, SSIM: 0.284998
+Epoch:10, Loss:0.151687, MSE Loss: 0.011942, SSIM: 0.211577
+Epoch:20, Loss:0.139037, MSE Loss: 0.009878, SSIM: 0.194391
+Epoch:30, Loss:0.125570, MSE Loss: 0.008999, SSIM: 0.175530
+Epoch:40, Loss:0.123960, MSE Loss: 0.009893, SSIM: 0.172847
+Epoch:50, Loss:0.129337, MSE Loss: 0.008395, SSIM: 0.181169
+Epoch:60, Loss:0.129301, MSE Loss: 0.009897, SSIM: 0.180474
+Epoch:70, Loss:0.115723, MSE Loss: 0.009409, SSIM: 0.161286
+Epoch:80, Loss:0.107328, MSE Loss: 0.009698, SSIM: 0.149169
+Epoch:90, Loss:0.103478, MSE Loss: 0.008897, SSIM: 0.144012
+Epoch:99, Loss:0.104335, MSE Loss: 0.009510, SSIM: 0.144975
+Avg Test Loss: MSE: 0.012689317620320556, SSIM: 0.15194805591943442
+Max Test Loss: MSE: 0.04396914318203926 SSIM: 0.8086092672244927
+Min Test Loss: MSE: 0.0007419147877953947 SSIM: 0.056619952747851254
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.4.20231123041129_img.pth
+written to: ./models/img/14.4.20231123041129_img.pt
+Elapsed time: 2447.3678464889526 seconds.
+[Linear(in_features=216, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=64, bias=True), ReLU(), Linear(in_features=64, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                  [-1, 128]          27,776
+             ReLU-11                  [-1, 128]               0
+           Linear-12                   [-1, 64]           8,256
+             ReLU-13                   [-1, 64]               0
+           Linear-14                  [-1, 216]          14,040
+             ReLU-15                  [-1, 216]               0
+        Unflatten-16             [-1, 24, 3, 3]               0
+  ConvTranspose2d-17            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-18             [-1, 96, 8, 8]         165,984
+             ReLU-19             [-1, 96, 8, 8]               0
+  ConvTranspose2d-20           [-1, 48, 12, 12]          18,480
+             ReLU-21           [-1, 48, 12, 12]               0
+  ConvTranspose2d-22            [-1, 1, 24, 24]             433
+================================================================
+Total params: 503,217
+Trainable params: 133,232
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.92
+Estimated Total Size (MB): 2.50
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.205527, MSE Loss: 0.016885, SSIM: 0.286373
+Epoch:10, Loss:0.156941, MSE Loss: 0.012705, SSIM: 0.218757
+Epoch:20, Loss:0.146991, MSE Loss: 0.009731, SSIM: 0.205817
+Epoch:30, Loss:0.149249, MSE Loss: 0.010730, SSIM: 0.208614
+Epoch:40, Loss:0.134389, MSE Loss: 0.009318, SSIM: 0.187990
+Epoch:50, Loss:0.127504, MSE Loss: 0.008823, SSIM: 0.178368
+Epoch:60, Loss:0.124670, MSE Loss: 0.008830, SSIM: 0.174316
+Epoch:70, Loss:0.123050, MSE Loss: 0.008664, SSIM: 0.172073
+Epoch:80, Loss:0.123797, MSE Loss: 0.008685, SSIM: 0.173131
+Epoch:90, Loss:0.121756, MSE Loss: 0.008108, SSIM: 0.170462
+Epoch:99, Loss:0.123739, MSE Loss: 0.007800, SSIM: 0.173427
+Avg Test Loss: MSE: 0.012658806324509593, SSIM: 0.13203754183414185
+Max Test Loss: MSE: 0.04729786887764931 SSIM: 0.6176621375777571
+Min Test Loss: MSE: 0.0005924839060753584 SSIM: 0.04904073635001238
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.4.20231123042153_img.pth
+written to: ./models/img/14.4.20231123042153_img.pt
+Elapsed time: 3072.6335752010345 seconds.
+[Linear(in_features=216, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=216, bias=True), ReLU()]
+
+
+
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+           Linear-10                  [-1, 128]          27,776
+             ReLU-11                  [-1, 128]               0
+           Linear-12                  [-1, 128]          16,512
+             ReLU-13                  [-1, 128]               0
+           Linear-14                  [-1, 216]          27,864
+             ReLU-15                  [-1, 216]               0
+        Unflatten-16             [-1, 24, 3, 3]               0
+  ConvTranspose2d-17            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-18             [-1, 96, 8, 8]         165,984
+             ReLU-19             [-1, 96, 8, 8]               0
+  ConvTranspose2d-20           [-1, 48, 12, 12]          18,480
+             ReLU-21           [-1, 48, 12, 12]               0
+  ConvTranspose2d-22            [-1, 1, 24, 24]             433
+================================================================
+Total params: 525,297
+Trainable params: 155,312
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 2.00
+Estimated Total Size (MB): 2.58
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.198841, MSE Loss: 0.019753, SSIM: 0.275592
+Epoch:10, Loss:0.160794, MSE Loss: 0.012562, SSIM: 0.224323
+Epoch:20, Loss:0.134001, MSE Loss: 0.010778, SSIM: 0.186811
+Epoch:30, Loss:0.139497, MSE Loss: 0.010200, SSIM: 0.194910
+Epoch:40, Loss:0.139548, MSE Loss: 0.009734, SSIM: 0.195182
+Epoch:50, Loss:0.127023, MSE Loss: 0.009548, SSIM: 0.177369
+Epoch:60, Loss:0.126460, MSE Loss: 0.008679, SSIM: 0.176937
+Epoch:70, Loss:0.122557, MSE Loss: 0.007735, SSIM: 0.171766
+Epoch:80, Loss:0.128693, MSE Loss: 0.008383, SSIM: 0.180254
+slurmstepd: error: *** JOB 2585656 ON gpu-10-3 CANCELLED AT 2023-11-23T04:41:20 DUE TO TIME LIMIT ***

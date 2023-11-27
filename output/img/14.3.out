@@ -1,0 +1,54 @@
+14.3
+ssim added to loss
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 24000
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+        Unflatten-10             [-1, 24, 3, 3]               0
+  ConvTranspose2d-11            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-12             [-1, 96, 8, 8]         165,984
+             ReLU-13             [-1, 96, 8, 8]               0
+  ConvTranspose2d-14           [-1, 48, 12, 12]          18,480
+             ReLU-15           [-1, 48, 12, 12]               0
+  ConvTranspose2d-16            [-1, 1, 24, 24]             433
+================================================================
+Total params: 453,145
+Trainable params: 453,145
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.73
+Estimated Total Size (MB): 2.30
+----------------------------------------------------------------
+None
+Training started!! - Reconstruction
+Epoch:0, Loss:0.033026, MSE Loss: 0.003201, SSIM: 0.045808
+Epoch:10, Loss:0.016536, MSE Loss: 0.001588, SSIM: 0.022942
+Epoch:20, Loss:0.023736, MSE Loss: 0.001366, SSIM: 0.033324
+Epoch:30, Loss:0.018808, MSE Loss: 0.000897, SSIM: 0.026484
+Epoch:40, Loss:0.013771, MSE Loss: 0.000873, SSIM: 0.019299
+Epoch:50, Loss:0.013553, MSE Loss: 0.000823, SSIM: 0.019009
+Epoch:60, Loss:0.015664, MSE Loss: 0.000922, SSIM: 0.021982
+Epoch:70, Loss:0.013216, MSE Loss: 0.000989, SSIM: 0.018456
+Epoch:80, Loss:0.015384, MSE Loss: 0.001098, SSIM: 0.021506
+Epoch:90, Loss:0.012847, MSE Loss: 0.000876, SSIM: 0.017978
+Epoch:99, Loss:0.013640, MSE Loss: 0.000896, SSIM: 0.019102
+Avg Test Loss: MSE: 0.0008585933522699634, SSIM: 0.014289359256159099
+Max Test Loss: MSE: 0.004149429500102997 SSIM: 0.08860467894945612
+Min Test Loss: MSE: 0.00010149800073122606 SSIM: 0.002454135024253179
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.3.20231123003527_img.pth
+written to: ./models/img/14.3.20231123003527_img.pt
+Elapsed time: 671.6865413188934 seconds.

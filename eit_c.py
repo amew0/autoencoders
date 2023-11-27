@@ -30,8 +30,8 @@ from skimage.metrics import structural_similarity as ssim
 print("Importing finished!!")
 start = time.time()
 seed = 64
-batch_size = 16
-epochs = 100
+batch_size = 4
+epochs = 300
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"{device} is going to be used!!")
 
@@ -40,78 +40,35 @@ np.random.seed(seed=seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
-
+factors = [108,144,54,324,432]
+configs = [
+[
+    nn.Linear(216, a),
+    nn.ReLU(),
+    nn.Linear(a,b),
+    nn.ReLU(),
+    nn.Linear(b,c),
+    nn.ReLU(),
+    nn.Linear(c, 216),
+    nn.ReLU()
+] for a in factors for b in factors  for c in factors]
+configs = [
+    [
+        nn.Linear(216, 108),
+        nn.ReLU(),
+        nn.Linear(108,324),
+        nn.ReLU(),
+        nn.Linear(324,324),
+        nn.ReLU(),
+        nn.Linear(324, 216),
+        nn.ReLU()
+    ]
+]
 # configurations to be tested
-configs = [[
-    nn.Linear(216,64),
-    nn.ReLU(),
-    nn.Linear(64,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,128),
-    nn.ReLU(),
-    nn.Linear(128,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,512),
-    nn.ReLU(),
-    nn.Linear(512,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,64),
-    nn.ReLU(),
-    nn.Linear(64,128),
-    nn.ReLU(),
-    nn.Linear(128,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,128),
-    nn.ReLU(),
-    nn.Linear(128,64),
-    nn.ReLU(),
-    nn.Linear(64,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,128),
-    nn.ReLU(),
-    nn.Linear(128,128),
-    nn.ReLU(),
-    nn.Linear(128,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,128),
-    nn.ReLU(),
-    nn.Linear(128,128),
-    nn.ReLU(),
-    nn.Linear(128,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,512),
-    nn.ReLU(),
-    nn.Linear(512,64),
-    nn.ReLU(),
-    nn.Linear(64,216),
-    nn.ReLU()
-],
-[
-    nn.Linear(216,64),
-    nn.ReLU(),
-    nn.Linear(64,512),
-    nn.ReLU(),
-    nn.Linear(512,216),
-    nn.ReLU()
-]
-]
-for config in configs:
+for i,config in enumerate(configs):
+    print(f"Iteration config: {i}")
     print(config)
-    print("\n\n")
+    print("\n")
     ID = sys.argv[1]
     nownow = datetime.now()
 
@@ -150,7 +107,7 @@ for config in configs:
     test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
     print(f"Dataset loaded!! Length (train dataset) - {len(train_dataset)}")
 
-    recon = AutoencoderEIT()
+    recon = AutoencoderEIT142()
     recon.encoder = recon.encoder + nn.Sequential(*config)
     recon = recon.to(device)
     # criterion = nn.MSELoss()
@@ -158,7 +115,6 @@ for config in configs:
     beta = 0.7 # Weight for SSIM
     optimizer_config = {'Adam': {'learning_rate':1e-3,'weight_decay':1e-5}}
     optimizer = optimizer_build(optimizer_config,recon)
-
     print(summary(recon, (1,24,24)))
 
     print("Training started!! - Reconstruction")
@@ -173,7 +129,8 @@ for config in configs:
             batch_recon = batch_recon.squeeze().cpu().detach().numpy()
             batch_img = batch_img.squeeze().cpu().detach().numpy()
             ssim_value = 1 - ssim(batch_recon, batch_img,
-                                data_range=max(batch_recon.max(), batch_img.max()) - min(batch_img.min(), batch_recon.min()))
+                                data_range=max(batch_recon.max(), batch_img.max()) - min(batch_img.min(), batch_recon.min()),
+                                win_size=3)
 
             # Combined weighted loss
             loss = alpha * mse_loss + beta * ssim_value
@@ -200,7 +157,8 @@ for config in configs:
             batch_recon = batch_recon.squeeze().cpu().detach().numpy()
             batch_img = batch_img.squeeze().cpu().detach().numpy()
             ssim_value = 1 - ssim(batch_recon, batch_img,
-                                data_range=max(batch_recon.max(), batch_img.max()) - min(batch_img.min(), batch_recon.min()))
+                                data_range=max(batch_recon.max(), batch_img.max()) - min(batch_img.min(), batch_recon.min()),
+                                win_size=3)
 
             # Combined weighted loss
             loss = alpha * mse_loss + beta * ssim_value

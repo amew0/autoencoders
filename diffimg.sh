@@ -8,6 +8,12 @@
 #SBATCH --account=kunf0007
 #SBATCH --output=./output/diffimg/diffimgs-%j.out
 
+path="./output/diffimg/diffimgs-"
+j=$SLURM_JOB_ID
+original_filename="${path}${j}.out"
+new_filename="${path}${1}.out"
+mv "$original_filename" "$new_filename"
+
 module purge
 module load miniconda/3
 

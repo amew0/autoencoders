@@ -175,12 +175,35 @@ class AutoencoderEIT(nn.Module):
             *model.encoder,
             nn.Conv2d(192, 24, 3, 2, 1), # N,24,3,3
             nn.ReLU(),
-            nn.Flatten()
+            nn.Flatten(),
+            # nn.Linear(216,216),
+            # nn.ReLU(),
         )
         self.decoder = nn.Sequential(
             nn.Unflatten(1, (24, 3, 3)),
             nn.ConvTranspose2d(24, 192, 3, 2, 1, 1), # N,192,6,6
+            nn.ReLU(),
             *model.decoder[:-1] # removed tanh
+        )
+    def forward(self, x):
+        encoded = self.encoder(x)
+        decoded = self.decoder(encoded)
+        return encoded,decoded
+
+class AutoencoderEIT142(nn.Module):
+    def __init__(self):
+        super().__init__() 
+        model = torch.load("./models/img/14.2.20231110000321.pt")
+        # make all prev model params untrainable
+        for param in model.parameters():
+            param.requires_grad = False
+        self.encoder = nn.Sequential(
+            *model.encoder[1:],
+        )
+        self.decoder = nn.Sequential(
+            *model.decoder[:2],
+            nn.ReLU(),
+            *model.decoder[2:-2]
         )
     def forward(self, x):
         encoded = self.encoder(x)
@@ -251,50 +274,6 @@ V2LR
 class V2ImgLR (nn.Module):
     def __init__(self):
         super().__init__()
-        # 0
-        # self.v2lr = nn.Sequential(
-        #     nn.Flatten(),
-        #     nn.Linear(256,216),
-        # )
-        # 1
-        # self.v2lr = nn.Sequential(
-        #     nn.Conv2d(1, 8, 3, 2, 1),
-        #     nn.ReLU(),
-        #     nn.Conv2d(8, 16, 3, 1, 0),
-        #     nn.ReLU(),
-        #     nn.Conv2d(16, 24, 3, 2, 1),
-        #     nn.ReLU(),
-        #     nn.Flatten()
-        # )
-        # # 1.1 with duplicates
-        # self.v2lr = nn.Sequential(
-        #     nn.Conv2d(1, 8, 3, 2, 1),
-        #     nn.Conv2d(8,8,3,1,1),
-        #     nn.ReLU(),
-        #     nn.Conv2d(8, 16, 3, 1, 0),
-        #     nn.Conv2d(16,16,3,1,1),
-        #     nn.ReLU(),
-        #     nn.Conv2d(16, 24, 3, 2, 1),
-        #     nn.Conv2d(24,24,3,1,1),
-        #     nn.ReLU(),
-        #     nn.Flatten()
-        # )
-        # # 1.2 with duplicates and batchnorm
-        # self.v2lr = nn.Sequential(
-        #     nn.Conv2d(1, 8, 3, 2, 1),
-        #     nn.BatchNorm2d(8), 
-        #     nn.Conv2d(8, 8, 3, 1, 1),
-        #     nn.ReLU(),
-        #     nn.Conv2d(8, 16, 3, 1, 0),
-        #     nn.BatchNorm2d(16),  
-        #     nn.Conv2d(16, 16, 3, 1, 1),
-        #     nn.ReLU(),
-        #     nn.Conv2d(16, 24, 3, 2, 1),
-        #     nn.BatchNorm2d(24),  
-        #     nn.Conv2d(24, 24, 3, 1, 1),
-        #     nn.ReLU(),
-        #     nn.Flatten()
-        # )
         # 1.3 with hidden linear
         self.v2lr = nn.Sequential(
             nn.Flatten(),

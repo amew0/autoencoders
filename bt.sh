@@ -1,14 +1,14 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --job-name=v2lr-auto-vscode
-#SBATCH --time=05:59:59
+#SBATCH --job-name=diff-auto-vscode
+#SBATCH --time=59:59
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
-#SBATCH --output=./output/v2lr/v2lr-%j.out
+#SBATCH --output=./output/img/bt-%j.out
 
-path="./output/v2lr/v2lr-"
+path="./output/img/bt-"
 j=$SLURM_JOB_ID
 original_filename="${path}${j}.out"
 new_filename="${path}${1}.out"
@@ -21,4 +21,5 @@ conda activate eit
 echo $j
 echo $1
 echo $2
-python -u v2lr.py $1 $3
+
+python -u bt.py

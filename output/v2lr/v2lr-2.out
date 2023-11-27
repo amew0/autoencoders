@@ -1,0 +1,168 @@
+2592225
+2
+Configs from 2
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 24000
+Iteration config: 0
+[Linear(in_features=256, out_features=432, bias=True), ReLU(), Linear(in_features=432, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 432]         111,024
+              ReLU-3                  [-1, 432]               0
+            Linear-4                  [-1, 216]          93,528
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 204,552
+Trainable params: 204,552
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.78
+Estimated Total Size (MB): 0.79
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.798010                		Task: InvProb, Epoch:1, MSELoss:0.088738, SSIM:0.29467300581615397
+Task: v2lr, Epoch:11, Loss:0.738097                		Task: InvProb, Epoch:11, MSELoss:0.082102, SSIM:0.27094593261835676
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 205.55255436897278 seconds.
+Iteration config: 1
+[Linear(in_features=256, out_features=324, bias=True), ReLU(), Linear(in_features=324, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 324]          83,268
+              ReLU-3                  [-1, 324]               0
+            Linear-4                  [-1, 216]          70,200
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 153,468
+Trainable params: 153,468
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.59
+Estimated Total Size (MB): 0.60
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.788017                		Task: InvProb, Epoch:1, MSELoss:0.087711, SSIM:0.2984631439821972
+Task: v2lr, Epoch:11, Loss:0.733589                		Task: InvProb, Epoch:11, MSELoss:0.082434, SSIM:0.2781264401297855
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 404.90050172805786 seconds.
+Iteration config: 2
+[Linear(in_features=256, out_features=108, bias=True), ReLU(), Linear(in_features=108, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 108]          27,756
+              ReLU-3                  [-1, 108]               0
+            Linear-4                  [-1, 216]          23,544
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 51,300
+Trainable params: 51,300
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.20
+Estimated Total Size (MB): 0.20
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.795212                		Task: InvProb, Epoch:1, MSELoss:0.089091, SSIM:0.3168927781405442
+Task: v2lr, Epoch:11, Loss:0.744024                		Task: InvProb, Epoch:11, MSELoss:0.082480, SSIM:0.28495473821000683
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 604.5288093090057 seconds.
+Iteration config: 3
+[Linear(in_features=256, out_features=512, bias=True), ReLU(), Linear(in_features=512, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 512]         131,584
+              ReLU-3                  [-1, 512]               0
+            Linear-4                  [-1, 216]         110,808
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 242,392
+Trainable params: 242,392
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.92
+Estimated Total Size (MB): 0.94
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.795932                		Task: InvProb, Epoch:1, MSELoss:0.087456, SSIM:0.29229200684169865
+Task: v2lr, Epoch:11, Loss:0.755148                		Task: InvProb, Epoch:11, MSELoss:0.084195, SSIM:0.2726929681476644
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 804.2301568984985 seconds.
+Iteration config: 4
+[Linear(in_features=256, out_features=256, bias=True), ReLU(), Linear(in_features=256, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 256]          65,792
+              ReLU-3                  [-1, 256]               0
+            Linear-4                  [-1, 216]          55,512
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 121,304
+Trainable params: 121,304
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.46
+Estimated Total Size (MB): 0.47
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.785558                		Task: InvProb, Epoch:1, MSELoss:0.086526, SSIM:0.3030626358462436
+Task: v2lr, Epoch:11, Loss:0.715356                		Task: InvProb, Epoch:11, MSELoss:0.079551, SSIM:0.2709088570439889
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 1004.1120345592499 seconds.
+Iteration config: 5
+[Linear(in_features=256, out_features=128, bias=True), ReLU(), Linear(in_features=128, out_features=216, bias=True), ReLU()]
+
+
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+           Flatten-1                  [-1, 256]               0
+            Linear-2                  [-1, 128]          32,896
+              ReLU-3                  [-1, 128]               0
+            Linear-4                  [-1, 216]          27,864
+              ReLU-5                  [-1, 216]               0
+================================================================
+Total params: 60,760
+Trainable params: 60,760
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.01
+Params size (MB): 0.23
+Estimated Total Size (MB): 0.24
+----------------------------------------------------------------
+None
+Task: v2lr, Epoch:1, Loss:0.800486                		Task: InvProb, Epoch:1, MSELoss:0.090649, SSIM:0.30739440342742363
+Task: v2lr, Epoch:11, Loss:0.746909                		Task: InvProb, Epoch:11, MSELoss:0.083764, SSIM:0.27687801783740873
+Early stopped at epoch 11 and model is not saved
+Elapsed time: 1203.7787764072418 seconds.
