@@ -1,8 +1,8 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --job-name=diff-auto-vscode
-#SBATCH --time=79:59:59
+#SBATCH --job-name=img-auto-vscode
+#SBATCH --time=8:59:59
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007

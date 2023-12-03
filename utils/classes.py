@@ -196,14 +196,14 @@ class AutoencoderEIT142(nn.Module):
         model = torch.load("./models/img/14.2.20231110000321.pt")
         # make all prev model params untrainable
         for param in model.parameters():
-            param.requires_grad = False
+            param.requires_grad = True
         self.encoder = nn.Sequential(
             *model.encoder[1:],
         )
         self.decoder = nn.Sequential(
             *model.decoder[:2],
             nn.ReLU(),
-            *model.decoder[2:-2]
+            *model.decoder[2:-1]
         )
     def forward(self, x):
         encoded = self.encoder(x)
@@ -274,13 +274,17 @@ V2LR
 class V2ImgLR (nn.Module):
     def __init__(self):
         super().__init__()
+        # model = torch.load("./models/v2lr/2_1.2.1.1.20231117023937_v2lr.pt")
+        # for param in model.parameters():
+        #     param.requires_grad = False
+        self.v2lr = None
         # 1.3 with hidden linear
-        self.v2lr = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(256, 64),
-            nn.ReLU(),
-            nn.Linear(64, 216)
-        )
+        # self.v2lr = nn.Sequential(
+        #     nn.Flatten(),
+        #     nn.Linear(256, 64),
+        #     nn.ReLU(),
+        #     nn.Linear(64, 216)
+        # )
 
     def forward(self,x):
         mapped = self.v2lr(x)

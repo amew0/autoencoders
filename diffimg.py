@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import yaml
 from torchsummary import summary
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision import transforms
 import sys
 import time
@@ -31,18 +31,6 @@ TASK = "diffimg"
 CONDUCTANCE_VALUES = "2_"
 id_config = f"{CONDUCTANCE_VALUES}{ID}.{nownow.strftime('%Y%m%d%H%M%S%f')[:14]}"
 
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit/diffs_imgs_train.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit/diffs_imgs_test.csv"
-
-DIFFS_IMGS_TRAIN_PATH = "./data/eit2/diffs_imgs_train_2.csv"
-DIFFS_IMGS_TEST_PATH = "./data/eit2/diffs_imgs_test_2.csv"
-
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit4/diffs_imgs_train_4.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit4/diffs_imgs_test_4.csv"
-
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit6/diffs_imgs_train_6.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit6/diffs_imgs_test_6.csv"
-
 LOSS_TRACKER_PATH = f'./results/loss_tracker_{TASK}.csv'
 MODEL_STATEDICT_SAVE_PATH = f"./models/{TASK}/{id_config}_{TASK}.pth"
 MODEL_SAVE_PATH = MODEL_STATEDICT_SAVE_PATH[:-1] # pt instead of pth
@@ -50,17 +38,22 @@ MODEL_SAVE_PATH = MODEL_STATEDICT_SAVE_PATH[:-1] # pt instead of pth
 reconstructor_v_path = "./models/diffimg/VR_2_0.20231117042725_diffimg.pt"
 recon_path = "./models/img/2_14.2.1.20231116193059_img.pt"
 
-diff_transform = transforms.Compose([
-    transforms.ToTensor(),
-])
+DIFFS_IMGS_TRAIN_PATH = "./data/eit/diffs_imgs_train.csv"
+DIFFS_IMGS_TEST_PATH = "./data/eit/diffs_imgs_test.csv"
 
-img_transform = transforms.Compose([
-    transforms.ToTensor(),
-])
+diff_transform = transforms.Compose([transforms.ToTensor()])
+img_transform = transforms.Compose([transforms.ToTensor()])
 
 train_dataset = DiffImg(csv_file=DIFFS_IMGS_TRAIN_PATH, diff_transform=diff_transform, img_transform=img_transform)
-train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
 test_dataset = DiffImg(csv_file=DIFFS_IMGS_TEST_PATH, diff_transform=diff_transform, img_transform=img_transform)
+
+generator = torch.Generator().manual_seed(seed)
+train_size = int(0.8 * len(train_dataset)) 
+val_size = len(train_dataset) - train_size
+train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size],generator=generator)
+
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
+val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 print(f"Dataset loaded!! Length (train dataset) - {len(train_dataset)}")
 

@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import yaml
 from torchsummary import summary
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, random_split
 from torchvision import transforms
 import sys
 import time
@@ -14,6 +14,7 @@ from utils.classes import *
 import torch.nn.functional as F
 from skimage.metrics import structural_similarity as ssim
 import csv
+from copy import deepcopy
 
 print("Importing finished!!")
 start = time.time()
@@ -32,38 +33,28 @@ ID = sys.argv[1]
 TASK = "v2lr"
 CONDUCTANCE_VALUES = ""
 
+recon_path = "./models/img/14.2.1.retraining.2.20231130014311_img.pt" # "./models/img/14.2.1.20231116190651_img.pt" #"./models/img/14.2.20231110000321.pt"
+
 DIFFS_IMGS_TRAIN_PATH = "./data/eit/diffs_imgs_train.csv"
 DIFFS_IMGS_TEST_PATH = "./data/eit/diffs_imgs_test.csv"
 
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit2/diffs_imgs_train_2.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit2/diffs_imgs_test_2.csv"
-
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit4/diffs_imgs_train_4.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit4/diffs_imgs_test_4.csv"
-
-# DIFFS_IMGS_TRAIN_PATH = "./data/eit6/diffs_imgs_train_6.csv"
-# DIFFS_IMGS_TEST_PATH = "./data/eit6/diffs_imgs_test_6.csv"
-
-recon_path = "./models/img/14.2.20231110000321.pt" # "./models/img/14.2.1.20231116190651_img.pt"
-# recon_path = "./models/img/2_14.2.1.20231116193059_img.pt" #2
-# recon_path = "./models/img/4_14.2.1.20231116190154_img.pt" #4
-# recon_path = "./models/img/6_14.2.1.20231116190136_img.pt" #6
-
-diff_transform = transforms.Compose([
-    transforms.ToTensor(),
-])
-
-img_transform = transforms.Compose([
-    transforms.ToTensor(),
-])
+diff_transform = transforms.Compose([transforms.ToTensor()])
+img_transform = transforms.Compose([transforms.ToTensor()])
 
 train_dataset = DiffImg(csv_file=DIFFS_IMGS_TRAIN_PATH, diff_transform=diff_transform, img_transform=img_transform)
-train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
 test_dataset = DiffImg(csv_file=DIFFS_IMGS_TEST_PATH, diff_transform=diff_transform, img_transform=img_transform)
+
+generator = torch.Generator().manual_seed(seed)
+train_size = int(0.8 * len(train_dataset)) 
+val_size = len(train_dataset) - train_size
+train_dataset, val_dataset = random_split(train_dataset, [train_size, val_size],generator=generator)
+
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
+val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 print(f"Dataset loaded!! Length (train dataset) - {len(train_dataset)}")
 
-factors = [128,256,512,108,324,432]
+'''
 # for 2
 config_no = 3#int(sys.argv[2])
 if config_no == 2:
@@ -113,12 +104,23 @@ elif config_no == 4:
         nn.ReLU()
     ] ]
 
-    
-
-for i,config in enumerate(configs[::-1]):
-    print(f"Iteration config: {i}")
-    print(config)
-    print("\n")
+'''
+# factors = [108,128,216,256,324,432,512]
+# configs = [
+# [
+#     nn.Linear(216, a),
+#     nn.ReLU(),
+#     nn.Linear(a,b),
+#     nn.ReLU(),
+#     nn.Linear(b, 216),
+#     nn.ReLU()
+# ] for a in factors \
+#     for b in factors ]
+configs = [-1]
+for i,config in enumerate(configs):
+    # print(f"Iteration config: {i}")
+    # print(config)
+    # print("\n")
 
     nownow = datetime.now()
     id_config = f"{CONDUCTANCE_VALUES}{ID}.{nownow.strftime('%Y%m%d%H%M%S%f')[:14]}"
@@ -128,30 +130,52 @@ for i,config in enumerate(configs[::-1]):
 
     v2lr = V2ImgLR()
     v2lr.v2lr = nn.Sequential(
-            # nn.Flatten(),
-            *config
-        )
+        nn.Conv2d(1, 8, 3, 2, 1),
+        nn.BatchNorm2d(8), 
+        nn.Conv2d(8, 8, 3, 1, 1),
+        nn.ReLU(),
+        nn.Conv2d(8, 16, 3, 1, 0),
+        nn.BatchNorm2d(16),  
+        nn.Conv2d(16, 16, 3, 1, 1),
+        nn.ReLU(),
+        nn.Conv2d(16, 24, 3, 2, 1),
+        nn.BatchNorm2d(24),  
+        nn.Conv2d(24, 24, 3, 1, 1),
+        nn.ReLU(),
+        nn.Flatten()
+    )
+    # v2lr = v2lr.v2lr + nn.Sequential(*config)
     v2lr = v2lr.to(device)
     criterion = nn.MSELoss()
     optimizer_config = {'Adam': {'learning_rate':1e-3,'weight_decay':1e-5}}
     optimizer = optimizer_build(optimizer_config,v2lr)
 
     print(summary(v2lr,(1,16,16)))
-    recon = torch.load(recon_path)
+    recon = torch.load(recon_path,map_location=torch.device(device))
     print(f"Reconstructor from: {recon_path}")
+    
+    best_v2lr = deepcopy(v2lr)
+    min_loss = np.inf
+    best_epoch = -1
 
-    alpha = 0.7  # Weight for MSE Loss
-    beta = 0.3 # Weight for SSIM
+    alpha = 0.5  # Weight for MSE Loss
+    beta = 0.05 # Weight for SSIM
     train_losses = []
     early_stop = False
     for epoch in range(epochs):
+        epoch_loss = 0.0 
         for i, (batch_diff, batch_img) in enumerate(train_dataloader):
             batch_diff = batch_diff.to(device)
             batch_img = batch_img.to(device)
             batch_mapped = v2lr(batch_diff)
 
-            batch_encoded = recon.encoder[1:](batch_img)
-            batch_recon_v = recon.decoder[:-2](batch_mapped)
+            batch_encoded = recon.encoder(batch_img)
+            batch_recon_v = recon.decoder(batch_mapped)
+
+            min_value = batch_recon_v.min()
+            max_value = batch_recon_v.max()
+            batch_recon_v = (batch_recon_v - min_value) / (max_value - min_value) \
+                * (batch_img.max() - batch_img.min()) + batch_img.min()
             
             mse_loss = F.mse_loss(batch_mapped, batch_encoded) # mse between v2lr
 
@@ -165,23 +189,39 @@ for i,config in enumerate(configs[::-1]):
             loss = alpha*mse_loss + beta*ssim_value
 
             optimizer.zero_grad()
-            loss.backward()
+            loss.backward(retain_graph=True)
             optimizer.step()
+
+            epoch_loss += loss.item()
+
+        epoch_loss /= len(train_dataloader)
+        optimizer.zero_grad()
+        epoch_loss = torch.tensor(epoch_loss,device=device,requires_grad=True)
+        optimizer.step()
+        train_losses.append(loss.item())
 
         if (epoch % (10) == 0) or (epoch == epochs - 1):
             recon_v_loss = F.mse_loss(batch_img, batch_recon_v)
 
-            print(f'Task: v2lr, Epoch:{epoch+1}, Loss:{loss.item():.6f}\
-                \t\tTask: InvProb, Epoch:{epoch+1}, MSELoss:{recon_v_loss.item():.6f}, SSIM:{ssim_value}')
+            print(f'Task: v2lr, Epoch:{epoch+1}, Epoch Loss: {epoch_loss}, Loss:{loss.item():.6f}, MSELoss:{mse_loss:.6f}\
+                \tTask: InvProb, Epoch:{epoch+1}, MSELoss:{recon_v_loss.item():.6f}, SSIM:{ssim_value}')
 
+        if mse_loss.item() < min_loss:
+            min_loss = mse_loss.item()
+            best_v2lr = deepcopy(v2lr)
+            best_epoch = epoch
+            print(f"Best state dict, with mse_loss {min_loss:.6f}, yet found @ {epoch}...")
+        
+        
+        
         # if epoch > 10 and epoch < epochs - 40:
         #     if (train_losses[epoch-10] - loss.item()) / train_losses[epoch-10] < 0.5:
         #         early_stop = True
         #         break
         
-        train_losses.append(loss.item())
 
     if not early_stop:
+        v2lr = deepcopy(best_v2lr)
         v2lr.eval()
         test_losses = [] 
         with torch.no_grad():

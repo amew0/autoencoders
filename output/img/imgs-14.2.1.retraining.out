@@ -1,0 +1,64 @@
+14.2.1.retraining
+14.2.1.20231116190651_img.pt retraining
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 24000
+Only gonna be shown once!
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 24, 3, 3]          41,496
+              ReLU-8             [-1, 24, 3, 3]               0
+           Flatten-9                  [-1, 216]               0
+        Unflatten-10             [-1, 24, 3, 3]               0
+  ConvTranspose2d-11            [-1, 192, 6, 6]          41,664
+  ConvTranspose2d-12             [-1, 96, 8, 8]         165,984
+             ReLU-13             [-1, 96, 8, 8]               0
+  ConvTranspose2d-14           [-1, 48, 12, 12]          18,480
+             ReLU-15           [-1, 48, 12, 12]               0
+  ConvTranspose2d-16            [-1, 1, 24, 24]             433
+================================================================
+Total params: 453,145
+Trainable params: 453,145
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.57
+Params size (MB): 1.73
+Estimated Total Size (MB): 2.30
+----------------------------------------------------------------
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.050429, Loss:0.059637, MSE Loss: 0.019108, SSIM: 1.001665
+Epoch:10, Epoch Loss: 0.016463, Loss:0.017166, MSE Loss: 0.004817, SSIM: 0.295146
+Epoch:20, Epoch Loss: 0.013806, Loss:0.025315, MSE Loss: 0.005141, SSIM: 0.454895
+Epoch:30, Epoch Loss: 0.012731, Loss:0.005993, MSE Loss: 0.004587, SSIM: 0.073991
+Epoch:40, Epoch Loss: 0.012304, Loss:0.016093, MSE Loss: 0.003757, SSIM: 0.284291
+Epoch:50, Epoch Loss: 0.011602, Loss:0.026442, MSE Loss: 0.005134, SSIM: 0.477498
+Epoch:60, Epoch Loss: 0.011349, Loss:0.004754, MSE Loss: 0.003053, SSIM: 0.064554
+Epoch:70, Epoch Loss: 0.011880, Loss:0.006071, MSE Loss: 0.003121, SSIM: 0.090212
+Epoch:80, Epoch Loss: 0.010778, Loss:0.007833, MSE Loss: 0.002414, SSIM: 0.132513
+Epoch:90, Epoch Loss: 0.011363, Loss:0.018752, MSE Loss: 0.003194, SSIM: 0.343103
+Epoch:100, Epoch Loss: 0.010665, Loss:0.004428, MSE Loss: 0.003304, SSIM: 0.055519
+Epoch:110, Epoch Loss: 0.010578, Loss:0.018438, MSE Loss: 0.003244, SSIM: 0.336315
+Epoch:120, Epoch Loss: 0.010265, Loss:0.006155, MSE Loss: 0.003182, SSIM: 0.091273
+Epoch:130, Epoch Loss: 0.010163, Loss:0.038289, MSE Loss: 0.005332, SSIM: 0.712452
+Epoch:140, Epoch Loss: 0.010559, Loss:0.013805, MSE Loss: 0.002902, SSIM: 0.247092
+Epoch:150, Epoch Loss: 0.010122, Loss:0.010674, MSE Loss: 0.002417, SSIM: 0.189308
+Epoch:160, Epoch Loss: 0.009941, Loss:0.018677, MSE Loss: 0.003377, SSIM: 0.339776
+Epoch:170, Epoch Loss: 0.010478, Loss:0.009668, MSE Loss: 0.002441, SSIM: 0.168954
+Epoch:180, Epoch Loss: 0.010505, Loss:0.005441, MSE Loss: 0.002576, SSIM: 0.083056
+Epoch:190, Epoch Loss: 0.010167, Loss:0.003697, MSE Loss: 0.002592, SSIM: 0.048031
+Epoch:199, Epoch Loss: 0.009721, Loss:0.003544, MSE Loss: 0.002398, SSIM: 0.046897
+Avg Test Loss: MSE: 0.01896287055752085, SSIM: 0.2763512298312388
+Max Test Loss: MSE: 0.09169838577508926 SSIM: 0.5008694526773911
+Min Test Loss: MSE: 0.0001873125584097579 SSIM: 0.08258574713527422
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.2.1.retraining.20231129094714_img.pth
+written to: ./models/img/14.2.1.retraining.20231129094714_img.pt
+Elapsed time: 2392.6280076503754 seconds.

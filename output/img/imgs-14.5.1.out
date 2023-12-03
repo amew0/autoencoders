@@ -1,0 +1,349 @@
+14.5.1
+exploring lrs 14.2.1.20231116190651_img.pt gonna be used
+Importing finished!!
+cuda is going to be used!!
+LR - 432
+Dataset loaded!! Length (train dataset) - 24000
+Only gonna be shown once!
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1           [-1, 48, 12, 12]             480
+              ReLU-2           [-1, 48, 12, 12]               0
+            Conv2d-3             [-1, 96, 8, 8]          18,528
+              ReLU-4             [-1, 96, 8, 8]               0
+            Conv2d-5            [-1, 192, 6, 6]         166,080
+              ReLU-6            [-1, 192, 6, 6]               0
+            Conv2d-7             [-1, 48, 3, 3]          82,992
+              ReLU-8             [-1, 48, 3, 3]               0
+           Flatten-9                  [-1, 432]               0
+           Linear-10                  [-1, 432]         187,056
+             ReLU-11                  [-1, 432]               0
+           Linear-12                  [-1, 432]         187,056
+             ReLU-13                  [-1, 432]               0
+        Unflatten-14             [-1, 48, 3, 3]               0
+  ConvTranspose2d-15            [-1, 192, 6, 6]          83,136
+             ReLU-16            [-1, 192, 6, 6]               0
+  ConvTranspose2d-17             [-1, 96, 8, 8]         165,984
+             ReLU-18             [-1, 96, 8, 8]               0
+  ConvTranspose2d-19           [-1, 48, 12, 12]          18,480
+             ReLU-20           [-1, 48, 12, 12]               0
+  ConvTranspose2d-21            [-1, 1, 24, 24]             433
+================================================================
+Total params: 910,225
+Trainable params: 540,240
+Non-trainable params: 369,985
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.64
+Params size (MB): 3.47
+Estimated Total Size (MB): 4.11
+----------------------------------------------------------------
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.097466, Loss:0.099006, MSE Loss: 0.093132, SSIM: 1.048791
+Epoch:10, Epoch Loss: 0.074285, Loss:0.080113, MSE Loss: 0.048158, SSIM: 1.120684
+Epoch:20, Epoch Loss: 0.065620, Loss:0.089663, MSE Loss: 0.065975, SSIM: 1.133512
+Epoch:30, Epoch Loss: 0.060738, Loss:0.074344, MSE Loss: 0.038445, SSIM: 1.102426
+Epoch:40, Epoch Loss: 0.059394, Loss:0.044347, MSE Loss: 0.025660, SSIM: 0.630335
+Epoch:50, Epoch Loss: 0.057470, Loss:0.072386, MSE Loss: 0.037920, SSIM: 1.068520
+Epoch:60, Epoch Loss: 0.056196, Loss:0.045394, MSE Loss: 0.026201, SSIM: 0.645870
+Epoch:70, Epoch Loss: 0.055375, Loss:0.068131, MSE Loss: 0.048639, SSIM: 0.876231
+Epoch:80, Epoch Loss: 0.055109, Loss:0.074993, MSE Loss: 0.040278, SSIM: 1.097079
+Epoch:90, Epoch Loss: 0.054539, Loss:0.041332, MSE Loss: 0.022717, SSIM: 0.599463
+Epoch:100, Epoch Loss: 0.054416, Loss:0.081580, MSE Loss: 0.051695, SSIM: 1.114656
+Epoch:110, Epoch Loss: 0.054699, Loss:0.045336, MSE Loss: 0.022804, SSIM: 0.678686
+Epoch:120, Epoch Loss: 0.053492, Loss:0.060639, MSE Loss: 0.026423, SSIM: 0.948537
+Epoch:130, Epoch Loss: 0.052266, Loss:0.042888, MSE Loss: 0.020590, SSIM: 0.651866
+Epoch:140, Epoch Loss: 0.051750, Loss:0.063797, MSE Loss: 0.025593, SSIM: 1.020007
+Epoch:150, Epoch Loss: 0.050175, Loss:0.040945, MSE Loss: 0.019302, SSIM: 0.625869
+Epoch:160, Epoch Loss: 0.048687, Loss:0.046247, MSE Loss: 0.020946, SSIM: 0.715472
+Epoch:170, Epoch Loss: 0.047478, Loss:0.031105, MSE Loss: 0.019034, SSIM: 0.431758
+Epoch:180, Epoch Loss: 0.045969, Loss:0.047917, MSE Loss: 0.021767, SSIM: 0.740665
+Epoch:190, Epoch Loss: 0.045206, Loss:0.029760, MSE Loss: 0.018881, SSIM: 0.406382
+Epoch:199, Epoch Loss: 0.044423, Loss:0.033283, MSE Loss: 0.017801, SSIM: 0.487665
+Avg Test Loss: MSE: 0.92453243545567, SSIM: 0.5557203755874737
+Max Test Loss: MSE: 4.662363529205322 SSIM: 0.8489728999485112
+Min Test Loss: MSE: 0.0042417580261826515 SSIM: 0.13392884984474496
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231128211446_img.pth
+written to: ./models/img/14.5.1.20231128211446_img.pt
+Elapsed time: 2257.4443922042847 seconds.
+LR - 408
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.098060, Loss:0.095120, MSE Loss: 0.084200, SSIM: 1.060392
+Epoch:10, Epoch Loss: 0.073781, Loss:0.083564, MSE Loss: 0.058018, SSIM: 1.091097
+Epoch:20, Epoch Loss: 0.064873, Loss:0.040349, MSE Loss: 0.025169, SSIM: 0.555293
+Epoch:30, Epoch Loss: 0.059648, Loss:0.071126, MSE Loss: 0.035238, SSIM: 1.070143
+Epoch:40, Epoch Loss: 0.058106, Loss:0.042851, MSE Loss: 0.021761, SSIM: 0.639409
+Epoch:50, Epoch Loss: 0.056238, Loss:0.055012, MSE Loss: 0.025634, SSIM: 0.843907
+Epoch:60, Epoch Loss: 0.053312, Loss:0.060775, MSE Loss: 0.026761, SSIM: 0.947882
+Epoch:70, Epoch Loss: 0.050924, Loss:0.040348, MSE Loss: 0.022487, SSIM: 0.582088
+Epoch:80, Epoch Loss: 0.050007, Loss:0.045674, MSE Loss: 0.020717, SSIM: 0.706301
+Epoch:90, Epoch Loss: 0.047428, Loss:0.041268, MSE Loss: 0.019073, SSIM: 0.634633
+Epoch:100, Epoch Loss: 0.045497, Loss:0.070681, MSE Loss: 0.032292, SSIM: 1.090710
+Epoch:110, Epoch Loss: 0.044293, Loss:0.030003, MSE Loss: 0.018240, SSIM: 0.417672
+Epoch:120, Epoch Loss: 0.043433, Loss:0.042900, MSE Loss: 0.016534, SSIM: 0.692654
+Epoch:130, Epoch Loss: 0.042630, Loss:0.056231, MSE Loss: 0.022850, SSIM: 0.896126
+Epoch:140, Epoch Loss: 0.042272, Loss:0.026768, MSE Loss: 0.020718, SSIM: 0.328184
+Epoch:150, Epoch Loss: 0.042025, Loss:0.055256, MSE Loss: 0.021030, SSIM: 0.894812
+Epoch:160, Epoch Loss: 0.041732, Loss:0.046995, MSE Loss: 0.018237, SSIM: 0.757520
+Epoch:170, Epoch Loss: 0.041330, Loss:0.059259, MSE Loss: 0.022584, SSIM: 0.959342
+Epoch:180, Epoch Loss: 0.040607, Loss:0.056462, MSE Loss: 0.020412, SSIM: 0.925120
+Epoch:190, Epoch Loss: 0.040525, Loss:0.028092, MSE Loss: 0.016527, SSIM: 0.396570
+Epoch:199, Epoch Loss: 0.040254, Loss:0.040095, MSE Loss: 0.018768, SSIM: 0.614218
+Avg Test Loss: MSE: 0.23874353842809795, SSIM: 0.41887234354758496
+Max Test Loss: MSE: 1.0592124462127686 SSIM: 0.7264081726413376
+Min Test Loss: MSE: 0.002363103674724698 SSIM: 0.07533731895648399
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231128215224_img.pth
+written to: ./models/img/14.5.1.20231128215224_img.pt
+Elapsed time: 4496.57937335968 seconds.
+LR - 384
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.098982, Loss:0.094777, MSE Loss: 0.086074, SSIM: 1.034793
+Epoch:10, Epoch Loss: 0.078495, Loss:0.072806, MSE Loss: 0.041208, SSIM: 1.044052
+Epoch:20, Epoch Loss: 0.062421, Loss:0.054853, MSE Loss: 0.027309, SSIM: 0.823975
+Epoch:30, Epoch Loss: 0.053421, Loss:0.034431, MSE Loss: 0.024251, SSIM: 0.446111
+Epoch:40, Epoch Loss: 0.049950, Loss:0.052630, MSE Loss: 0.025347, SSIM: 0.799130
+Epoch:50, Epoch Loss: 0.046856, Loss:0.073047, MSE Loss: 0.036153, SSIM: 1.099423
+Epoch:60, Epoch Loss: 0.045522, Loss:0.065798, MSE Loss: 0.026711, SSIM: 1.048854
+Epoch:70, Epoch Loss: 0.044558, Loss:0.050776, MSE Loss: 0.019726, SSIM: 0.818272
+Epoch:80, Epoch Loss: 0.043573, Loss:0.047688, MSE Loss: 0.018788, SSIM: 0.765867
+Epoch:90, Epoch Loss: 0.043061, Loss:0.055375, MSE Loss: 0.021358, SSIM: 0.893908
+Epoch:100, Epoch Loss: 0.042552, Loss:0.034738, MSE Loss: 0.017714, SSIM: 0.517616
+Epoch:110, Epoch Loss: 0.041483, Loss:0.072406, MSE Loss: 0.034547, SSIM: 1.102655
+Epoch:120, Epoch Loss: 0.041741, Loss:0.039039, MSE Loss: 0.016709, SSIM: 0.613693
+Epoch:130, Epoch Loss: 0.041383, Loss:0.033989, MSE Loss: 0.018345, SSIM: 0.496341
+Epoch:140, Epoch Loss: 0.041247, Loss:0.035555, MSE Loss: 0.019876, SSIM: 0.512348
+Epoch:150, Epoch Loss: 0.040911, Loss:0.040220, MSE Loss: 0.017541, SSIM: 0.628992
+Epoch:160, Epoch Loss: 0.040239, Loss:0.035199, MSE Loss: 0.017119, SSIM: 0.532783
+Epoch:170, Epoch Loss: 0.040806, Loss:0.049459, MSE Loss: 0.018390, SSIM: 0.805276
+Epoch:180, Epoch Loss: 0.040051, Loss:0.026796, MSE Loss: 0.016245, SSIM: 0.373470
+Epoch:190, Epoch Loss: 0.040623, Loss:0.045429, MSE Loss: 0.017828, SSIM: 0.730295
+Epoch:199, Epoch Loss: 0.040042, Loss:0.065009, MSE Loss: 0.026126, SSIM: 1.038931
+Avg Test Loss: MSE: 0.2091726853659687, SSIM: 0.40779272784090154
+Max Test Loss: MSE: 1.1256771087646484 SSIM: 0.6858497573521611
+Min Test Loss: MSE: 0.0015523628098890185 SSIM: 0.0969988662105652
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231128222943_img.pth
+written to: ./models/img/14.5.1.20231128222943_img.pt
+Elapsed time: 6741.553319454193 seconds.
+LR - 360
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.098412, Loss:0.099924, MSE Loss: 0.095389, SSIM: 1.044590
+Epoch:10, Epoch Loss: 0.079673, Loss:0.089663, MSE Loss: 0.068721, SSIM: 1.106054
+Epoch:20, Epoch Loss: 0.071242, Loss:0.081948, MSE Loss: 0.052385, SSIM: 1.115121
+Epoch:30, Epoch Loss: 0.065062, Loss:0.081214, MSE Loss: 0.050949, SSIM: 1.114791
+Epoch:40, Epoch Loss: 0.062037, Loss:0.063569, MSE Loss: 0.028518, SSIM: 0.986209
+Epoch:50, Epoch Loss: 0.059652, Loss:0.076118, MSE Loss: 0.043429, SSIM: 1.088078
+Epoch:60, Epoch Loss: 0.057757, Loss:0.053773, MSE Loss: 0.026983, SSIM: 0.805633
+Epoch:70, Epoch Loss: 0.057081, Loss:0.063762, MSE Loss: 0.030209, SSIM: 0.973139
+Epoch:80, Epoch Loss: 0.056343, Loss:0.084062, MSE Loss: 0.055778, SSIM: 1.123450
+Epoch:90, Epoch Loss: 0.056091, Loss:0.087985, MSE Loss: 0.063059, SSIM: 1.129119
+Epoch:100, Epoch Loss: 0.054947, Loss:0.052545, MSE Loss: 0.023111, SSIM: 0.819797
+Epoch:110, Epoch Loss: 0.055021, Loss:0.064758, MSE Loss: 0.029364, SSIM: 1.001519
+Epoch:120, Epoch Loss: 0.054289, Loss:0.046332, MSE Loss: 0.022875, SSIM: 0.697895
+Epoch:130, Epoch Loss: 0.054630, Loss:0.048115, MSE Loss: 0.026115, SSIM: 0.701159
+Epoch:140, Epoch Loss: 0.053485, Loss:0.031473, MSE Loss: 0.022618, SSIM: 0.403275
+Epoch:150, Epoch Loss: 0.054665, Loss:0.041761, MSE Loss: 0.022117, SSIM: 0.614059
+Epoch:160, Epoch Loss: 0.053148, Loss:0.034293, MSE Loss: 0.019585, SSIM: 0.490005
+Epoch:170, Epoch Loss: 0.053296, Loss:0.045826, MSE Loss: 0.023823, SSIM: 0.678291
+Epoch:180, Epoch Loss: 0.052796, Loss:0.057779, MSE Loss: 0.026886, SSIM: 0.886726
+Epoch:190, Epoch Loss: 0.053582, Loss:0.058646, MSE Loss: 0.026345, SSIM: 0.909469
+Epoch:199, Epoch Loss: 0.053582, Loss:0.030236, MSE Loss: 0.021534, SSIM: 0.389376
+Avg Test Loss: MSE: 4.826612324977294, SSIM: 0.5699449915781722
+Max Test Loss: MSE: 31.35704231262207 SSIM: 0.9386501820473414
+Min Test Loss: MSE: 0.004490566905587912 SSIM: 0.11664167197743136
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231128230708_img.pth
+written to: ./models/img/14.5.1.20231128230708_img.pt
+Elapsed time: 8984.339929819107 seconds.
+LR - 336
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.098681, Loss:0.099476, MSE Loss: 0.094468, SSIM: 1.044845
+Epoch:10, Epoch Loss: 0.073840, Loss:0.077460, MSE Loss: 0.044614, SSIM: 1.103055
+Epoch:20, Epoch Loss: 0.057640, Loss:0.071428, MSE Loss: 0.035516, SSIM: 1.073398
+Epoch:30, Epoch Loss: 0.051805, Loss:0.036026, MSE Loss: 0.019269, SSIM: 0.527826
+Epoch:40, Epoch Loss: 0.048020, Loss:0.034506, MSE Loss: 0.019116, SSIM: 0.498970
+Epoch:50, Epoch Loss: 0.045661, Loss:0.045995, MSE Loss: 0.021947, SSIM: 0.700434
+Epoch:60, Epoch Loss: 0.044321, Loss:0.029671, MSE Loss: 0.016996, SSIM: 0.423462
+Epoch:70, Epoch Loss: 0.043611, Loss:0.050597, MSE Loss: 0.019583, SSIM: 0.816109
+Epoch:80, Epoch Loss: 0.042323, Loss:0.058195, MSE Loss: 0.022397, SSIM: 0.939923
+Epoch:90, Epoch Loss: 0.042159, Loss:0.031140, MSE Loss: 0.020468, SSIM: 0.418115
+Epoch:100, Epoch Loss: 0.041548, Loss:0.063911, MSE Loss: 0.026113, SSIM: 1.017097
+Epoch:110, Epoch Loss: 0.040976, Loss:0.061174, MSE Loss: 0.024364, SSIM: 0.979834
+Epoch:120, Epoch Loss: 0.040801, Loss:0.045637, MSE Loss: 0.020533, SSIM: 0.707404
+Epoch:130, Epoch Loss: 0.040432, Loss:0.034618, MSE Loss: 0.018893, SSIM: 0.503423
+Epoch:140, Epoch Loss: 0.040132, Loss:0.056612, MSE Loss: 0.021541, SSIM: 0.916826
+Epoch:150, Epoch Loss: 0.039707, Loss:0.039585, MSE Loss: 0.017580, SSIM: 0.615892
+Epoch:160, Epoch Loss: 0.039479, Loss:0.053646, MSE Loss: 0.023510, SSIM: 0.837815
+Epoch:170, Epoch Loss: 0.039871, Loss:0.040859, MSE Loss: 0.017984, SSIM: 0.637346
+Epoch:180, Epoch Loss: 0.039538, Loss:0.024836, MSE Loss: 0.016215, SSIM: 0.334576
+Epoch:190, Epoch Loss: 0.039045, Loss:0.051918, MSE Loss: 0.019121, SSIM: 0.847150
+Epoch:199, Epoch Loss: 0.039380, Loss:0.056163, MSE Loss: 0.020333, SSIM: 0.919930
+Avg Test Loss: MSE: 0.2321878851725099, SSIM: 0.4258503968273914
+Max Test Loss: MSE: 1.1560066938400269 SSIM: 0.655281665056576
+Min Test Loss: MSE: 0.0018148355884477496 SSIM: 0.11328575617553271
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231128234431_img.pth
+written to: ./models/img/14.5.1.20231128234431_img.pt
+Elapsed time: 11225.136689901352 seconds.
+LR - 312
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.099071, Loss:0.104447, MSE Loss: 0.105293, SSIM: 1.036001
+Epoch:10, Epoch Loss: 0.078651, Loss:0.087123, MSE Loss: 0.065189, SSIM: 1.090570
+Epoch:20, Epoch Loss: 0.069341, Loss:0.080615, MSE Loss: 0.049681, SSIM: 1.115486
+Epoch:30, Epoch Loss: 0.063117, Loss:0.069022, MSE Loss: 0.032453, SSIM: 1.055908
+Epoch:40, Epoch Loss: 0.060864, Loss:0.037054, MSE Loss: 0.027463, SSIM: 0.466451
+Epoch:50, Epoch Loss: 0.057907, Loss:0.035907, MSE Loss: 0.025002, SSIM: 0.468123
+Epoch:60, Epoch Loss: 0.057096, Loss:0.057110, MSE Loss: 0.026773, SSIM: 0.874461
+Epoch:70, Epoch Loss: 0.056471, Loss:0.053287, MSE Loss: 0.025141, SSIM: 0.814338
+Epoch:80, Epoch Loss: 0.055955, Loss:0.030009, MSE Loss: 0.021094, SSIM: 0.389248
+Epoch:90, Epoch Loss: 0.055408, Loss:0.070121, MSE Loss: 0.035167, SSIM: 1.050757
+Epoch:100, Epoch Loss: 0.054762, Loss:0.092235, MSE Loss: 0.071453, SSIM: 1.130166
+Epoch:110, Epoch Loss: 0.054687, Loss:0.071367, MSE Loss: 0.033461, SSIM: 1.092735
+Epoch:120, Epoch Loss: 0.054388, Loss:0.070774, MSE Loss: 0.033477, SSIM: 1.080723
+Epoch:130, Epoch Loss: 0.053963, Loss:0.039868, MSE Loss: 0.020751, SSIM: 0.589854
+Epoch:140, Epoch Loss: 0.053477, Loss:0.061012, MSE Loss: 0.026552, SSIM: 0.954719
+Epoch:150, Epoch Loss: 0.053878, Loss:0.045667, MSE Loss: 0.022198, SSIM: 0.691357
+Epoch:160, Epoch Loss: 0.053494, Loss:0.077946, MSE Loss: 0.043409, SSIM: 1.124827
+Epoch:170, Epoch Loss: 0.052802, Loss:0.062605, MSE Loss: 0.027440, SSIM: 0.977695
+Epoch:180, Epoch Loss: 0.051360, Loss:0.053662, MSE Loss: 0.021990, SSIM: 0.853331
+Epoch:190, Epoch Loss: 0.050854, Loss:0.068271, MSE Loss: 0.031957, SSIM: 1.045850
+Epoch:199, Epoch Loss: 0.049537, Loss:0.045979, MSE Loss: 0.020815, SSIM: 0.711422
+Avg Test Loss: MSE: 2.336420582611114, SSIM: 0.5760217969981087
+Max Test Loss: MSE: 11.776494979858398 SSIM: 0.8831642548680122
+Min Test Loss: MSE: 0.012179774232208729 SSIM: 0.14618311173937937
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231129002151_img.pth
+written to: ./models/img/14.5.1.20231129002151_img.pt
+Elapsed time: 13466.033335924149 seconds.
+LR - 288
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.097519, Loss:0.099009, MSE Loss: 0.093362, SSIM: 1.046549
+Epoch:10, Epoch Loss: 0.074663, Loss:0.071221, MSE Loss: 0.038453, SSIM: 1.039885
+Epoch:20, Epoch Loss: 0.058038, Loss:0.069035, MSE Loss: 0.033172, SSIM: 1.048994
+Epoch:30, Epoch Loss: 0.051118, Loss:0.032275, MSE Loss: 0.023171, SSIM: 0.413786
+Epoch:40, Epoch Loss: 0.046600, Loss:0.033986, MSE Loss: 0.018883, SSIM: 0.490893
+Epoch:50, Epoch Loss: 0.044620, Loss:0.052247, MSE Loss: 0.019366, SSIM: 0.851292
+Epoch:60, Epoch Loss: 0.043901, Loss:0.043666, MSE Loss: 0.020945, SSIM: 0.663867
+Epoch:70, Epoch Loss: 0.042765, Loss:0.032710, MSE Loss: 0.015592, SSIM: 0.498277
+Epoch:80, Epoch Loss: 0.041924, Loss:0.059385, MSE Loss: 0.023485, SSIM: 0.952849
+Epoch:90, Epoch Loss: 0.041633, Loss:0.037434, MSE Loss: 0.017094, SSIM: 0.577734
+Epoch:100, Epoch Loss: 0.041580, Loss:0.034517, MSE Loss: 0.016881, SSIM: 0.521532
+Epoch:110, Epoch Loss: 0.040764, Loss:0.064408, MSE Loss: 0.025049, SSIM: 1.037667
+Epoch:120, Epoch Loss: 0.040416, Loss:0.047444, MSE Loss: 0.021033, SSIM: 0.738542
+Epoch:130, Epoch Loss: 0.040606, Loss:0.044228, MSE Loss: 0.018433, SSIM: 0.700231
+Epoch:140, Epoch Loss: 0.039843, Loss:0.044140, MSE Loss: 0.017783, SSIM: 0.704973
+Epoch:150, Epoch Loss: 0.039546, Loss:0.069622, MSE Loss: 0.031105, SSIM: 1.081399
+Epoch:160, Epoch Loss: 0.039419, Loss:0.040510, MSE Loss: 0.019938, SSIM: 0.610817
+Epoch:170, Epoch Loss: 0.039537, Loss:0.062353, MSE Loss: 0.024157, SSIM: 1.005504
+Epoch:180, Epoch Loss: 0.039316, Loss:0.039022, MSE Loss: 0.016920, SSIM: 0.611239
+Epoch:190, Epoch Loss: 0.039425, Loss:0.031383, MSE Loss: 0.016215, SSIM: 0.465502
+Epoch:199, Epoch Loss: 0.038833, Loss:0.024635, MSE Loss: 0.017287, SSIM: 0.319826
+Avg Test Loss: MSE: 0.28389176008446765, SSIM: 0.4423863341885118
+Max Test Loss: MSE: 1.3072457313537598 SSIM: 0.7026074737494374
+Min Test Loss: MSE: 0.0023478774819523096 SSIM: 0.08238293193740609
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231129005912_img.pth
+written to: ./models/img/14.5.1.20231129005912_img.pt
+Elapsed time: 15704.625250577927 seconds.
+LR - 264
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.098506, Loss:0.097604, MSE Loss: 0.091699, SSIM: 1.035092
+Epoch:10, Epoch Loss: 0.076158, Loss:0.083993, MSE Loss: 0.056139, SSIM: 1.118464
+Epoch:20, Epoch Loss: 0.065935, Loss:0.062040, MSE Loss: 0.028578, SSIM: 0.955016
+Epoch:30, Epoch Loss: 0.062295, Loss:0.047501, MSE Loss: 0.023820, SSIM: 0.711818
+Epoch:40, Epoch Loss: 0.058714, Loss:0.036427, MSE Loss: 0.022532, SSIM: 0.503222
+Epoch:50, Epoch Loss: 0.056985, Loss:0.065355, MSE Loss: 0.030130, SSIM: 1.005804
+Epoch:60, Epoch Loss: 0.056462, Loss:0.046111, MSE Loss: 0.020603, SSIM: 0.716196
+Epoch:70, Epoch Loss: 0.055762, Loss:0.038284, MSE Loss: 0.018077, SSIM: 0.584906
+Epoch:80, Epoch Loss: 0.054532, Loss:0.066404, MSE Loss: 0.028848, SSIM: 1.039598
+Epoch:90, Epoch Loss: 0.054284, Loss:0.035343, MSE Loss: 0.018208, SSIM: 0.524771
+Epoch:100, Epoch Loss: 0.053500, Loss:0.030002, MSE Loss: 0.019085, SSIM: 0.409192
+Epoch:110, Epoch Loss: 0.054007, Loss:0.033554, MSE Loss: 0.017702, SSIM: 0.494056
+Epoch:120, Epoch Loss: 0.053373, Loss:0.064496, MSE Loss: 0.028524, SSIM: 1.004676
+Epoch:130, Epoch Loss: 0.052603, Loss:0.056684, MSE Loss: 0.023856, SSIM: 0.895116
+Epoch:140, Epoch Loss: 0.052862, Loss:0.067866, MSE Loss: 0.030198, SSIM: 1.055350
+Epoch:150, Epoch Loss: 0.052886, Loss:0.032676, MSE Loss: 0.020101, SSIM: 0.452521
+Epoch:160, Epoch Loss: 0.052426, Loss:0.051263, MSE Loss: 0.024037, SSIM: 0.784895
+Epoch:170, Epoch Loss: 0.052247, Loss:0.041186, MSE Loss: 0.018748, SSIM: 0.636235
+Epoch:180, Epoch Loss: 0.052266, Loss:0.050524, MSE Loss: 0.025042, SSIM: 0.760054
+Epoch:190, Epoch Loss: 0.051504, Loss:0.027925, MSE Loss: 0.017851, SSIM: 0.379985
+Epoch:199, Epoch Loss: 0.051645, Loss:0.033534, MSE Loss: 0.018089, SSIM: 0.489785
+Avg Test Loss: MSE: 3.692591016172897, SSIM: 0.550544331361004
+Max Test Loss: MSE: 23.397993087768555 SSIM: 0.8753411840837173
+Min Test Loss: MSE: 0.001451237709261477 SSIM: 0.12486932657797023
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231129013631_img.pth
+written to: ./models/img/14.5.1.20231129013631_img.pt
+Elapsed time: 17953.76568698883 seconds.
+LR - 240
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.096006, Loss:0.094176, MSE Loss: 0.080850, SSIM: 1.075015
+Epoch:10, Epoch Loss: 0.071931, Loss:0.055615, MSE Loss: 0.026618, SSIM: 0.846124
+Epoch:20, Epoch Loss: 0.055237, Loss:0.058620, MSE Loss: 0.033208, SSIM: 0.840320
+Epoch:30, Epoch Loss: 0.049381, Loss:0.059162, MSE Loss: 0.025170, SSIM: 0.931533
+Epoch:40, Epoch Loss: 0.045515, Loss:0.052243, MSE Loss: 0.023577, SSIM: 0.809099
+Epoch:50, Epoch Loss: 0.044262, Loss:0.032357, MSE Loss: 0.018724, SSIM: 0.459906
+Epoch:60, Epoch Loss: 0.042546, Loss:0.077267, MSE Loss: 0.042224, SSIM: 1.123099
+Epoch:70, Epoch Loss: 0.041615, Loss:0.054457, MSE Loss: 0.020339, SSIM: 0.885750
+Epoch:80, Epoch Loss: 0.041247, Loss:0.044963, MSE Loss: 0.018986, SSIM: 0.709392
+Epoch:90, Epoch Loss: 0.040925, Loss:0.029523, MSE Loss: 0.019904, SSIM: 0.391423
+Epoch:100, Epoch Loss: 0.041026, Loss:0.041681, MSE Loss: 0.018664, SSIM: 0.646983
+Epoch:110, Epoch Loss: 0.040082, Loss:0.036275, MSE Loss: 0.016284, SSIM: 0.562659
+Epoch:120, Epoch Loss: 0.039565, Loss:0.052631, MSE Loss: 0.024727, SSIM: 0.805358
+Epoch:130, Epoch Loss: 0.038925, Loss:0.075540, MSE Loss: 0.040508, SSIM: 1.105709
+Epoch:140, Epoch Loss: 0.039543, Loss:0.037067, MSE Loss: 0.018468, SSIM: 0.556662
+Epoch:150, Epoch Loss: 0.039325, Loss:0.058737, MSE Loss: 0.024373, SSIM: 0.931005
+Epoch:160, Epoch Loss: 0.039283, Loss:0.049607, MSE Loss: 0.018706, SSIM: 0.805086
+Epoch:170, Epoch Loss: 0.039022, Loss:0.027829, MSE Loss: 0.015412, SSIM: 0.402452
+Epoch:180, Epoch Loss: 0.039023, Loss:0.045936, MSE Loss: 0.017533, SSIM: 0.743391
+Epoch:190, Epoch Loss: 0.038728, Loss:0.023363, MSE Loss: 0.014458, SSIM: 0.322683
+Epoch:199, Epoch Loss: 0.039135, Loss:0.025246, MSE Loss: 0.017386, SSIM: 0.331065
+Avg Test Loss: MSE: 0.22171919302782045, SSIM: 0.41227533436424163
+Max Test Loss: MSE: 1.0284483432769775 SSIM: 0.6194926227362436
+Min Test Loss: MSE: 0.0016651955666020513 SSIM: 0.08070684123186422
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231129021400_img.pth
+written to: ./models/img/14.5.1.20231129021400_img.pt
+Elapsed time: 20196.321081399918 seconds.
+LR - 192
+Dataset loaded!! Length (train dataset) - 24000
+Training started!! - Reconstruction
+Epoch:0, Epoch Loss: 0.096056, Loss:0.123012, MSE Loss: 0.142098, SSIM: 1.039261
+Epoch:10, Epoch Loss: 0.064647, Loss:0.056575, MSE Loss: 0.030541, SSIM: 0.826090
+Epoch:20, Epoch Loss: 0.051883, Loss:0.067034, MSE Loss: 0.031581, SSIM: 1.024872
+Epoch:30, Epoch Loss: 0.047366, Loss:0.059706, MSE Loss: 0.026677, SSIM: 0.927352
+Epoch:40, Epoch Loss: 0.045437, Loss:0.054649, MSE Loss: 0.021638, SSIM: 0.876605
+Epoch:50, Epoch Loss: 0.044017, Loss:0.035939, MSE Loss: 0.023528, SSIM: 0.483508
+Epoch:60, Epoch Loss: 0.042597, Loss:0.047192, MSE Loss: 0.018448, SSIM: 0.759367
+Epoch:70, Epoch Loss: 0.042190, Loss:0.032828, MSE Loss: 0.018649, SSIM: 0.470060
+Epoch:80, Epoch Loss: 0.041892, Loss:0.027960, MSE Loss: 0.014598, SSIM: 0.413226
+Epoch:90, Epoch Loss: 0.041017, Loss:0.037504, MSE Loss: 0.014814, SSIM: 0.601935
+Epoch:100, Epoch Loss: 0.040572, Loss:0.027394, MSE Loss: 0.016799, SSIM: 0.379896
+Epoch:110, Epoch Loss: 0.040705, Loss:0.059953, MSE Loss: 0.022105, SSIM: 0.978016
+Epoch:120, Epoch Loss: 0.040202, Loss:0.047286, MSE Loss: 0.017158, SSIM: 0.774142
+Epoch:130, Epoch Loss: 0.039856, Loss:0.054820, MSE Loss: 0.022694, SSIM: 0.869456
+Epoch:140, Epoch Loss: 0.039734, Loss:0.042060, MSE Loss: 0.015657, SSIM: 0.684629
+Epoch:150, Epoch Loss: 0.039599, Loss:0.053418, MSE Loss: 0.019799, SSIM: 0.870373
+Epoch:160, Epoch Loss: 0.039468, Loss:0.033875, MSE Loss: 0.015446, SSIM: 0.523045
+Epoch:170, Epoch Loss: 0.040026, Loss:0.071949, MSE Loss: 0.033706, SSIM: 1.101917
+Epoch:180, Epoch Loss: 0.039538, Loss:0.057327, MSE Loss: 0.022448, SSIM: 0.922050
+Epoch:190, Epoch Loss: 0.039395, Loss:0.029886, MSE Loss: 0.015011, SSIM: 0.447609
+Epoch:199, Epoch Loss: 0.039120, Loss:0.033960, MSE Loss: 0.015591, SSIM: 0.523294
+Avg Test Loss: MSE: 0.1831866626193126, SSIM: 0.39365566280449565
+Max Test Loss: MSE: 0.9827631115913391 SSIM: 0.6635039690245995
+Min Test Loss: MSE: 0.001525907893665135 SSIM: 0.09624453217802964
+written to: ./results/loss_tracker_img.csv
+written to: ./models/img/14.5.1.20231129025123_img.pth
+written to: ./models/img/14.5.1.20231129025123_img.pt
+Elapsed time: 22438.709406137466 seconds.
