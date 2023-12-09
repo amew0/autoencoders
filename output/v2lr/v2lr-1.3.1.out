@@ -1,0 +1,121 @@
+2635010
+1.3.1
+learning rate 1e-4
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+alpha 0.1
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))
+  (1): BatchNorm2d(6, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU()
+  (3): Conv2d(6, 18, kernel_size=(5, 5), stride=(1, 1))
+  (4): BatchNorm2d(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (5): ReLU()
+  (6): Conv2d(18, 54, kernel_size=(5, 5), stride=(1, 1))
+  (7): BatchNorm2d(54, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (8): ReLU()
+  (9): Conv2d(54, 108, kernel_size=(3, 3), stride=(1, 1))
+  (10): BatchNorm2d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (11): ReLU()
+  (12): Conv2d(108, 216, kernel_size=(2, 2), stride=(1, 1))
+  (13): BatchNorm2d(216, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (14): Flatten(start_dim=1, end_dim=-1)
+)
+Task: Training Epoch @ 0 L: 0.050606 M: 0.066877 S: 0.487978 -- Last: L: 0.046968 M: 0.005813 S: 0.515410 -- V2LR: Epoch M: 0.931177 Last M: 0.887530
+Task: Validation Epoch @ 0 L: 0.045026 M: 0.071273 S: 0.421101 -- Last: L: 0.031787 M: 0.002891 S: 0.349981 -- V2LR: Epoch M: 2.176137 Last M: 1.229766
+Task: Training Epoch @ 1 L: 0.044367 M: 0.066773 S: 0.418770 -- Last: L: 0.043331 M: 0.005855 S: 0.474947 -- V2LR: Epoch M: 0.874623 Last M: 0.857306
+Task: Validation Epoch @ 1 L: 0.043213 M: 0.072988 S: 0.399046 -- Last: L: 0.026771 M: 0.003288 S: 0.293799 -- V2LR: Epoch M: 2.706607 Last M: 1.200340
+Task: Training Epoch @ 2 L: 0.042658 M: 0.066976 S: 0.399555 -- Last: L: 0.040390 M: 0.006147 S: 0.441946 -- V2LR: Epoch M: 0.858165 Last M: 0.858589
+Task: Validation Epoch @ 2 L: 0.042511 M: 0.073589 S: 0.390576 -- Last: L: 0.026964 M: 0.002893 S: 0.296388 -- V2LR: Epoch M: 2.636925 Last M: 0.868626
+Task: Training Epoch @ 3 L: 0.041543 M: 0.067242 S: 0.386879 -- Last: L: 0.037741 M: 0.006436 S: 0.412198 -- V2LR: Epoch M: 0.874665 Last M: 0.890661
+Task: Validation Epoch @ 3 L: 0.041353 M: 0.079898 S: 0.370706 -- Last: L: 0.019861 M: 0.005874 S: 0.214146 -- V2LR: Epoch M: 5.112552 Last M: 2.061586
+Task: Training Epoch @ 4 L: 0.040763 M: 0.067601 S: 0.377813 -- Last: L: 0.036099 M: 0.006823 S: 0.393521 -- V2LR: Epoch M: 0.922980 Last M: 0.950626
+Task: Validation Epoch @ 4 L: 0.040229 M: 0.086324 S: 0.351074 -- Last: L: 0.013361 M: 0.020863 S: 0.125278 -- V2LR: Epoch M: 7.288861 Last M: 7.847613
+Task: Training Epoch @ 5 L: 0.040079 M: 0.067977 S: 0.369796 -- Last: L: 0.034642 M: 0.007197 S: 0.376915 -- V2LR: Epoch M: 0.989824 Last M: 1.025698
+Task: Validation Epoch @ 5 L: 0.040173 M: 0.092048 S: 0.344092 -- Last: L: 0.012923 M: 0.022335 S: 0.118774 -- V2LR: Epoch M: 9.107557 Last M: 8.027019
+Task: Training Epoch @ 6 L: 0.039562 M: 0.068404 S: 0.363575 -- Last: L: 0.033205 M: 0.007701 S: 0.360385 -- V2LR: Epoch M: 1.085962 Last M: 1.144138
+Task: Validation Epoch @ 6 L: 0.040733 M: 0.092607 S: 0.349691 -- Last: L: 0.015005 M: 0.012254 S: 0.153111 -- V2LR: Epoch M: 8.992585 Last M: 4.159203
+Task: Training Epoch @ 7 L: 0.038744 M: 0.068942 S: 0.353890 -- Last: L: 0.031883 M: 0.008271 S: 0.345065 -- V2LR: Epoch M: 1.223373 Last M: 1.296213
+Task: Validation Epoch @ 7 L: 0.040549 M: 0.110785 S: 0.327454 -- Last: L: 0.012016 M: 0.048854 S: 0.079232 -- V2LR: Epoch M: 15.088131 Last M: 16.827278
+Task: Training Epoch @ 8 L: 0.038030 M: 0.069525 S: 0.345308 -- Last: L: 0.030715 M: 0.008882 S: 0.331405 -- V2LR: Epoch M: 1.389178 Last M: 1.470908
+Task: Validation Epoch @ 8 L: 0.040801 M: 0.107627 S: 0.333754 -- Last: L: 0.012632 M: 0.019888 S: 0.118262 -- V2LR: Epoch M: 14.123136 Last M: 6.710271
+Task: Training Epoch @ 9 L: 0.037441 M: 0.070100 S: 0.338127 -- Last: L: 0.029764 M: 0.009451 S: 0.320214 -- V2LR: Epoch M: 1.561058 Last M: 1.642034
+Task: Validation Epoch @ 9 L: 0.041194 M: 0.118473 S: 0.326071 -- Last: L: 0.011720 M: 0.025560 S: 0.101825 -- V2LR: Epoch M: 17.727129 Last M: 8.775947
+Task: Training Epoch @ 10 L: 0.036842 M: 0.070770 S: 0.330719 -- Last: L: 0.028674 M: 0.010259 S: 0.307204 -- V2LR: Epoch M: 1.755949 Last M: 1.873472
+Task: Validation Epoch @ 10 L: 0.042884 M: 0.130964 S: 0.330972 -- Last: L: 0.013967 M: 0.013207 S: 0.140511 -- V2LR: Epoch M: 21.310115 Last M: 4.095557
+Task: Training Epoch @ 11 L: 0.036091 M: 0.071669 S: 0.321382 -- Last: L: 0.027467 M: 0.011237 S: 0.292704 -- V2LR: Epoch M: 2.014832 Last M: 2.153205
+Task: Validation Epoch @ 11 L: 0.042228 M: 0.084525 S: 0.375284 -- Last: L: 0.046243 M: 0.001517 S: 0.512126 -- V2LR: Epoch M: 5.499101 Last M: 0.075072
+Task: Training Epoch @ 12 L: 0.035374 M: 0.072664 S: 0.312303 -- Last: L: 0.026491 M: 0.012259 S: 0.280721 -- V2LR: Epoch M: 2.305894 Last M: 2.441827
+Task: Validation Epoch @ 12 L: 0.042604 M: 0.090109 S: 0.373254 -- Last: L: 0.046516 M: 0.001537 S: 0.515131 -- V2LR: Epoch M: 7.196394 Last M: 0.088875
+Task: Training Epoch @ 13 L: 0.034662 M: 0.073655 S: 0.303295 -- Last: L: 0.025671 M: 0.013198 S: 0.270569 -- V2LR: Epoch M: 2.582741 Last M: 2.704950
+Task: Validation Epoch @ 13 L: 0.042455 M: 0.086403 S: 0.375719 -- Last: L: 0.046076 M: 0.001547 S: 0.510242 -- V2LR: Epoch M: 5.928952 Last M: 0.092578
+Task: Training Epoch @ 14 L: 0.034134 M: 0.074514 S: 0.296478 -- Last: L: 0.025104 M: 0.014027 S: 0.263353 -- V2LR: Epoch M: 2.827543 Last M: 2.931046
+Task: Validation Epoch @ 14 L: 0.042456 M: 0.097447 S: 0.363457 -- Last: L: 0.046645 M: 0.001547 S: 0.516556 -- V2LR: Epoch M: 9.276863 Last M: 0.090112
+Task: Training Epoch @ 15 L: 0.033741 M: 0.075287 S: 0.291252 -- Last: L: 0.024923 M: 0.014746 S: 0.260536 -- V2LR: Epoch M: 3.034258 Last M: 3.116834
+Task: Validation Epoch @ 15 L: 0.046944 M: 0.191125 S: 0.309241 -- Last: L: 0.011787 M: 0.024839 S: 0.103371 -- V2LR: Epoch M: 39.296219 Last M: 7.667900
+Task: Training Epoch @ 16 L: 0.033446 M: 0.075920 S: 0.287264 -- Last: L: 0.024438 M: 0.015319 S: 0.254515 -- V2LR: Epoch M: 3.201316 Last M: 3.264969
+Task: Validation Epoch @ 16 L: 0.053852 M: 0.254807 S: 0.315234 -- Last: L: 0.013354 M: 0.014683 S: 0.132066 -- V2LR: Epoch M: 58.980412 Last M: 4.269931
+Task: Training Epoch @ 17 L: 0.033193 M: 0.076432 S: 0.283889 -- Last: L: 0.024172 M: 0.015749 S: 0.251084 -- V2LR: Epoch M: 3.333177 Last M: 3.381642
+Task: Validation Epoch @ 17 L: 0.056225 M: 0.277440 S: 0.316459 -- Last: L: 0.015921 M: 0.008779 S: 0.167147 -- V2LR: Epoch M: 65.328303 Last M: 2.363174
+Task: Training Epoch @ 18 L: 0.033039 M: 0.076797 S: 0.281765 -- Last: L: 0.023865 M: 0.016065 S: 0.247312 -- V2LR: Epoch M: 3.434842 Last M: 3.469870
+Task: Validation Epoch @ 18 L: 0.044646 M: 0.126454 S: 0.355563 -- Last: L: 0.046888 M: 0.001566 S: 0.519237 -- V2LR: Epoch M: 18.463760 Last M: 0.084225
+Task: Training Epoch @ 19 L: 0.032934 M: 0.077061 S: 0.280308 -- Last: L: 0.023709 M: 0.016291 S: 0.245335 -- V2LR: Epoch M: 3.513668 Last M: 3.540181
+Task: Validation Epoch @ 19 L: 0.044625 M: 0.130562 S: 0.350760 -- Last: L: 0.046273 M: 0.001553 S: 0.512424 -- V2LR: Epoch M: 19.382920 Last M: 0.079713
+Task: Training Epoch @ 20 L: 0.032859 M: 0.077257 S: 0.279260 -- Last: L: 0.033349 M: 0.015192 S: 0.353663 -- V2LR: Epoch M: 3.574439 Last M: 3.554739
+Task: Validation Epoch @ 20 L: 0.042898 M: 0.088472 S: 0.378344 -- Last: L: 0.046692 M: 0.001603 S: 0.517016 -- V2LR: Epoch M: 6.342279 Last M: 0.097298
+Task: Training Epoch @ 21 L: 0.032813 M: 0.077391 S: 0.278595 -- Last: L: 0.023705 M: 0.016611 S: 0.244935 -- V2LR: Epoch M: 3.620415 Last M: 3.634875
+Task: Validation Epoch @ 21 L: 0.043242 M: 0.096721 S: 0.373003 -- Last: L: 0.045725 M: 0.001541 S: 0.506349 -- V2LR: Epoch M: 8.764193 Last M: 0.071740
+Task: Training Epoch @ 22 L: 0.032727 M: 0.077497 S: 0.277522 -- Last: L: 0.023497 M: 0.016690 S: 0.242529 -- V2LR: Epoch M: 3.656274 Last M: 3.666745
+Task: Validation Epoch @ 22 L: 0.043363 M: 0.099425 S: 0.371336 -- Last: L: 0.045508 M: 0.001549 S: 0.503919 -- V2LR: Epoch M: 9.509168 Last M: 0.072247
+Task: Training Epoch @ 23 L: 0.032633 M: 0.077589 S: 0.276376 -- Last: L: 0.023429 M: 0.016744 S: 0.241715 -- V2LR: Epoch M: 3.684013 Last M: 3.688822
+Task: Validation Epoch @ 23 L: 0.043981 M: 0.111959 S: 0.364283 -- Last: L: 0.045981 M: 0.001597 S: 0.509121 -- V2LR: Epoch M: 13.079316 Last M: 0.082269
+Task: Training Epoch @ 26 L: 0.032608 M: 0.077665 S: 0.276019 -- Last: L: 0.023387 M: 0.016846 S: 0.241141 -- V2LR: Epoch M: 3.740415 Last M: 3.744493
+Task: Validation Epoch @ 26 L: 0.046744 M: 0.142573 S: 0.360958 -- Last: L: 0.046274 M: 0.001599 S: 0.512383 -- V2LR: Epoch M: 22.010125 Last M: 0.084789
+Task: Training Epoch @ 27 L: 0.032479 M: 0.077717 S: 0.274525 -- Last: L: 0.023329 M: 0.016862 S: 0.240471 -- V2LR: Epoch M: 3.752388 Last M: 3.752124
+Task: Validation Epoch @ 27 L: 0.046005 M: 0.143035 S: 0.352239 -- Last: L: 0.045536 M: 0.001586 S: 0.504188 -- V2LR: Epoch M: 23.261110 Last M: 0.080174
+Task: Training Epoch @ 29 L: 0.032471 M: 0.077763 S: 0.274390 -- Last: L: 0.023202 M: 0.016870 S: 0.239060 -- V2LR: Epoch M: 3.765698 Last M: 3.762302
+Task: Validation Epoch @ 29 L: 0.045013 M: 0.115501 S: 0.371808 -- Last: L: 0.044025 M: 0.001553 S: 0.487436 -- V2LR: Epoch M: 14.423136 Last M: 0.059221
+Task: Training Epoch @ 30 L: 0.032460 M: 0.077752 S: 0.274270 -- Last: L: 0.023297 M: 0.016880 S: 0.240105 -- V2LR: Epoch M: 3.769494 Last M: 3.769989
+Task: Validation Epoch @ 30 L: 0.043711 M: 0.105430 S: 0.368538 -- Last: L: 0.043719 M: 0.001525 S: 0.484077 -- V2LR: Epoch M: 11.084570 Last M: 0.053199
+Task: Training Epoch @ 33 L: 0.032448 M: 0.077764 S: 0.274125 -- Last: L: 0.024519 M: 0.016782 S: 0.253785 -- V2LR: Epoch M: 3.785100 Last M: 3.789454
+Task: Validation Epoch @ 33 L: 0.043380 M: 0.116155 S: 0.352935 -- Last: L: 0.043569 M: 0.001528 S: 0.482397 -- V2LR: Epoch M: 14.232796 Last M: 0.052296
+Task: Training Epoch @ 34 L: 0.032420 M: 0.077766 S: 0.273818 -- Last: L: 0.024360 M: 0.016777 S: 0.252023 -- V2LR: Epoch M: 3.788583 Last M: 3.789738
+Task: Validation Epoch @ 34 L: 0.043861 M: 0.119146 S: 0.354962 -- Last: L: 0.043590 M: 0.001539 S: 0.482622 -- V2LR: Epoch M: 15.280611 Last M: 0.054088
+Task: Training Epoch @ 51 L: 0.032394 M: 0.077614 S: 0.273693 -- Last: L: 0.024276 M: 0.016657 S: 0.251227 -- V2LR: Epoch M: 3.836406 Last M: 3.842057
+Task: Validation Epoch @ 51 L: 0.043622 M: 0.083489 S: 0.391918 -- Last: L: 0.042405 M: 0.001529 S: 0.469464 -- V2LR: Epoch M: 4.846181 Last M: 0.043659
+Task: Training Epoch @ 53 L: 0.032365 M: 0.077646 S: 0.273338 -- Last: L: 0.024290 M: 0.016676 S: 0.251356 -- V2LR: Epoch M: 3.839231 Last M: 3.840578
+Task: Validation Epoch @ 53 L: 0.044337 M: 0.084646 S: 0.398582 -- Last: L: 0.042847 M: 0.001530 S: 0.474378 -- V2LR: Epoch M: 5.237117 Last M: 0.043868
+Task: Training Epoch @ 62 L: 0.032339 M: 0.077690 S: 0.273001 -- Last: L: 0.023188 M: 0.016826 S: 0.238952 -- V2LR: Epoch M: 3.829055 Last M: 3.827500
+Task: Validation Epoch @ 62 L: 0.045965 M: 0.125727 S: 0.371023 -- Last: L: 0.042691 M: 0.001521 S: 0.472657 -- V2LR: Epoch M: 18.160458 Last M: 0.042131
+Task: Training Epoch @ 63 L: 0.032311 M: 0.077705 S: 0.272675 -- Last: L: 0.023170 M: 0.016836 S: 0.238742 -- V2LR: Epoch M: 3.824879 Last M: 3.824036
+Task: Validation Epoch @ 63 L: 0.049469 M: 0.162150 S: 0.369493 -- Last: L: 0.042754 M: 0.001520 S: 0.473353 -- V2LR: Epoch M: 28.829578 Last M: 0.039854
+Task: Training Epoch @ 64 L: 0.032308 M: 0.077705 S: 0.272642 -- Last: L: 0.023244 M: 0.016856 S: 0.239542 -- V2LR: Epoch M: 3.821941 Last M: 3.823105
+Task: Validation Epoch @ 64 L: 0.048310 M: 0.152535 S: 0.367294 -- Last: L: 0.043246 M: 0.001531 S: 0.478813 -- V2LR: Epoch M: 26.034247 Last M: 0.043769
+Task: Training Epoch @ 65 L: 0.032304 M: 0.077708 S: 0.272586 -- Last: L: 0.023227 M: 0.016855 S: 0.239346 -- V2LR: Epoch M: 3.820145 Last M: 3.821159
+Task: Validation Epoch @ 65 L: 0.050682 M: 0.179300 S: 0.363913 -- Last: L: 0.043183 M: 0.001533 S: 0.478103 -- V2LR: Epoch M: 35.142833 Last M: 0.043789
+Task: Training Epoch @ 82 L: 0.032292 M: 0.077734 S: 0.272425 -- Last: L: 0.023202 M: 0.016861 S: 0.239068 -- V2LR: Epoch M: 3.816763 Last M: 3.816853
+Task: Validation Epoch @ 82 L: 0.062500 M: 0.299978 S: 0.361139 -- Last: L: 0.043158 M: 0.001527 S: 0.477839 -- V2LR: Epoch M: 69.824107 Last M: 0.037076
+Task: Training Epoch @ 85 L: 0.032289 M: 0.077736 S: 0.272393 -- Last: L: 0.023227 M: 0.016859 S: 0.239346 -- V2LR: Epoch M: 3.815092 Last M: 3.812506
+Task: Validation Epoch @ 85 L: 0.057046 M: 0.247384 S: 0.358978 -- Last: L: 0.043470 M: 0.001540 S: 0.481294 -- V2LR: Epoch M: 53.900714 Last M: 0.041054
+Task: Training Epoch @ 88 L: 0.032277 M: 0.077744 S: 0.272256 -- Last: L: 0.023238 M: 0.016858 S: 0.239467 -- V2LR: Epoch M: 3.814154 Last M: 3.808118
+Task: Validation Epoch @ 88 L: 0.060470 M: 0.282981 S: 0.357463 -- Last: L: 0.043660 M: 0.001537 S: 0.483400 -- V2LR: Epoch M: 58.598970 Last M: 0.035885
+Task: Training Epoch @ 89 L: 0.032275 M: 0.077727 S: 0.272245 -- Last: L: 0.024323 M: 0.016701 S: 0.251704 -- V2LR: Epoch M: 3.810138 Last M: 3.799978
+Task: Validation Epoch @ 89 L: 0.048598 M: 0.142261 S: 0.381905 -- Last: L: 0.043974 M: 0.001560 S: 0.486869 -- V2LR: Epoch M: 23.168088 Last M: 0.042269
+Task: Training Epoch @ 93 L: 0.032273 M: 0.077723 S: 0.272235 -- Last: L: 0.023243 M: 0.016862 S: 0.239515 -- V2LR: Epoch M: 3.817248 Last M: 3.814010
+Task: Validation Epoch @ 93 L: 0.073207 M: 0.409961 S: 0.357894 -- Last: L: 0.043067 M: 0.001527 S: 0.476823 -- V2LR: Epoch M: 95.895119 Last M: 0.035167
+Task: Training Epoch @ 95 L: 0.032266 M: 0.077746 S: 0.272125 -- Last: L: 0.023168 M: 0.016868 S: 0.238676 -- V2LR: Epoch M: 3.815906 Last M: 3.813462
+Task: Validation Epoch @ 95 L: 0.071037 M: 0.393387 S: 0.352205 -- Last: L: 0.042383 M: 0.001518 S: 0.469233 -- V2LR: Epoch M: 91.904713 Last M: 0.032498
+Task: Training Epoch @ 103 L: 0.032258 M: 0.077754 S: 0.272031 -- Last: L: 0.023211 M: 0.016875 S: 0.239144 -- V2LR: Epoch M: 3.810818 Last M: 3.808725
+Task: Validation Epoch @ 103 L: 0.081876 M: 0.513823 S: 0.338821 -- Last: L: 0.042773 M: 0.001529 S: 0.473557 -- V2LR: Epoch M: 123.789860 Last M: 0.036224
+Task: Training Epoch @ 112 L: 0.032256 M: 0.077755 S: 0.272008 -- Last: L: 0.025928 M: 0.015959 S: 0.270356 -- V2LR: Epoch M: 3.802456 Last M: 3.584652
+Task: Validation Epoch @ 112 L: 0.106778 M: 0.769827 S: 0.331063 -- Last: L: 0.043360 M: 0.001555 S: 0.480050 -- V2LR: Epoch M: 221.788113 Last M: 0.046034
+Task: Training Epoch @ 115 L: 0.032229 M: 0.077782 S: 0.271678 -- Last: L: 0.024518 M: 0.016778 S: 0.253776 -- V2LR: Epoch M: 3.797189 Last M: 3.795858
+Task: Validation Epoch @ 115 L: 0.128782 M: 0.992432 S: 0.328214 -- Last: L: 0.042687 M: 0.001520 S: 0.472614 -- V2LR: Epoch M: 278.903838 Last M: 0.035651
+Task: Training Epoch @ 125 L: 0.032225 M: 0.077807 S: 0.271608 -- Last: L: 0.023290 M: 0.016899 S: 0.240006 -- V2LR: Epoch M: 3.790542 Last M: 3.774707
+Task: Validation Epoch @ 125 L: 0.124501 M: 0.957961 S: 0.318945 -- Last: L: 0.042804 M: 0.001526 S: 0.473906 -- V2LR: Epoch M: 252.379913 Last M: 0.037997
+Task: Testing Epoch @ 0 L: 0.509819 M: 4.815600 S: 0.313984 -- Last: L: 0.062304 M: 0.203625 S: 0.466020 -- V2LR: Epoch M: 1337.158214 Last M: 0.051167
+written to: ./models/v2lr/1.3.1.20231207201603_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 6298.749547481537 seconds.

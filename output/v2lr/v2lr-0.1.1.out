@@ -1,0 +1,19 @@
+2635049
+0.1.1
+from 0.alphas best lrate 1e-5
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+alpha 0.01
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Traceback (most recent call last):
+  File "/home/kunet.ae/100053678/eit/autoencoders/v2lr.py", line 186, in <module>
+    optimizer = optimizer_build(optimizer_config,v2lr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kunet.ae/100053678/eit/autoencoders/utils/classes.py", line 74, in optimizer_build
+    weight_decay=adam['weight_decay'])
+                 ~~~~^^^^^^^^^^^^^^^^
+KeyError: 'weight_decay'

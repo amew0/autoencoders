@@ -1,0 +1,574 @@
+2631115
+0.alpha.01.-1.1
+alphas 0:0.5:-1
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+0.5
+Config 0.5
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.053503457456827164, Epoch MSE: 0.06588208536002337, Epoch SSIM: 0.4112482917060455, 	Loss:0.027550, MSELoss:0.004995, SSIM: 0.501045823097229                    	Val Epoch Loss: 0.054824,Val MSE: 0.001473                    	Task: V2LR, MSELoss:0.007339
+Best state dict yet, with Val Epoch MSE: 0.054824 Val MSE 0.004995, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.054803 Val MSE 0.004986, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.054801 Val MSE 0.004988, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.054796 Val MSE 0.004968, found @ 6...
+Best state dict yet, with Val Epoch MSE: 0.054792 Val MSE 0.004975, found @ 9...
+Task: InvProb, Epoch:10, Epoch Loss: 0.053415339440107346, Epoch MSE: 0.0657893908357649, Epoch SSIM: 0.4104128536706169, 	Loss:0.027513, MSELoss:0.005010, SSIM: 0.5001603364944458                    	Val Epoch Loss: 0.054792,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010284
+Task: InvProb, Epoch:20, Epoch Loss: 0.053416792303323746, Epoch MSE: 0.06578637087398267, Epoch SSIM: 0.41047210186719896, 	Loss:0.027533, MSELoss:0.004989, SSIM: 0.5007665157318115                    	Val Epoch Loss: 0.054800,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.009907
+Task: InvProb, Epoch:30, Epoch Loss: 0.05341721326112747, Epoch MSE: 0.06579185126860618, Epoch SSIM: 0.4104257543881734, 	Loss:0.027530, MSELoss:0.004990, SSIM: 0.5007038116455078                    	Val Epoch Loss: 0.054798,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010321
+Task: InvProb, Epoch:40, Epoch Loss: 0.053419552743434906, Epoch MSE: 0.06578829014517396, Epoch SSIM: 0.4105081598212322, 	Loss:0.027521, MSELoss:0.004985, SSIM: 0.500565230846405                    	Val Epoch Loss: 0.054803,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.009856
+Task: InvProb, Epoch:50, Epoch Loss: 0.05341844633221626, Epoch MSE: 0.06579119799865567, Epoch SSIM: 0.41045694049447773, 	Loss:0.027514, MSELoss:0.004976, SSIM: 0.5005164742469788                    	Val Epoch Loss: 0.054797,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.009832
+Task: InvProb, Epoch:60, Epoch Loss: 0.05341768637299538, Epoch MSE: 0.06579285592331871, Epoch SSIM: 0.41042515623072784, 	Loss:0.027529, MSELoss:0.004986, SSIM: 0.5007206201553345                    	Val Epoch Loss: 0.054797,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.009972
+Task: InvProb, Epoch:70, Epoch Loss: 0.053420290350914, Epoch MSE: 0.06579817201091524, Epoch SSIM: 0.41042408683647713, 	Loss:0.027525, MSELoss:0.004997, SSIM: 0.5005236864089966                    	Val Epoch Loss: 0.054799,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010123
+Task: InvProb, Epoch:80, Epoch Loss: 0.05341627076268196, Epoch MSE: 0.06578548934498031, Epoch SSIM: 0.4104704941685001, 	Loss:0.027538, MSELoss:0.004992, SSIM: 0.5008499622344971                    	Val Epoch Loss: 0.054800,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.009875
+Best state dict yet, with Val Epoch MSE: 0.054791 Val MSE 0.005004, found @ 85...
+Task: InvProb, Epoch:90, Epoch Loss: 0.053419288247823715, Epoch MSE: 0.06579109656485192, Epoch SSIM: 0.4104747712239623, 	Loss:0.027522, MSELoss:0.004972, SSIM: 0.5007107257843018                    	Val Epoch Loss: 0.054805,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009865
+Task: InvProb, Epoch:100, Epoch Loss: 0.053418416529893875, Epoch MSE: 0.06579396978803743, Epoch SSIM: 0.4104286110649506, 	Loss:0.027547, MSELoss:0.004998, SSIM: 0.5009532570838928                    	Val Epoch Loss: 0.054800,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010146
+Task: InvProb, Epoch:110, Epoch Loss: 0.05341546982526779, Epoch MSE: 0.06578442294609733, Epoch SSIM: 0.41046513942380747, 	Loss:0.027563, MSELoss:0.005006, SSIM: 0.5012074708938599                    	Val Epoch Loss: 0.054798,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.010042
+Task: InvProb, Epoch:120, Epoch Loss: 0.053416553884744644, Epoch MSE: 0.0657889882334363, Epoch SSIM: 0.4104412010436257, 	Loss:0.027553, MSELoss:0.005016, SSIM: 0.500906765460968                    	Val Epoch Loss: 0.054799,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.010257
+Task: InvProb, Epoch:130, Epoch Loss: 0.05341799184679985, Epoch MSE: 0.06579367188225357, Epoch SSIM: 0.4104231019814809, 	Loss:0.027542, MSELoss:0.004994, SSIM: 0.5009098052978516                    	Val Epoch Loss: 0.054798,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.010105
+Task: InvProb, Epoch:140, Epoch Loss: 0.053415827453136444, Epoch MSE: 0.06578926629269821, Epoch SSIM: 0.4104238957539201, 	Loss:0.027542, MSELoss:0.004998, SSIM: 0.5008565783500671                    	Val Epoch Loss: 0.054796,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.010289
+Task: InvProb, Epoch:150, Epoch Loss: 0.05341709405183792, Epoch MSE: 0.06579061370396934, Epoch SSIM: 0.41043576773256063, 	Loss:0.027536, MSELoss:0.004986, SSIM: 0.5008494853973389                    	Val Epoch Loss: 0.054800,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.009927
+Task: InvProb, Epoch:160, Epoch Loss: 0.05341731011867523, Epoch MSE: 0.06579006927750167, Epoch SSIM: 0.4104454842209816, 	Loss:0.027520, MSELoss:0.004990, SSIM: 0.500493586063385                    	Val Epoch Loss: 0.054803,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.010169
+Task: InvProb, Epoch:170, Epoch Loss: 0.053418777883052826, Epoch MSE: 0.06579498837280728, Epoch SSIM: 0.410425631677111, 	Loss:0.027525, MSELoss:0.004981, SSIM: 0.500687301158905                    	Val Epoch Loss: 0.054796,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.010026
+Task: InvProb, Epoch:180, Epoch Loss: 0.053419578820466995, Epoch MSE: 0.06579744112426246, Epoch SSIM: 0.4104171822220087, 	Loss:0.027530, MSELoss:0.005000, SSIM: 0.5006032586097717                    	Val Epoch Loss: 0.054807,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.009967
+Task: InvProb, Epoch:190, Epoch Loss: 0.053416989743709564, Epoch MSE: 0.06578990129530211, Epoch SSIM: 0.41044078949838875, 	Loss:0.027524, MSELoss:0.004987, SSIM: 0.5006037950515747                    	Val Epoch Loss: 0.054796,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.009992
+Task: InvProb, Epoch:199, Epoch Loss: 0.05341685935854912, Epoch MSE: 0.06579226784979103, Epoch SSIM: 0.4104145216445128, 	Loss:0.027550, MSELoss:0.005011, SSIM: 0.5008960366249084                    	Val Epoch Loss: 0.054806,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.010163
+Avg Test Loss: 0.0536908930260688 Avg Test MSE: 0.06591217942999113 Avg Test SSIM 0.41469605882962546, Last MSE Test Loss: 0.20277349650859833
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206020537_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206020537_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 4065.190223455429 seconds.
+0.49
+Config 0.49
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05323465168476105, Epoch MSE: 0.06591181163402325, Epoch SSIM: 0.4105463586995999, 	Loss:0.027969, MSELoss:0.004979, SSIM: 0.5005655884742737                    	Val Epoch Loss: 0.054542,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.005737
+Best state dict yet, with Val Epoch MSE: 0.054542 Val MSE 0.004979, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.054524 Val MSE 0.004975, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.054515 Val MSE 0.004991, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.054508 Val MSE 0.004988, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.054506 Val MSE 0.005020, found @ 5...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05314788594841957, Epoch MSE: 0.06579483792305231, Epoch SSIM: 0.40996889883031445, 	Loss:0.027950, MSELoss:0.005002, SSIM: 0.4999755620956421                    	Val Epoch Loss: 0.054510,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008767
+Task: InvProb, Epoch:20, Epoch Loss: 0.05314742773771286, Epoch MSE: 0.06579959959261487, Epoch SSIM: 0.4099141794443131, 	Loss:0.027959, MSELoss:0.005001, SSIM: 0.5001615285873413                    	Val Epoch Loss: 0.054524,Val MSE: 0.001454                    	Task: V2LR, MSELoss:0.008963
+Task: InvProb, Epoch:30, Epoch Loss: 0.05315029248595238, Epoch MSE: 0.06579863765967578, Epoch SSIM: 0.40997964116434255, 	Loss:0.027952, MSELoss:0.005002, SSIM: 0.5000203847885132                    	Val Epoch Loss: 0.054509,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008358
+Best state dict yet, with Val Epoch MSE: 0.054504 Val MSE 0.004996, found @ 34...
+Task: InvProb, Epoch:40, Epoch Loss: 0.053148914128541946, Epoch MSE: 0.0657970287213099, Epoch SSIM: 0.4099680604909857, 	Loss:0.027937, MSELoss:0.004983, SSIM: 0.49990391731262207                    	Val Epoch Loss: 0.054511,Val MSE: 0.001454                    	Task: V2LR, MSELoss:0.008536
+Task: InvProb, Epoch:50, Epoch Loss: 0.05315089598298073, Epoch MSE: 0.06580151118871072, Epoch SSIM: 0.40996383246034385, 	Loss:0.027935, MSELoss:0.004990, SSIM: 0.4998131990432739                    	Val Epoch Loss: 0.054510,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008615
+Task: InvProb, Epoch:60, Epoch Loss: 0.05314997583627701, Epoch MSE: 0.06579762408427996, Epoch SSIM: 0.4099831071868539, 	Loss:0.027934, MSELoss:0.004999, SSIM: 0.49969661235809326                    	Val Epoch Loss: 0.054511,Val MSE: 0.001458                    	Task: V2LR, MSELoss:0.008855
+Task: InvProb, Epoch:70, Epoch Loss: 0.05314779281616211, Epoch MSE: 0.06579717962275633, Epoch SSIM: 0.4099446125452717, 	Loss:0.027945, MSELoss:0.004976, SSIM: 0.5001285076141357                    	Val Epoch Loss: 0.054514,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008808
+Best state dict yet, with Val Epoch MSE: 0.054503 Val MSE 0.004990, found @ 74...
+Task: InvProb, Epoch:80, Epoch Loss: 0.053148142993450165, Epoch MSE: 0.06579839641548309, Epoch SSIM: 0.40993978766103584, 	Loss:0.027954, MSELoss:0.005002, SSIM: 0.5000535249710083                    	Val Epoch Loss: 0.054506,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008781
+Task: InvProb, Epoch:90, Epoch Loss: 0.05314864218235016, Epoch MSE: 0.06579942204940228, Epoch SSIM: 0.4099396965652704, 	Loss:0.027968, MSELoss:0.005000, SSIM: 0.5003579258918762                    	Val Epoch Loss: 0.054508,Val MSE: 0.001456                    	Task: V2LR, MSELoss:0.008961
+Task: InvProb, Epoch:100, Epoch Loss: 0.05314875766634941, Epoch MSE: 0.06579881511308637, Epoch SSIM: 0.40994782621661824, 	Loss:0.027963, MSELoss:0.005011, SSIM: 0.5001416802406311                    	Val Epoch Loss: 0.054506,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008838
+Task: InvProb, Epoch:110, Epoch Loss: 0.053149688988924026, Epoch MSE: 0.06580233665594733, Epoch SSIM: 0.40993225352217755, 	Loss:0.027963, MSELoss:0.005006, SSIM: 0.5002048015594482                    	Val Epoch Loss: 0.054508,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008642
+Task: InvProb, Epoch:120, Epoch Loss: 0.053148798644542694, Epoch MSE: 0.06579734571134092, Epoch SSIM: 0.40996273584663867, 	Loss:0.027969, MSELoss:0.005002, SSIM: 0.5003491640090942                    	Val Epoch Loss: 0.054507,Val MSE: 0.001443                    	Task: V2LR, MSELoss:0.008567
+Task: InvProb, Epoch:130, Epoch Loss: 0.053149379789829254, Epoch MSE: 0.06580080258874053, Epoch SSIM: 0.4099408882856369, 	Loss:0.027945, MSELoss:0.004993, SSIM: 0.4999738335609436                    	Val Epoch Loss: 0.054505,Val MSE: 0.001455                    	Task: V2LR, MSELoss:0.008821
+Task: InvProb, Epoch:140, Epoch Loss: 0.05314880982041359, Epoch MSE: 0.06579924090396314, Epoch SSIM: 0.4099447470034162, 	Loss:0.027972, MSELoss:0.004989, SSIM: 0.5005350708961487                    	Val Epoch Loss: 0.054520,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008754
+Task: InvProb, Epoch:150, Epoch Loss: 0.05315108224749565, Epoch MSE: 0.06580568703986046, Epoch SSIM: 0.4099273298308253, 	Loss:0.027974, MSELoss:0.005007, SSIM: 0.5004074573516846                    	Val Epoch Loss: 0.054512,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008701
+Task: InvProb, Epoch:160, Epoch Loss: 0.053149934858083725, Epoch MSE: 0.06580300432967609, Epoch SSIM: 0.4099306333437562, 	Loss:0.027932, MSELoss:0.005001, SSIM: 0.4996516704559326                    	Val Epoch Loss: 0.054513,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008509
+Task: InvProb, Epoch:170, Epoch Loss: 0.053147751837968826, Epoch MSE: 0.06579905968433801, Epoch SSIM: 0.4099257546539108, 	Loss:0.027949, MSELoss:0.004995, SSIM: 0.5000280737876892                    	Val Epoch Loss: 0.054516,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008619
+Task: InvProb, Epoch:180, Epoch Loss: 0.05315079167485237, Epoch MSE: 0.06580093217313182, Epoch SSIM: 0.40996732976287603, 	Loss:0.027954, MSELoss:0.005006, SSIM: 0.5000207424163818                    	Val Epoch Loss: 0.054511,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.008715
+Task: InvProb, Epoch:190, Epoch Loss: 0.053148820996284485, Epoch MSE: 0.06579724532256932, Epoch SSIM: 0.40996415554235377, 	Loss:0.027948, MSELoss:0.005005, SSIM: 0.49992215633392334                    	Val Epoch Loss: 0.054509,Val MSE: 0.001440                    	Task: V2LR, MSELoss:0.008765
+Task: InvProb, Epoch:199, Epoch Loss: 0.05314851924777031, Epoch MSE: 0.06579751228499693, Epoch SSIM: 0.4099556495745977, 	Loss:0.027948, MSELoss:0.004996, SSIM: 0.49999284744262695                    	Val Epoch Loss: 0.054507,Val MSE: 0.001455                    	Task: V2LR, MSELoss:0.008368
+Avg Test Loss: 0.05342526006263991 Avg Test MSE: 0.06592505555473811 Avg Test SSIM 0.41415652179718015, Last MSE Test Loss: 0.20275038480758667
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206031320_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206031320_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 8080.394987821579 seconds.
+0.48
+Config 0.48
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05301589146256447, Epoch MSE: 0.06590833254819245, Epoch SSIM: 0.4111517900849382, 	Loss:0.028403, MSELoss:0.004977, SSIM: 0.5002628564834595                    	Val Epoch Loss: 0.054292,Val MSE: 0.001475                    	Task: V2LR, MSELoss:0.007584
+Best state dict yet, with Val Epoch MSE: 0.054292 Val MSE 0.004977, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.054275 Val MSE 0.004975, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.054268 Val MSE 0.004983, found @ 4...
+Best state dict yet, with Val Epoch MSE: 0.054265 Val MSE 0.004975, found @ 7...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05292214825749397, Epoch MSE: 0.06582275482280693, Epoch SSIM: 0.4101389506831765, 	Loss:0.028399, MSELoss:0.004982, SSIM: 0.5001509189605713                    	Val Epoch Loss: 0.054270,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010357
+Best state dict yet, with Val Epoch MSE: 0.054264 Val MSE 0.004986, found @ 12...
+Best state dict yet, with Val Epoch MSE: 0.054263 Val MSE 0.004983, found @ 17...
+Task: InvProb, Epoch:20, Epoch Loss: 0.052923206239938736, Epoch MSE: 0.06581745057300699, Epoch SSIM: 0.4102082396298647, 	Loss:0.028416, MSELoss:0.005004, SSIM: 0.5002778768539429                    	Val Epoch Loss: 0.054267,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.010338
+Best state dict yet, with Val Epoch MSE: 0.054261 Val MSE 0.004985, found @ 21...
+Task: InvProb, Epoch:30, Epoch Loss: 0.05292390286922455, Epoch MSE: 0.06582156525525837, Epoch SSIM: 0.41018371111402907, 	Loss:0.028407, MSELoss:0.005002, SSIM: 0.5001211762428284                    	Val Epoch Loss: 0.054269,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.010346
+Task: InvProb, Epoch:40, Epoch Loss: 0.0529240183532238, Epoch MSE: 0.06581860908052173, Epoch SSIM: 0.41021322569499413, 	Loss:0.028423, MSELoss:0.004998, SSIM: 0.5004549026489258                    	Val Epoch Loss: 0.054267,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010729
+Best state dict yet, with Val Epoch MSE: 0.054261 Val MSE 0.004975, found @ 41...
+Task: InvProb, Epoch:50, Epoch Loss: 0.052923910319805145, Epoch MSE: 0.065821038777943, Epoch SSIM: 0.4101886603732904, 	Loss:0.028407, MSELoss:0.004987, SSIM: 0.5002602338790894                    	Val Epoch Loss: 0.054268,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010115
+Task: InvProb, Epoch:60, Epoch Loss: 0.05292332544922829, Epoch MSE: 0.06581596613836913, Epoch SSIM: 0.41022428311407566, 	Loss:0.028372, MSELoss:0.004965, SSIM: 0.4997798204421997                    	Val Epoch Loss: 0.054269,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010307
+Task: InvProb, Epoch:70, Epoch Loss: 0.05292212590575218, Epoch MSE: 0.0658204062802876, Epoch SSIM: 0.4101601929093401, 	Loss:0.028388, MSELoss:0.004976, SSIM: 0.49999701976776123                    	Val Epoch Loss: 0.054267,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.010327
+Task: InvProb, Epoch:80, Epoch Loss: 0.05292180925607681, Epoch MSE: 0.06581553598206483, Epoch SSIM: 0.4101990485191345, 	Loss:0.028402, MSELoss:0.004980, SSIM: 0.5002172589302063                    	Val Epoch Loss: 0.054268,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.010507
+Task: InvProb, Epoch:90, Epoch Loss: 0.052918754518032074, Epoch MSE: 0.06581183862907589, Epoch SSIM: 0.410174443932871, 	Loss:0.028398, MSELoss:0.004993, SSIM: 0.500015914440155                    	Val Epoch Loss: 0.054265,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010722
+Task: InvProb, Epoch:100, Epoch Loss: 0.05292228236794472, Epoch MSE: 0.06581950331108298, Epoch SSIM: 0.4101715366914868, 	Loss:0.028390, MSELoss:0.004985, SSIM: 0.4999513626098633                    	Val Epoch Loss: 0.054268,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010394
+Task: InvProb, Epoch:110, Epoch Loss: 0.052920956164598465, Epoch MSE: 0.0658167787888912, Epoch SSIM: 0.41017118584364654, 	Loss:0.028389, MSELoss:0.004983, SSIM: 0.49995577335357666                    	Val Epoch Loss: 0.054267,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.010740
+Task: InvProb, Epoch:120, Epoch Loss: 0.052922897040843964, Epoch MSE: 0.06582064379504572, Epoch SSIM: 0.4101728481426835, 	Loss:0.028412, MSELoss:0.004982, SSIM: 0.5004016160964966                    	Val Epoch Loss: 0.054269,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.010780
+Task: InvProb, Epoch:130, Epoch Loss: 0.05292059853672981, Epoch MSE: 0.06581508116014448, Epoch SSIM: 0.41018002046893043, 	Loss:0.028412, MSELoss:0.004995, SSIM: 0.5002802014350891                    	Val Epoch Loss: 0.054269,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.010918
+Task: InvProb, Epoch:140, Epoch Loss: 0.05292181670665741, Epoch MSE: 0.06581900495819507, Epoch SSIM: 0.4101672107602159, 	Loss:0.028376, MSELoss:0.004966, SSIM: 0.4998593330383301                    	Val Epoch Loss: 0.054272,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.010818
+Task: InvProb, Epoch:150, Epoch Loss: 0.052922580391168594, Epoch MSE: 0.06581873956299357, Epoch SSIM: 0.41018433215717476, 	Loss:0.028392, MSELoss:0.004979, SSIM: 0.5000488758087158                    	Val Epoch Loss: 0.054263,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.010278
+Task: InvProb, Epoch:160, Epoch Loss: 0.052923232316970825, Epoch MSE: 0.06582051490063501, Epoch SSIM: 0.4101804864530762, 	Loss:0.028363, MSELoss:0.004978, SSIM: 0.4995003938674927                    	Val Epoch Loss: 0.054270,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010045
+Task: InvProb, Epoch:170, Epoch Loss: 0.0529230572283268, Epoch MSE: 0.06582090768484401, Epoch SSIM: 0.41017347659915687, 	Loss:0.028411, MSELoss:0.005002, SSIM: 0.5001926422119141                    	Val Epoch Loss: 0.054266,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010441
+Task: InvProb, Epoch:180, Epoch Loss: 0.05292227491736412, Epoch MSE: 0.06581828042129928, Epoch SSIM: 0.4101826745395859, 	Loss:0.028402, MSELoss:0.004987, SSIM: 0.500154972076416                    	Val Epoch Loss: 0.054269,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.010509
+Task: InvProb, Epoch:190, Epoch Loss: 0.05292380601167679, Epoch MSE: 0.06582057689440868, Epoch SSIM: 0.41019096586853265, 	Loss:0.028388, MSELoss:0.004976, SSIM: 0.49998939037323                    	Val Epoch Loss: 0.054272,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.010406
+Best state dict yet, with Val Epoch MSE: 0.054261 Val MSE 0.004978, found @ 194...
+Task: InvProb, Epoch:199, Epoch Loss: 0.05292169004678726, Epoch MSE: 0.06581743575259225, Epoch SSIM: 0.4101792841653029, 	Loss:0.028424, MSELoss:0.004997, SSIM: 0.5004895925521851                    	Val Epoch Loss: 0.054267,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.010579
+Avg Test Loss: 0.05319892469700426 Avg Test MSE: 0.0659457577020609 Avg Test SSIM 0.41432617978254954, Last MSE Test Loss: 0.20285336673259735
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206042015_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206042015_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 12101.282536268234 seconds.
+0.47
+Config 0.47
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.0527644045650959, Epoch MSE: 0.06590545588584973, Epoch SSIM: 0.41111017908900976, 	Loss:0.028862, MSELoss:0.004985, SSIM: 0.5003584623336792                    	Val Epoch Loss: 0.054013,Val MSE: 0.001471                    	Task: V2LR, MSELoss:0.005787
+Best state dict yet, with Val Epoch MSE: 0.054013 Val MSE 0.004985, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.053993 Val MSE 0.004984, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.053988 Val MSE 0.004996, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.053984 Val MSE 0.005001, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.053982 Val MSE 0.005002, found @ 5...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05265623331069946, Epoch MSE: 0.06581462558142297, Epoch SSIM: 0.4098747220387061, 	Loss:0.028853, MSELoss:0.005003, SSIM: 0.5000344514846802                    	Val Epoch Loss: 0.053985,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008579
+Best state dict yet, with Val Epoch MSE: 0.053982 Val MSE 0.004989, found @ 17...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05265776813030243, Epoch MSE: 0.06581322761070624, Epoch SSIM: 0.409916068824629, 	Loss:0.028860, MSELoss:0.004994, SSIM: 0.5002378225326538                    	Val Epoch Loss: 0.053989,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008307
+Task: InvProb, Epoch:30, Epoch Loss: 0.05265462026000023, Epoch MSE: 0.06581378142743688, Epoch SSIM: 0.40985177693267666, 	Loss:0.028844, MSELoss:0.004991, SSIM: 0.4999690055847168                    	Val Epoch Loss: 0.053982,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008175
+Best state dict yet, with Val Epoch MSE: 0.053981 Val MSE 0.004990, found @ 39...
+Task: InvProb, Epoch:40, Epoch Loss: 0.05265474319458008, Epoch MSE: 0.06581349758499982, Epoch SSIM: 0.40985658212254444, 	Loss:0.028829, MSELoss:0.004976, SSIM: 0.4998128414154053                    	Val Epoch Loss: 0.053982,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008519
+Best state dict yet, with Val Epoch MSE: 0.053981 Val MSE 0.005003, found @ 46...
+Task: InvProb, Epoch:50, Epoch Loss: 0.05265725776553154, Epoch MSE: 0.06581576536780327, Epoch SSIM: 0.4098839107900858, 	Loss:0.028845, MSELoss:0.004999, SSIM: 0.4999197721481323                    	Val Epoch Loss: 0.053980,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008468
+Best state dict yet, with Val Epoch MSE: 0.053980 Val MSE 0.004999, found @ 50...
+Best state dict yet, with Val Epoch MSE: 0.053980 Val MSE 0.005003, found @ 56...
+Task: InvProb, Epoch:60, Epoch Loss: 0.052656613290309906, Epoch MSE: 0.06581429484800992, Epoch SSIM: 0.4098848187799255, 	Loss:0.028838, MSELoss:0.004990, SSIM: 0.4998666048049927                    	Val Epoch Loss: 0.053982,Val MSE: 0.001456                    	Task: V2LR, MSELoss:0.008235
+Best state dict yet, with Val Epoch MSE: 0.053978 Val MSE 0.004994, found @ 63...
+Task: InvProb, Epoch:70, Epoch Loss: 0.05265650153160095, Epoch MSE: 0.06581872790166168, Epoch SSIM: 0.40984338582803803, 	Loss:0.028836, MSELoss:0.004996, SSIM: 0.4997673034667969                    	Val Epoch Loss: 0.053986,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008251
+Best state dict yet, with Val Epoch MSE: 0.053977 Val MSE 0.004989, found @ 77...
+Task: InvProb, Epoch:80, Epoch Loss: 0.052655529230833054, Epoch MSE: 0.06581544436865443, Epoch SSIM: 0.40985415534426767, 	Loss:0.028860, MSELoss:0.004990, SSIM: 0.500277578830719                    	Val Epoch Loss: 0.053978,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008478
+Task: InvProb, Epoch:90, Epoch Loss: 0.052655790001153946, Epoch MSE: 0.065814022907983, Epoch SSIM: 0.40987166211009024, 	Loss:0.028846, MSELoss:0.004988, SSIM: 0.5000211000442505                    	Val Epoch Loss: 0.053984,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008640
+Best state dict yet, with Val Epoch MSE: 0.053975 Val MSE 0.004998, found @ 92...
+Task: InvProb, Epoch:100, Epoch Loss: 0.052655696868896484, Epoch MSE: 0.06581657579208544, Epoch SSIM: 0.40984731025993826, 	Loss:0.028862, MSELoss:0.004981, SSIM: 0.500400185585022                    	Val Epoch Loss: 0.053993,Val MSE: 0.001456                    	Task: V2LR, MSELoss:0.008387
+Task: InvProb, Epoch:110, Epoch Loss: 0.05265532061457634, Epoch MSE: 0.06581139031164185, Epoch SSIM: 0.409886146299541, 	Loss:0.028842, MSELoss:0.004991, SSIM: 0.4999316334724426                    	Val Epoch Loss: 0.053984,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008447
+Task: InvProb, Epoch:120, Epoch Loss: 0.0526551753282547, Epoch MSE: 0.0658138539360516, Epoch SSIM: 0.40986161892612777, 	Loss:0.028845, MSELoss:0.004984, SSIM: 0.5000360012054443                    	Val Epoch Loss: 0.053990,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.008488
+Task: InvProb, Epoch:130, Epoch Loss: 0.05265657976269722, Epoch MSE: 0.06581411836440111, Epoch SSIM: 0.4098857350771626, 	Loss:0.028846, MSELoss:0.004992, SSIM: 0.5000001788139343                    	Val Epoch Loss: 0.053986,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008182
+Task: InvProb, Epoch:140, Epoch Loss: 0.052655063569545746, Epoch MSE: 0.0658150259201375, Epoch SSIM: 0.4098490966359774, 	Loss:0.028816, MSELoss:0.005004, SSIM: 0.4993281364440918                    	Val Epoch Loss: 0.053984,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008087
+Task: InvProb, Epoch:150, Epoch Loss: 0.052655354142189026, Epoch MSE: 0.06581331192529584, Epoch SSIM: 0.40986980273077883, 	Loss:0.028861, MSELoss:0.005014, SSIM: 0.5000903606414795                    	Val Epoch Loss: 0.053979,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008444
+Task: InvProb, Epoch:160, Epoch Loss: 0.05265610292553902, Epoch MSE: 0.0658173975780043, Epoch SSIM: 0.4098476757730047, 	Loss:0.028854, MSELoss:0.004995, SSIM: 0.5001066327095032                    	Val Epoch Loss: 0.053984,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008246
+Task: InvProb, Epoch:170, Epoch Loss: 0.05265751853585243, Epoch MSE: 0.0658213273994943, Epoch SSIM: 0.4098395383109649, 	Loss:0.028821, MSELoss:0.004974, SSIM: 0.499675989151001                    	Val Epoch Loss: 0.053991,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008165
+Task: InvProb, Epoch:180, Epoch Loss: 0.052655309438705444, Epoch MSE: 0.06581256686662072, Epoch SSIM: 0.4098755446697275, 	Loss:0.028827, MSELoss:0.004975, SSIM: 0.49978238344192505                    	Val Epoch Loss: 0.053981,Val MSE: 0.001455                    	Task: V2LR, MSELoss:0.008149
+Task: InvProb, Epoch:190, Epoch Loss: 0.05265530198812485, Epoch MSE: 0.06581644750529146, Epoch SSIM: 0.4098409641161561, 	Loss:0.028846, MSELoss:0.004987, SSIM: 0.5000514388084412                    	Val Epoch Loss: 0.053984,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.008211
+Task: InvProb, Epoch:199, Epoch Loss: 0.05265502259135246, Epoch MSE: 0.06581337226450766, Epoch SSIM: 0.4098629986370603, 	Loss:0.028844, MSELoss:0.004991, SSIM: 0.4999583959579468                    	Val Epoch Loss: 0.053984,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008138
+Avg Test Loss: 0.05293878915316115 Avg Test MSE: 0.06594978413217177 Avg Test SSIM 0.4140073765516281, Last MSE Test Loss: 0.20288915932178497
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206052716_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206052716_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 16155.92084980011 seconds.
+0.46
+Config 0.46
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.052489981055259705, Epoch MSE: 0.06592084902545746, Epoch SSIM: 0.4104887058834235, 	Loss:0.029319, MSELoss:0.004983, SSIM: 0.5005010366439819                    	Val Epoch Loss: 0.053750,Val MSE: 0.001475                    	Task: V2LR, MSELoss:0.006001
+Best state dict yet, with Val Epoch MSE: 0.053750 Val MSE 0.004983, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.053728 Val MSE 0.004989, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.053719 Val MSE 0.004984, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.053713 Val MSE 0.004982, found @ 7...
+Task: InvProb, Epoch:10, Epoch Loss: 0.052407726645469666, Epoch MSE: 0.06582252289286923, Epoch SSIM: 0.40980305600911376, 	Loss:0.029304, MSELoss:0.004985, SSIM: 0.5002027750015259                    	Val Epoch Loss: 0.053722,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.008461
+Task: InvProb, Epoch:20, Epoch Loss: 0.0524076409637928, Epoch MSE: 0.06582339203869347, Epoch SSIM: 0.4097940937553843, 	Loss:0.029290, MSELoss:0.004984, SSIM: 0.4999619722366333                    	Val Epoch Loss: 0.053720,Val MSE: 0.001458                    	Task: V2LR, MSELoss:0.008120
+Task: InvProb, Epoch:30, Epoch Loss: 0.052407026290893555, Epoch MSE: 0.06581742455105238, Epoch SSIM: 0.40983354692657786, 	Loss:0.029309, MSELoss:0.005000, SSIM: 0.5001726746559143                    	Val Epoch Loss: 0.053723,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.008315
+Task: InvProb, Epoch:40, Epoch Loss: 0.05240657553076744, Epoch MSE: 0.06582384642630132, Epoch SSIM: 0.40977043088525533, 	Loss:0.029292, MSELoss:0.004989, SSIM: 0.49995189905166626                    	Val Epoch Loss: 0.053724,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.008385
+Task: InvProb, Epoch:50, Epoch Loss: 0.05240894854068756, Epoch MSE: 0.06582243407505606, Epoch SSIM: 0.409826445877552, 	Loss:0.029290, MSELoss:0.004992, SSIM: 0.4998897314071655                    	Val Epoch Loss: 0.053720,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.008076
+Task: InvProb, Epoch:60, Epoch Loss: 0.05240759253501892, Epoch MSE: 0.06582038679430752, Epoch SSIM: 0.4098187408223748, 	Loss:0.029307, MSELoss:0.005012, SSIM: 0.5000314116477966                    	Val Epoch Loss: 0.053714,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.008092
+Task: InvProb, Epoch:70, Epoch Loss: 0.05240843817591667, Epoch MSE: 0.06582075308805391, Epoch SSIM: 0.40983128213634096, 	Loss:0.029301, MSELoss:0.005001, SSIM: 0.5000184178352356                    	Val Epoch Loss: 0.053719,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.008159
+Task: InvProb, Epoch:80, Epoch Loss: 0.052409879863262177, Epoch MSE: 0.06582581296023364, Epoch SSIM: 0.40981490614513555, 	Loss:0.029288, MSELoss:0.004984, SSIM: 0.49991506338119507                    	Val Epoch Loss: 0.053723,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007959
+Best state dict yet, with Val Epoch MSE: 0.053713 Val MSE 0.004994, found @ 88...
+Task: InvProb, Epoch:90, Epoch Loss: 0.0524088479578495, Epoch MSE: 0.06582349130775432, Epoch SSIM: 0.40981555777291456, 	Loss:0.029295, MSELoss:0.005000, SSIM: 0.4999094009399414                    	Val Epoch Loss: 0.053720,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008209
+Task: InvProb, Epoch:100, Epoch Loss: 0.05241018161177635, Epoch MSE: 0.06582478344007389, Epoch SSIM: 0.4098292570809523, 	Loss:0.029314, MSELoss:0.005001, SSIM: 0.5002497434616089                    	Val Epoch Loss: 0.053718,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.008409
+Task: InvProb, Epoch:110, Epoch Loss: 0.05240844562649727, Epoch MSE: 0.06582278276868996, Epoch SSIM: 0.4098141648744543, 	Loss:0.029287, MSELoss:0.004984, SSIM: 0.49990713596343994                    	Val Epoch Loss: 0.053729,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.008310
+Task: InvProb, Epoch:120, Epoch Loss: 0.05241086333990097, Epoch MSE: 0.06582014415032972, Epoch SSIM: 0.4098813798651099, 	Loss:0.029296, MSELoss:0.004990, SSIM: 0.5000131726264954                    	Val Epoch Loss: 0.053720,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.007997
+Task: InvProb, Epoch:130, Epoch Loss: 0.0524083636701107, Epoch MSE: 0.06582262454423168, Epoch SSIM: 0.40981396697461603, 	Loss:0.029291, MSELoss:0.005001, SSIM: 0.49981921911239624                    	Val Epoch Loss: 0.053718,Val MSE: 0.001451                    	Task: V2LR, MSELoss:0.008227
+Task: InvProb, Epoch:140, Epoch Loss: 0.05240830034017563, Epoch MSE: 0.06582135764391296, Epoch SSIM: 0.4098236399392287, 	Loss:0.029290, MSELoss:0.004990, SSIM: 0.499897301197052                    	Val Epoch Loss: 0.053725,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008131
+Task: InvProb, Epoch:150, Epoch Loss: 0.052408862859010696, Epoch MSE: 0.06581940677918889, Epoch SSIM: 0.40985062810281914, 	Loss:0.029307, MSELoss:0.005006, SSIM: 0.500069797039032                    	Val Epoch Loss: 0.053723,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.008310
+Task: InvProb, Epoch:160, Epoch Loss: 0.05240688845515251, Epoch MSE: 0.06581915814627791, Epoch SSIM: 0.40981617545088134, 	Loss:0.029296, MSELoss:0.004986, SSIM: 0.5000484585762024                    	Val Epoch Loss: 0.053727,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.008188
+Task: InvProb, Epoch:170, Epoch Loss: 0.052409518510103226, Epoch MSE: 0.0658182125825139, Epoch SSIM: 0.4098729434857766, 	Loss:0.029299, MSELoss:0.004988, SSIM: 0.5000802874565125                    	Val Epoch Loss: 0.053721,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.008152
+Task: InvProb, Epoch:180, Epoch Loss: 0.05240870267152786, Epoch MSE: 0.06582426250232705, Epoch SSIM: 0.40980628001193203, 	Loss:0.029281, MSELoss:0.004995, SSIM: 0.49969494342803955                    	Val Epoch Loss: 0.053719,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.007969
+Task: InvProb, Epoch:190, Epoch Loss: 0.05240803584456444, Epoch MSE: 0.06582064672164506, Epoch SSIM: 0.40982473430534205, 	Loss:0.029291, MSELoss:0.004985, SSIM: 0.499963641166687                    	Val Epoch Loss: 0.053723,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.008066
+Task: InvProb, Epoch:199, Epoch Loss: 0.05240917578339577, Epoch MSE: 0.06581996637496255, Epoch SSIM: 0.4098516628394524, 	Loss:0.029310, MSELoss:0.004993, SSIM: 0.5002555847167969                    	Val Epoch Loss: 0.053727,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.008174
+Avg Test Loss: 0.05269523357413709 Avg Test MSE: 0.06595482372725382 Avg Test SSIM 0.4140002497434616, Last MSE Test Loss: 0.20294730365276337
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206063450_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206063450_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 20237.462285518646 seconds.
+0.45
+Config 0.45
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05228226259350777, Epoch MSE: 0.06589522650551316, Epoch SSIM: 0.41144386275360983, 	Loss:0.029769, MSELoss:0.004981, SSIM: 0.5005049109458923                    	Val Epoch Loss: 0.053506,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.006727
+Best state dict yet, with Val Epoch MSE: 0.053506 Val MSE 0.004981, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.053492 Val MSE 0.004994, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.053488 Val MSE 0.004985, found @ 4...
+Best state dict yet, with Val Epoch MSE: 0.053488 Val MSE 0.004986, found @ 6...
+Best state dict yet, with Val Epoch MSE: 0.053483 Val MSE 0.005005, found @ 8...
+Best state dict yet, with Val Epoch MSE: 0.053480 Val MSE 0.005006, found @ 9...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05218193307518959, Epoch MSE: 0.06583046826653571, Epoch SSIM: 0.41014948558062314, 	Loss:0.029772, MSELoss:0.004992, SSIM: 0.5004603266716003                    	Val Epoch Loss: 0.053493,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009656
+Best state dict yet, with Val Epoch MSE: 0.053478 Val MSE 0.005000, found @ 13...
+Best state dict yet, with Val Epoch MSE: 0.053477 Val MSE 0.004992, found @ 14...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05218249931931496, Epoch MSE: 0.06583323483891794, Epoch SSIM: 0.41013719943662486, 	Loss:0.029776, MSELoss:0.005003, SSIM: 0.5004544258117676                    	Val Epoch Loss: 0.053488,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.009043
+Best state dict yet, with Val Epoch MSE: 0.053474 Val MSE 0.005005, found @ 22...
+Task: InvProb, Epoch:30, Epoch Loss: 0.05218072608113289, Epoch MSE: 0.06582964095434211, Epoch SSIM: 0.4101343613862991, 	Loss:0.029755, MSELoss:0.004987, SSIM: 0.5002089738845825                    	Val Epoch Loss: 0.053480,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.009321
+Best state dict yet, with Val Epoch MSE: 0.053474 Val MSE 0.004983, found @ 31...
+Task: InvProb, Epoch:40, Epoch Loss: 0.05218096449971199, Epoch MSE: 0.06582776626336909, Epoch SSIM: 0.41015402261167766, 	Loss:0.029770, MSELoss:0.004994, SSIM: 0.5004211664199829                    	Val Epoch Loss: 0.053481,Val MSE: 0.001456                    	Task: V2LR, MSELoss:0.009405
+Task: InvProb, Epoch:50, Epoch Loss: 0.052182458341121674, Epoch MSE: 0.06583388050413759, Epoch SSIM: 0.4101311573386192, 	Loss:0.029766, MSELoss:0.004989, SSIM: 0.5003857612609863                    	Val Epoch Loss: 0.053476,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.008870
+Task: InvProb, Epoch:60, Epoch Loss: 0.05218207836151123, Epoch MSE: 0.06583244929132585, Epoch SSIM: 0.41013591931511956, 	Loss:0.029768, MSELoss:0.004996, SSIM: 0.5003612637519836                    	Val Epoch Loss: 0.053480,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009359
+Task: InvProb, Epoch:70, Epoch Loss: 0.05218157917261124, Epoch MSE: 0.06582850233503754, Epoch SSIM: 0.41015919007360935, 	Loss:0.029745, MSELoss:0.004991, SSIM: 0.4999810457229614                    	Val Epoch Loss: 0.053485,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009535
+Task: InvProb, Epoch:80, Epoch Loss: 0.05218369886279106, Epoch MSE: 0.06583528721301718, Epoch SSIM: 0.41014221876859663, 	Loss:0.029775, MSELoss:0.005002, SSIM: 0.5004456639289856                    	Val Epoch Loss: 0.053485,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009205
+Task: InvProb, Epoch:90, Epoch Loss: 0.05217987671494484, Epoch MSE: 0.06583439746510673, Epoch SSIM: 0.4100799499452114, 	Loss:0.029762, MSELoss:0.004993, SSIM: 0.5002701282501221                    	Val Epoch Loss: 0.053483,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.009157
+Task: InvProb, Epoch:100, Epoch Loss: 0.05218303203582764, Epoch MSE: 0.06583454800609465, Epoch SSIM: 0.4101361003642281, 	Loss:0.029767, MSELoss:0.004996, SSIM: 0.5003395080566406                    	Val Epoch Loss: 0.053482,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009257
+Task: InvProb, Epoch:110, Epoch Loss: 0.05218222364783287, Epoch MSE: 0.06583500804043979, Epoch SSIM: 0.4101176653429866, 	Loss:0.029753, MSELoss:0.004985, SSIM: 0.5001853704452515                    	Val Epoch Loss: 0.053482,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009160
+Task: InvProb, Epoch:120, Epoch Loss: 0.0521814189851284, Epoch MSE: 0.06582955505836707, Epoch SSIM: 0.4101476104433338, 	Loss:0.029780, MSELoss:0.004990, SSIM: 0.5006363391876221                    	Val Epoch Loss: 0.053481,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.009474
+Task: InvProb, Epoch:130, Epoch Loss: 0.05218173563480377, Epoch MSE: 0.06582911549374937, Epoch SSIM: 0.41015701250483594, 	Loss:0.029789, MSELoss:0.005008, SSIM: 0.5006352663040161                    	Val Epoch Loss: 0.053489,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009944
+Task: InvProb, Epoch:140, Epoch Loss: 0.052182357758283615, Epoch MSE: 0.06583065565832386, Epoch SSIM: 0.4101557096466422, 	Loss:0.029766, MSELoss:0.004988, SSIM: 0.5003951787948608                    	Val Epoch Loss: 0.053489,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009247
+Task: InvProb, Epoch:150, Epoch Loss: 0.05218174308538437, Epoch MSE: 0.06583227801117876, Epoch SSIM: 0.4101312583436569, 	Loss:0.029759, MSELoss:0.004998, SSIM: 0.5001907348632812                    	Val Epoch Loss: 0.053477,Val MSE: 0.001455                    	Task: V2LR, MSELoss:0.009271
+Task: InvProb, Epoch:160, Epoch Loss: 0.05218078941106796, Epoch MSE: 0.06582981888658802, Epoch SSIM: 0.4101340270539125, 	Loss:0.029779, MSELoss:0.005013, SSIM: 0.5004292726516724                    	Val Epoch Loss: 0.053485,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009396
+Task: InvProb, Epoch:170, Epoch Loss: 0.052180979400873184, Epoch MSE: 0.06583054303342123, Epoch SSIM: 0.4101315396527449, 	Loss:0.029751, MSELoss:0.005005, SSIM: 0.4999806880950928                    	Val Epoch Loss: 0.053491,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009505
+Task: InvProb, Epoch:180, Epoch Loss: 0.05218176543712616, Epoch MSE: 0.06582970303291252, Epoch SSIM: 0.410152737510701, 	Loss:0.029757, MSELoss:0.004999, SSIM: 0.5001322031021118                    	Val Epoch Loss: 0.053473,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.009232
+Best state dict yet, with Val Epoch MSE: 0.053473 Val MSE 0.004999, found @ 180...
+Task: InvProb, Epoch:190, Epoch Loss: 0.052181124687194824, Epoch MSE: 0.06583127327167555, Epoch SSIM: 0.4101282050460577, 	Loss:0.029727, MSELoss:0.004996, SSIM: 0.49962395429611206                    	Val Epoch Loss: 0.053484,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.009462
+Task: InvProb, Epoch:199, Epoch Loss: 0.052181147038936615, Epoch MSE: 0.06583254165569391, Epoch SSIM: 0.4101182664434115, 	Loss:0.029770, MSELoss:0.004998, SSIM: 0.5003795027732849                    	Val Epoch Loss: 0.053487,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009217
+Avg Test Loss: 0.05246844949542234 Avg Test MSE: 0.0659526795164614 Avg Test SSIM 0.41435899249712627, Last MSE Test Loss: 0.20288357138633728
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206074252_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206074252_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 24340.119464874268 seconds.
+0.44
+Config 0.44
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.052012551575899124, Epoch MSE: 0.06590749693615938, Epoch SSIM: 0.4109509252756834, 	Loss:0.030251, MSELoss:0.004985, SSIM: 0.5010337233543396                    	Val Epoch Loss: 0.053266,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.006555
+Best state dict yet, with Val Epoch MSE: 0.053266 Val MSE 0.004985, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.053213 Val MSE 0.004967, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.053209 Val MSE 0.004982, found @ 5...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05192851275205612, Epoch MSE: 0.06582914941070006, Epoch SSIM: 0.4100658097366492, 	Loss:0.030196, MSELoss:0.004987, SSIM: 0.5000349283218384                    	Val Epoch Loss: 0.053211,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009060
+Task: InvProb, Epoch:20, Epoch Loss: 0.051929473876953125, Epoch MSE: 0.06583195611666269, Epoch SSIM: 0.4100609530011813, 	Loss:0.030208, MSELoss:0.004981, SSIM: 0.5003005266189575                    	Val Epoch Loss: 0.053220,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009266
+Best state dict yet, with Val Epoch MSE: 0.053208 Val MSE 0.004992, found @ 25...
+Task: InvProb, Epoch:30, Epoch Loss: 0.051932018250226974, Epoch MSE: 0.06583247359571791, Epoch SSIM: 0.41010230069359144, 	Loss:0.030223, MSELoss:0.005003, SSIM: 0.5003767013549805                    	Val Epoch Loss: 0.053213,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009182
+Best state dict yet, with Val Epoch MSE: 0.053207 Val MSE 0.004982, found @ 32...
+Best state dict yet, with Val Epoch MSE: 0.053207 Val MSE 0.004978, found @ 36...
+Task: InvProb, Epoch:40, Epoch Loss: 0.05193173140287399, Epoch MSE: 0.06583267745740765, Epoch SSIM: 0.4100955674548944, 	Loss:0.030212, MSELoss:0.004981, SSIM: 0.5003708600997925                    	Val Epoch Loss: 0.053213,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009281
+Task: InvProb, Epoch:50, Epoch Loss: 0.05192987248301506, Epoch MSE: 0.0658291979763438, Epoch SSIM: 0.4100897461548448, 	Loss:0.030204, MSELoss:0.004984, SSIM: 0.5002015829086304                    	Val Epoch Loss: 0.053217,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.009434
+Task: InvProb, Epoch:60, Epoch Loss: 0.05192923918366432, Epoch MSE: 0.06583275515925682, Epoch SSIM: 0.4100504922990998, 	Loss:0.030188, MSELoss:0.004999, SSIM: 0.49978649616241455                    	Val Epoch Loss: 0.053214,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009431
+Task: InvProb, Epoch:70, Epoch Loss: 0.05192860960960388, Epoch MSE: 0.0658284354546034, Epoch SSIM: 0.4100731400027871, 	Loss:0.030277, MSELoss:0.005008, SSIM: 0.5013157725334167                    	Val Epoch Loss: 0.053224,Val MSE: 0.001458                    	Task: V2LR, MSELoss:0.009147
+Best state dict yet, with Val Epoch MSE: 0.053207 Val MSE 0.005008, found @ 71...
+Task: InvProb, Epoch:80, Epoch Loss: 0.05192969739437103, Epoch MSE: 0.0658274258969262, Epoch SSIM: 0.410100528349479, 	Loss:0.030213, MSELoss:0.004995, SSIM: 0.5002751350402832                    	Val Epoch Loss: 0.053219,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009571
+Task: InvProb, Epoch:90, Epoch Loss: 0.05192912369966507, Epoch MSE: 0.06582585001859267, Epoch SSIM: 0.4101026309033235, 	Loss:0.030247, MSELoss:0.005001, SSIM: 0.5008288621902466                    	Val Epoch Loss: 0.053217,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009276
+Task: InvProb, Epoch:100, Epoch Loss: 0.05193011835217476, Epoch MSE: 0.06582837898412285, Epoch SSIM: 0.4101005800192555, 	Loss:0.030208, MSELoss:0.004980, SSIM: 0.5002983808517456                    	Val Epoch Loss: 0.053214,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009479
+Task: InvProb, Epoch:110, Epoch Loss: 0.051932431757450104, Epoch MSE: 0.06583155131778463, Epoch SSIM: 0.41011694678415855, 	Loss:0.030228, MSELoss:0.004989, SSIM: 0.5005859136581421                    	Val Epoch Loss: 0.053212,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.009109
+Task: InvProb, Epoch:120, Epoch Loss: 0.051929377019405365, Epoch MSE: 0.06582813539070988, Epoch SSIM: 0.4100892292087277, 	Loss:0.030183, MSELoss:0.004983, SSIM: 0.4998399615287781                    	Val Epoch Loss: 0.053209,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.009272
+Best state dict yet, with Val Epoch MSE: 0.053205 Val MSE 0.004999, found @ 124...
+Task: InvProb, Epoch:130, Epoch Loss: 0.05193106085062027, Epoch MSE: 0.06583047705912273, Epoch SSIM: 0.4101009006674091, 	Loss:0.030219, MSELoss:0.004987, SSIM: 0.5004326105117798                    	Val Epoch Loss: 0.053211,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009198
+Task: InvProb, Epoch:140, Epoch Loss: 0.05193132907152176, Epoch MSE: 0.06582841976656406, Epoch SSIM: 0.41012184134374063, 	Loss:0.030196, MSELoss:0.004990, SSIM: 0.5000092387199402                    	Val Epoch Loss: 0.053210,Val MSE: 0.001452                    	Task: V2LR, MSELoss:0.009312
+Task: InvProb, Epoch:150, Epoch Loss: 0.05192958191037178, Epoch MSE: 0.06582859289248821, Epoch SSIM: 0.4100892819588383, 	Loss:0.030206, MSELoss:0.005000, SSIM: 0.5000995993614197                    	Val Epoch Loss: 0.053221,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009334
+Task: InvProb, Epoch:160, Epoch Loss: 0.05193158984184265, Epoch MSE: 0.06583073207459468, Epoch SSIM: 0.4101083228116234, 	Loss:0.030231, MSELoss:0.004995, SSIM: 0.500591516494751                    	Val Epoch Loss: 0.053208,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009418
+Task: InvProb, Epoch:170, Epoch Loss: 0.051930271089076996, Epoch MSE: 0.06582426105424778, Epoch SSIM: 0.4101356378694375, 	Loss:0.030195, MSELoss:0.004984, SSIM: 0.500028669834137                    	Val Epoch Loss: 0.053211,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.009465
+Task: InvProb, Epoch:180, Epoch Loss: 0.051929228007793427, Epoch MSE: 0.06582835794391334, Epoch SSIM: 0.41008482076227665, 	Loss:0.030217, MSELoss:0.004998, SSIM: 0.5003098249435425                    	Val Epoch Loss: 0.053220,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.009500
+Task: InvProb, Epoch:190, Epoch Loss: 0.051931049674749374, Epoch MSE: 0.06582998951851247, Epoch SSIM: 0.41010455730060735, 	Loss:0.030213, MSELoss:0.004996, SSIM: 0.5002630949020386                    	Val Epoch Loss: 0.053210,Val MSE: 0.001462                    	Task: V2LR, MSELoss:0.009397
+Task: InvProb, Epoch:199, Epoch Loss: 0.05193125456571579, Epoch MSE: 0.06582925338058733, Epoch SSIM: 0.41011396107574305, 	Loss:0.030227, MSELoss:0.005000, SSIM: 0.500490665435791                    	Val Epoch Loss: 0.053217,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.009470
+Avg Test Loss: 0.052220709486864504 Avg Test MSE: 0.06595328077192729 Avg Test SSIM 0.4143083103497823, Last MSE Test Loss: 0.20282766222953796
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206085115_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206085115_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 28394.45108985901 seconds.
+0.43
+Config 0.43
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.051755424588918686, Epoch MSE: 0.06591987183539459, Epoch SSIM: 0.41069961042453845, 	Loss:0.030639, MSELoss:0.004982, SSIM: 0.49994832277297974                    	Val Epoch Loss: 0.052949,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.005365
+Best state dict yet, with Val Epoch MSE: 0.052949 Val MSE 0.004982, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.052937 Val MSE 0.004993, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.052935 Val MSE 0.004979, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.052934 Val MSE 0.004987, found @ 4...
+Best state dict yet, with Val Epoch MSE: 0.052925 Val MSE 0.004995, found @ 5...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05166670307517052, Epoch MSE: 0.06584240695901068, Epoch SSIM: 0.4097274708747864, 	Loss:0.030632, MSELoss:0.004983, SSIM: 0.49982380867004395                    	Val Epoch Loss: 0.052933,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007583
+Best state dict yet, with Val Epoch MSE: 0.052924 Val MSE 0.004981, found @ 12...
+Task: InvProb, Epoch:20, Epoch Loss: 0.051667168736457825, Epoch MSE: 0.06584394861238554, Epoch SSIM: 0.4097240647052725, 	Loss:0.030661, MSELoss:0.005002, SSIM: 0.5001856088638306                    	Val Epoch Loss: 0.052933,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007544
+Task: InvProb, Epoch:30, Epoch Loss: 0.05166718363761902, Epoch MSE: 0.06584417919626806, Epoch SSIM: 0.40972256732483703, 	Loss:0.030656, MSELoss:0.004998, SSIM: 0.5001198649406433                    	Val Epoch Loss: 0.052937,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007743
+Task: InvProb, Epoch:40, Epoch Loss: 0.05166691914200783, Epoch MSE: 0.06583923463226105, Epoch SSIM: 0.40975523995856444, 	Loss:0.030628, MSELoss:0.004992, SSIM: 0.49968624114990234                    	Val Epoch Loss: 0.052932,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007611
+Task: InvProb, Epoch:50, Epoch Loss: 0.05166567116975784, Epoch MSE: 0.06583995713497642, Epoch SSIM: 0.4097278768569231, 	Loss:0.030627, MSELoss:0.004992, SSIM: 0.4996654987335205                    	Val Epoch Loss: 0.052934,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007622
+Task: InvProb, Epoch:60, Epoch Loss: 0.05166561156511307, Epoch MSE: 0.06584128512069128, Epoch SSIM: 0.40971682377159596, 	Loss:0.030661, MSELoss:0.005003, SSIM: 0.5001749992370605                    	Val Epoch Loss: 0.052943,Val MSE: 0.001457                    	Task: V2LR, MSELoss:0.007589
+Task: InvProb, Epoch:70, Epoch Loss: 0.05166536569595337, Epoch MSE: 0.06583878878342148, Epoch SSIM: 0.40973134703934194, 	Loss:0.030634, MSELoss:0.004988, SSIM: 0.4998052716255188                    	Val Epoch Loss: 0.052928,Val MSE: 0.001458                    	Task: V2LR, MSELoss:0.007527
+Task: InvProb, Epoch:80, Epoch Loss: 0.05166676640510559, Epoch MSE: 0.06584514694114205, Epoch SSIM: 0.4097079332917929, 	Loss:0.030639, MSELoss:0.004989, SSIM: 0.49988484382629395                    	Val Epoch Loss: 0.052932,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.007725
+Task: InvProb, Epoch:90, Epoch Loss: 0.05166775360703468, Epoch MSE: 0.06584363281213579, Epoch SSIM: 0.4097367133448521, 	Loss:0.030659, MSELoss:0.004986, SSIM: 0.500272274017334                    	Val Epoch Loss: 0.052944,Val MSE: 0.001459                    	Task: V2LR, MSELoss:0.007394
+Task: InvProb, Epoch:100, Epoch Loss: 0.05166727304458618, Epoch MSE: 0.06584063157324029, Epoch SSIM: 0.40975091201563674, 	Loss:0.030653, MSELoss:0.004989, SSIM: 0.5001314878463745                    	Val Epoch Loss: 0.052929,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007565
+Task: InvProb, Epoch:110, Epoch Loss: 0.051664307713508606, Epoch MSE: 0.0658434495039152, Epoch SSIM: 0.40967764375110466, 	Loss:0.030635, MSELoss:0.004989, SSIM: 0.49982571601867676                    	Val Epoch Loss: 0.052935,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007171
+Task: InvProb, Epoch:120, Epoch Loss: 0.051665566861629486, Epoch MSE: 0.06584562541374302, Epoch SSIM: 0.4096832667912046, 	Loss:0.030631, MSELoss:0.004981, SSIM: 0.4998072385787964                    	Val Epoch Loss: 0.052939,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007654
+Task: InvProb, Epoch:130, Epoch Loss: 0.05166549235582352, Epoch MSE: 0.06583955843769672, Epoch SSIM: 0.4097277549405893, 	Loss:0.030628, MSELoss:0.004981, SSIM: 0.49975526332855225                    	Val Epoch Loss: 0.052930,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007509
+Task: InvProb, Epoch:140, Epoch Loss: 0.05166526883840561, Epoch MSE: 0.06584247596533714, Epoch SSIM: 0.40970180136462053, 	Loss:0.030658, MSELoss:0.005000, SSIM: 0.5001473426818848                    	Val Epoch Loss: 0.052938,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007757
+Task: InvProb, Epoch:150, Epoch Loss: 0.05166815593838692, Epoch MSE: 0.0658422495207363, Epoch SSIM: 0.40975420631468296, 	Loss:0.030679, MSELoss:0.005004, SSIM: 0.5004854202270508                    	Val Epoch Loss: 0.052947,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.007601
+Task: InvProb, Epoch:160, Epoch Loss: 0.05166805908083916, Epoch MSE: 0.06584100582822582, Epoch SSIM: 0.4097618506476283, 	Loss:0.030645, MSELoss:0.004985, SSIM: 0.5000340938568115                    	Val Epoch Loss: 0.052930,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007654
+Task: InvProb, Epoch:170, Epoch Loss: 0.051668018102645874, Epoch MSE: 0.06584170438717896, Epoch SSIM: 0.4097558709606528, 	Loss:0.030637, MSELoss:0.004986, SSIM: 0.4998737573623657                    	Val Epoch Loss: 0.052933,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007309
+Best state dict yet, with Val Epoch MSE: 0.052923 Val MSE 0.005003, found @ 179...
+Task: InvProb, Epoch:180, Epoch Loss: 0.05166364461183548, Epoch MSE: 0.06583892203505608, Epoch SSIM: 0.40970011000831924, 	Loss:0.030645, MSELoss:0.004986, SSIM: 0.5000127553939819                    	Val Epoch Loss: 0.052936,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007720
+Task: InvProb, Epoch:190, Epoch Loss: 0.05166803300380707, Epoch MSE: 0.06584001002604509, Epoch SSIM: 0.4097689429918925, 	Loss:0.030619, MSELoss:0.004971, SSIM: 0.4996737241744995                    	Val Epoch Loss: 0.052933,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.007220
+Task: InvProb, Epoch:199, Epoch Loss: 0.05166574567556381, Epoch MSE: 0.06584300979198209, Epoch SSIM: 0.40970616846034924, 	Loss:0.030657, MSELoss:0.004993, SSIM: 0.5001708269119263                    	Val Epoch Loss: 0.052930,Val MSE: 0.001460                    	Task: V2LR, MSELoss:0.007269
+Avg Test Loss: 0.05196086851072808 Avg Test MSE: 0.06596536694813888 Avg Test SSIM 0.41396070559819537, Last MSE Test Loss: 0.2028845101594925
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206095849_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206095849_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 32463.73088335991 seconds.
+0.42
+Config 0.42
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05149564519524574, Epoch MSE: 0.06590361473864202, Epoch SSIM: 0.4106229130675395, 	Loss:0.031102, MSELoss:0.004981, SSIM: 0.5001692175865173                    	Val Epoch Loss: 0.052674,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.005410
+Best state dict yet, with Val Epoch MSE: 0.052674 Val MSE 0.004981, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.052669 Val MSE 0.004981, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.052665 Val MSE 0.004982, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.052662 Val MSE 0.004988, found @ 5...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05141836404800415, Epoch MSE: 0.0658487592042502, Epoch SSIM: 0.40968771994113923, 	Loss:0.031124, MSELoss:0.004999, SSIM: 0.5004127621650696                    	Val Epoch Loss: 0.052674,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007516
+Best state dict yet, with Val Epoch MSE: 0.052662 Val MSE 0.004988, found @ 19...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05141947418451309, Epoch MSE: 0.06584593810718313, Epoch SSIM: 0.4097273003061612, 	Loss:0.031084, MSELoss:0.004994, SSIM: 0.49976515769958496                    	Val Epoch Loss: 0.052663,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007219
+Best state dict yet, with Val Epoch MSE: 0.052661 Val MSE 0.004988, found @ 25...
+Task: InvProb, Epoch:30, Epoch Loss: 0.05141892656683922, Epoch MSE: 0.06584873067213418, Epoch SSIM: 0.40969763275235893, 	Loss:0.031096, MSELoss:0.004986, SSIM: 0.5000410676002502                    	Val Epoch Loss: 0.052669,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.007596
+Best state dict yet, with Val Epoch MSE: 0.052661 Val MSE 0.004986, found @ 38...
+Task: InvProb, Epoch:40, Epoch Loss: 0.05141657963395119, Epoch MSE: 0.06584520136850643, Epoch SSIM: 0.40968271786967914, 	Loss:0.031105, MSELoss:0.004986, SSIM: 0.5001918077468872                    	Val Epoch Loss: 0.052665,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007375
+Task: InvProb, Epoch:50, Epoch Loss: 0.0514184832572937, Epoch MSE: 0.06585044891093275, Epoch SSIM: 0.4096775473157565, 	Loss:0.031082, MSELoss:0.004984, SSIM: 0.49980056285858154                    	Val Epoch Loss: 0.052667,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007258
+Task: InvProb, Epoch:60, Epoch Loss: 0.05141858011484146, Epoch MSE: 0.06585061872553373, Epoch SSIM: 0.4096779566506545, 	Loss:0.031101, MSELoss:0.004989, SSIM: 0.5001010894775391                    	Val Epoch Loss: 0.052667,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007304
+Task: InvProb, Epoch:70, Epoch Loss: 0.05141928791999817, Epoch MSE: 0.06584739895567054, Epoch SSIM: 0.4097134496519963, 	Loss:0.031092, MSELoss:0.004987, SSIM: 0.49995601177215576                    	Val Epoch Loss: 0.052671,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.007312
+Best state dict yet, with Val Epoch MSE: 0.052661 Val MSE 0.004981, found @ 71...
+Task: InvProb, Epoch:80, Epoch Loss: 0.05141853913664818, Epoch MSE: 0.06584963845663121, Epoch SSIM: 0.4096843217437466, 	Loss:0.031094, MSELoss:0.004982, SSIM: 0.5000282526016235                    	Val Epoch Loss: 0.052679,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007590
+Best state dict yet, with Val Epoch MSE: 0.052660 Val MSE 0.004990, found @ 85...
+Task: InvProb, Epoch:90, Epoch Loss: 0.05141891539096832, Epoch MSE: 0.06585338398890903, Epoch SSIM: 0.40966372249027094, 	Loss:0.031098, MSELoss:0.004987, SSIM: 0.5000529289245605                    	Val Epoch Loss: 0.052666,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007266
+Best state dict yet, with Val Epoch MSE: 0.052659 Val MSE 0.004994, found @ 92...
+Task: InvProb, Epoch:100, Epoch Loss: 0.051418717950582504, Epoch MSE: 0.06585035656431501, Epoch SSIM: 0.40968225999424857, 	Loss:0.031115, MSELoss:0.004999, SSIM: 0.5002651214599609                    	Val Epoch Loss: 0.052661,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.007330
+Task: InvProb, Epoch:110, Epoch Loss: 0.05141694098711014, Epoch MSE: 0.06584353329471317, Epoch SSIM: 0.40970100436359647, 	Loss:0.031096, MSELoss:0.004987, SSIM: 0.5000216960906982                    	Val Epoch Loss: 0.052668,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007546
+Task: InvProb, Epoch:120, Epoch Loss: 0.05141832306981087, Epoch MSE: 0.06584529059801601, Epoch SSIM: 0.4097121435403824, 	Loss:0.031080, MSELoss:0.004983, SSIM: 0.4997814893722534                    	Val Epoch Loss: 0.052671,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.007244
+Task: InvProb, Epoch:130, Epoch Loss: 0.051418837159872055, Epoch MSE: 0.0658501151607076, Epoch SSIM: 0.4096860264490048, 	Loss:0.031067, MSELoss:0.004987, SSIM: 0.4995245337486267                    	Val Epoch Loss: 0.052660,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007189
+Task: InvProb, Epoch:140, Epoch Loss: 0.05141805112361908, Epoch MSE: 0.06584590653895248, Epoch SSIM: 0.4097029355665048, 	Loss:0.031096, MSELoss:0.004996, SSIM: 0.4999542832374573                    	Val Epoch Loss: 0.052673,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007322
+Task: InvProb, Epoch:150, Epoch Loss: 0.051418449729681015, Epoch MSE: 0.06584741200963436, Epoch SSIM: 0.4096989213923613, 	Loss:0.031088, MSELoss:0.004995, SSIM: 0.4998260736465454                    	Val Epoch Loss: 0.052665,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007158
+Task: InvProb, Epoch:160, Epoch Loss: 0.05141734331846237, Epoch MSE: 0.06584743935178267, Epoch SSIM: 0.40967963146666686, 	Loss:0.031073, MSELoss:0.004996, SSIM: 0.4995655417442322                    	Val Epoch Loss: 0.052672,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007487
+Task: InvProb, Epoch:170, Epoch Loss: 0.05141999572515488, Epoch MSE: 0.06584832357438851, Epoch SSIM: 0.40971900516500076, 	Loss:0.031061, MSELoss:0.004976, SSIM: 0.4995030164718628                    	Val Epoch Loss: 0.052673,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007174
+Task: InvProb, Epoch:180, Epoch Loss: 0.051418934017419815, Epoch MSE: 0.0658483115750702, Epoch SSIM: 0.409700758891801, 	Loss:0.031091, MSELoss:0.005001, SSIM: 0.4998422861099243                    	Val Epoch Loss: 0.052667,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007407
+Task: InvProb, Epoch:190, Epoch Loss: 0.05141749605536461, Epoch MSE: 0.06584885582924774, Epoch SSIM: 0.40967205400268236, 	Loss:0.031086, MSELoss:0.004984, SSIM: 0.4998753070831299                    	Val Epoch Loss: 0.052665,Val MSE: 0.001461                    	Task: V2LR, MSELoss:0.007531
+Task: InvProb, Epoch:199, Epoch Loss: 0.051418136805295944, Epoch MSE: 0.0658450321710643, Epoch SSIM: 0.40971074415991704, 	Loss:0.031078, MSELoss:0.004982, SSIM: 0.49975109100341797                    	Val Epoch Loss: 0.052667,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007320
+Avg Test Loss: 0.05171451454764853 Avg Test MSE: 0.06597357381460218 Avg Test SSIM 0.4138899156649907, Last MSE Test Loss: 0.202927827835083
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206110638_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206110638_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 36552.98164653778 seconds.
+0.41
+Config 0.41
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.051260050386190414, Epoch MSE: 0.06592091415953442, Epoch SSIM: 0.4107199564948678, 	Loss:0.031572, MSELoss:0.004978, SSIM: 0.5005201101303101                    	Val Epoch Loss: 0.052429,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.005631
+Best state dict yet, with Val Epoch MSE: 0.052429 Val MSE 0.004978, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.052423 Val MSE 0.004984, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.052417 Val MSE 0.004973, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.052416 Val MSE 0.004989, found @ 5...
+Best state dict yet, with Val Epoch MSE: 0.052412 Val MSE 0.004976, found @ 6...
+Best state dict yet, with Val Epoch MSE: 0.052411 Val MSE 0.004998, found @ 9...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05118216946721077, Epoch MSE: 0.06585453157606329, Epoch SSIM: 0.40986118619640666, 	Loss:0.031564, MSELoss:0.004986, SSIM: 0.5003368854522705                    	Val Epoch Loss: 0.052423,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007803
+Best state dict yet, with Val Epoch MSE: 0.052409 Val MSE 0.004985, found @ 17...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05118080973625183, Epoch MSE: 0.0658544404216597, Epoch SSIM: 0.40983880461504063, 	Loss:0.031539, MSELoss:0.004989, SSIM: 0.49988144636154175                    	Val Epoch Loss: 0.052429,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007938
+Task: InvProb, Epoch:30, Epoch Loss: 0.05118248984217644, Epoch MSE: 0.06585116466833218, Epoch SSIM: 0.40989003211259845, 	Loss:0.031534, MSELoss:0.004984, SSIM: 0.4998476505279541                    	Val Epoch Loss: 0.052414,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007855
+Task: InvProb, Epoch:40, Epoch Loss: 0.051184047013521194, Epoch MSE: 0.06585984973262232, Epoch SSIM: 0.4098560615628958, 	Loss:0.031558, MSELoss:0.004983, SSIM: 0.5002469420433044                    	Val Epoch Loss: 0.052421,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007784
+Task: InvProb, Epoch:50, Epoch Loss: 0.05118374153971672, Epoch MSE: 0.0658577780247136, Epoch SSIM: 0.4098652865489324, 	Loss:0.031520, MSELoss:0.004980, SSIM: 0.4996272325515747                    	Val Epoch Loss: 0.052418,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007570
+Task: InvProb, Epoch:60, Epoch Loss: 0.05118325352668762, Epoch MSE: 0.06585420356017645, Epoch SSIM: 0.4098818789422512, 	Loss:0.031557, MSELoss:0.004991, SSIM: 0.5001817941665649                    	Val Epoch Loss: 0.052416,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.008084
+Task: InvProb, Epoch:70, Epoch Loss: 0.05118373781442642, Epoch MSE: 0.06585039394324213, Epoch SSIM: 0.4099165516346693, 	Loss:0.031542, MSELoss:0.004990, SSIM: 0.49993616342544556                    	Val Epoch Loss: 0.052416,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007952
+Task: InvProb, Epoch:80, Epoch Loss: 0.051184505224227905, Epoch MSE: 0.06585307243122164, Epoch SSIM: 0.4099109626437227, 	Loss:0.031552, MSELoss:0.004986, SSIM: 0.5001282691955566                    	Val Epoch Loss: 0.052416,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007790
+Task: InvProb, Epoch:90, Epoch Loss: 0.05118187516927719, Epoch MSE: 0.06585122521292457, Epoch SSIM: 0.4098791886245211, 	Loss:0.031545, MSELoss:0.005003, SSIM: 0.4998844861984253                    	Val Epoch Loss: 0.052408,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.008068
+Best state dict yet, with Val Epoch MSE: 0.052408 Val MSE 0.005003, found @ 90...
+Task: InvProb, Epoch:100, Epoch Loss: 0.05118454620242119, Epoch MSE: 0.06585379393062794, Epoch SSIM: 0.40990662383536497, 	Loss:0.031556, MSELoss:0.004983, SSIM: 0.5002235174179077                    	Val Epoch Loss: 0.052422,Val MSE: 0.001471                    	Task: V2LR, MSELoss:0.007774
+Task: InvProb, Epoch:110, Epoch Loss: 0.051183316856622696, Epoch MSE: 0.0658535757552075, Epoch SSIM: 0.40988733362406493, 	Loss:0.031555, MSELoss:0.004986, SSIM: 0.5001784563064575                    	Val Epoch Loss: 0.052419,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.008064
+Task: InvProb, Epoch:120, Epoch Loss: 0.05118346959352493, Epoch MSE: 0.06585690332637568, Epoch SSIM: 0.4098667466764649, 	Loss:0.031563, MSELoss:0.004989, SSIM: 0.5003017783164978                    	Val Epoch Loss: 0.052431,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007987
+Task: InvProb, Epoch:130, Epoch Loss: 0.051183734089136124, Epoch MSE: 0.06585845318698375, Epoch SSIM: 0.40986045921842257, 	Loss:0.031550, MSELoss:0.004982, SSIM: 0.5001251101493835                    	Val Epoch Loss: 0.052417,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007669
+Task: InvProb, Epoch:140, Epoch Loss: 0.051183078438043594, Epoch MSE: 0.06585948439835647, Epoch SSIM: 0.40984219246854386, 	Loss:0.031538, MSELoss:0.004983, SSIM: 0.4999191164970398                    	Val Epoch Loss: 0.052416,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007794
+Task: InvProb, Epoch:150, Epoch Loss: 0.05118599161505699, Epoch MSE: 0.06585441666499416, Epoch SSIM: 0.4099267984429995, 	Loss:0.031532, MSELoss:0.004980, SSIM: 0.49983298778533936                    	Val Epoch Loss: 0.052415,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007782
+Task: InvProb, Epoch:160, Epoch Loss: 0.05118187516927719, Epoch MSE: 0.06585467466080293, Epoch SSIM: 0.4098552294820547, 	Loss:0.031560, MSELoss:0.004988, SSIM: 0.5002533793449402                    	Val Epoch Loss: 0.052428,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007855
+Task: InvProb, Epoch:170, Epoch Loss: 0.051185715943574905, Epoch MSE: 0.06585822375892197, Epoch SSIM: 0.4098956676696738, 	Loss:0.031550, MSELoss:0.004981, SSIM: 0.5001267790794373                    	Val Epoch Loss: 0.052421,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007846
+Task: InvProb, Epoch:180, Epoch Loss: 0.051183201372623444, Epoch MSE: 0.06585361836695483, Epoch SSIM: 0.4098850710565845, 	Loss:0.031543, MSELoss:0.004985, SSIM: 0.4999907612800598                    	Val Epoch Loss: 0.052418,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007697
+Task: InvProb, Epoch:190, Epoch Loss: 0.051183223724365234, Epoch MSE: 0.06585225170062131, Epoch SSIM: 0.4098949375003576, 	Loss:0.031555, MSELoss:0.004981, SSIM: 0.5002226829528809                    	Val Epoch Loss: 0.052422,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007762
+Task: InvProb, Epoch:199, Epoch Loss: 0.05118256434798241, Epoch MSE: 0.06585320045194597, Epoch SSIM: 0.4098771409317851, 	Loss:0.031541, MSELoss:0.004989, SSIM: 0.4999241828918457                    	Val Epoch Loss: 0.052421,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007900
+Avg Test Loss: 0.05147983645709853 Avg Test MSE: 0.06597594171900224 Avg Test SSIM 0.4140627200603485, Last MSE Test Loss: 0.2029445618391037
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206121447_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206121447_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 40645.12679386139 seconds.
+0.4
+Config 0.4
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05102087929844856, Epoch MSE: 0.06592703696809016, Epoch SSIM: 0.41083442203700543, 	Loss:0.031986, MSELoss:0.004981, SSIM: 0.49988555908203125                    	Val Epoch Loss: 0.052147,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.005367
+Best state dict yet, with Val Epoch MSE: 0.052147 Val MSE 0.004981, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.052144 Val MSE 0.004986, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.052143 Val MSE 0.004980, found @ 6...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05092678219079971, Epoch MSE: 0.06587589405098697, Epoch SSIM: 0.4096070661644141, 	Loss:0.031966, MSELoss:0.004988, SSIM: 0.49951720237731934                    	Val Epoch Loss: 0.052145,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007199
+Best state dict yet, with Val Epoch MSE: 0.052139 Val MSE 0.004986, found @ 11...
+Best state dict yet, with Val Epoch MSE: 0.052138 Val MSE 0.004989, found @ 17...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05092403665184975, Epoch MSE: 0.06586757761989247, Epoch SSIM: 0.4096167508512735, 	Loss:0.031999, MSELoss:0.004988, SSIM: 0.5000713467597961                    	Val Epoch Loss: 0.052146,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007230
+Task: InvProb, Epoch:30, Epoch Loss: 0.050924427807331085, Epoch MSE: 0.06586907473230288, Epoch SSIM: 0.4096133104587595, 	Loss:0.031986, MSELoss:0.004989, SSIM: 0.4998382329940796                    	Val Epoch Loss: 0.052148,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007291
+Task: InvProb, Epoch:40, Epoch Loss: 0.05092860385775566, Epoch MSE: 0.06587298502039933, Epoch SSIM: 0.40965686292697984, 	Loss:0.031972, MSELoss:0.004985, SSIM: 0.49964040517807007                    	Val Epoch Loss: 0.052147,Val MSE: 0.001463                    	Task: V2LR, MSELoss:0.006966
+Best state dict yet, with Val Epoch MSE: 0.052137 Val MSE 0.004996, found @ 49...
+Task: InvProb, Epoch:50, Epoch Loss: 0.0509253665804863, Epoch MSE: 0.065870172960731, Epoch SSIM: 0.4096216313789288, 	Loss:0.031992, MSELoss:0.004989, SSIM: 0.49993669986724854                    	Val Epoch Loss: 0.052139,Val MSE: 0.001472                    	Task: V2LR, MSELoss:0.007111
+Task: InvProb, Epoch:60, Epoch Loss: 0.050926703959703445, Epoch MSE: 0.06586935429217798, Epoch SSIM: 0.40964940130710603, 	Loss:0.032011, MSELoss:0.004997, SSIM: 0.5002101063728333                    	Val Epoch Loss: 0.052141,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007170
+Task: InvProb, Epoch:70, Epoch Loss: 0.050925593823194504, Epoch MSE: 0.06587009225215601, Epoch SSIM: 0.40962597311784826, 	Loss:0.031969, MSELoss:0.004984, SSIM: 0.4995953440666199                    	Val Epoch Loss: 0.052146,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007215
+Task: InvProb, Epoch:80, Epoch Loss: 0.05092735216021538, Epoch MSE: 0.06587220070622758, Epoch SSIM: 0.409641218110919, 	Loss:0.031992, MSELoss:0.004999, SSIM: 0.4998742341995239                    	Val Epoch Loss: 0.052145,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007129
+Task: InvProb, Epoch:90, Epoch Loss: 0.05092607066035271, Epoch MSE: 0.06586913971715755, Epoch SSIM: 0.40964022794117533, 	Loss:0.031978, MSELoss:0.004993, SSIM: 0.4996832609176636                    	Val Epoch Loss: 0.052148,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007342
+Task: InvProb, Epoch:100, Epoch Loss: 0.05092693492770195, Epoch MSE: 0.06587098630272673, Epoch SSIM: 0.40964237295091155, 	Loss:0.031966, MSELoss:0.004984, SSIM: 0.4995476007461548                    	Val Epoch Loss: 0.052144,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007236
+Best state dict yet, with Val Epoch MSE: 0.052136 Val MSE 0.004994, found @ 106...
+Task: InvProb, Epoch:110, Epoch Loss: 0.05092797055840492, Epoch MSE: 0.0658711151959839, Epoch SSIM: 0.4096587637563546, 	Loss:0.031981, MSELoss:0.004991, SSIM: 0.49974608421325684                    	Val Epoch Loss: 0.052146,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.007336
+Task: InvProb, Epoch:120, Epoch Loss: 0.05092668533325195, Epoch MSE: 0.06587221274257142, Epoch SSIM: 0.40962998770177367, 	Loss:0.031995, MSELoss:0.004988, SSIM: 0.5000035166740417                    	Val Epoch Loss: 0.052139,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007002
+Best state dict yet, with Val Epoch MSE: 0.052134 Val MSE 0.004978, found @ 123...
+Task: InvProb, Epoch:130, Epoch Loss: 0.050926197320222855, Epoch MSE: 0.06587017594026595, Epoch SSIM: 0.4096354758242766, 	Loss:0.031953, MSELoss:0.004987, SSIM: 0.49930375814437866                    	Val Epoch Loss: 0.052144,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007068
+Task: InvProb, Epoch:140, Epoch Loss: 0.05092737823724747, Epoch MSE: 0.06587184917318913, Epoch SSIM: 0.40964400852719945, 	Loss:0.032006, MSELoss:0.004994, SSIM: 0.5001407861709595                    	Val Epoch Loss: 0.052142,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.006913
+Task: InvProb, Epoch:150, Epoch Loss: 0.05092646926641464, Epoch MSE: 0.06586831820532855, Epoch SSIM: 0.4096523874625564, 	Loss:0.031974, MSELoss:0.004986, SSIM: 0.4996653199195862                    	Val Epoch Loss: 0.052137,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007159
+Task: InvProb, Epoch:160, Epoch Loss: 0.05092691630125046, Epoch MSE: 0.06587202516007741, Epoch SSIM: 0.4096350890894731, 	Loss:0.031976, MSELoss:0.004984, SSIM: 0.4997140169143677                    	Val Epoch Loss: 0.052147,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.006840
+Task: InvProb, Epoch:170, Epoch Loss: 0.05092712119221687, Epoch MSE: 0.0658749181348988, Epoch SSIM: 0.4096192247544726, 	Loss:0.032002, MSELoss:0.004982, SSIM: 0.5001562833786011                    	Val Epoch Loss: 0.052151,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007248
+Task: InvProb, Epoch:180, Epoch Loss: 0.050926823168992996, Epoch MSE: 0.0658700390063738, Epoch SSIM: 0.4096468104297916, 	Loss:0.031989, MSELoss:0.004984, SSIM: 0.49992167949676514                    	Val Epoch Loss: 0.052150,Val MSE: 0.001471                    	Task: V2LR, MSELoss:0.007300
+Task: InvProb, Epoch:190, Epoch Loss: 0.050926417112350464, Epoch MSE: 0.0658727705778756, Epoch SSIM: 0.40962180820604166, 	Loss:0.031987, MSELoss:0.004988, SSIM: 0.499866247177124                    	Val Epoch Loss: 0.052138,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007217
+Task: InvProb, Epoch:199, Epoch Loss: 0.05092640221118927, Epoch MSE: 0.06587279196843307, Epoch SSIM: 0.4096214336405198, 	Loss:0.031982, MSELoss:0.004997, SSIM: 0.4997193217277527                    	Val Epoch Loss: 0.052139,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007119
+Avg Test Loss: 0.05122624265278379 Avg Test MSE: 0.06599208454677137 Avg Test SSIM 0.41382348239421846, Last MSE Test Loss: 0.20307117700576782
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206132300_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206132300_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 44723.62432265282 seconds.
+0.39
+Config 0.39
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.05077243596315384, Epoch MSE: 0.06592316247706549, Epoch SSIM: 0.4108590980246663, 	Loss:0.032474, MSELoss:0.004978, SSIM: 0.500531792640686                    	Val Epoch Loss: 0.051905,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.005982
+Best state dict yet, with Val Epoch MSE: 0.051905 Val MSE 0.004978, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.051899 Val MSE 0.004978, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.051885 Val MSE 0.004980, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.051883 Val MSE 0.004981, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.051881 Val MSE 0.004989, found @ 4...
+Best state dict yet, with Val Epoch MSE: 0.051880 Val MSE 0.004963, found @ 9...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05068127438426018, Epoch MSE: 0.06586835689989129, Epoch SSIM: 0.40971503671258686, 	Loss:0.032432, MSELoss:0.004969, SSIM: 0.49989306926727295                    	Val Epoch Loss: 0.051889,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007785
+Best state dict yet, with Val Epoch MSE: 0.051878 Val MSE 0.004993, found @ 11...
+Best state dict yet, with Val Epoch MSE: 0.051875 Val MSE 0.005005, found @ 13...
+Best state dict yet, with Val Epoch MSE: 0.051874 Val MSE 0.004984, found @ 14...
+Best state dict yet, with Val Epoch MSE: 0.051868 Val MSE 0.004990, found @ 15...
+Best state dict yet, with Val Epoch MSE: 0.051866 Val MSE 0.004987, found @ 18...
+Task: InvProb, Epoch:20, Epoch Loss: 0.05067645013332367, Epoch MSE: 0.06586809007858088, Epoch SSIM: 0.409637617940704, 	Loss:0.032432, MSELoss:0.004986, SSIM: 0.4997905492782593                    	Val Epoch Loss: 0.051875,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.006586
+Task: InvProb, Epoch:30, Epoch Loss: 0.05067352205514908, Epoch MSE: 0.06586867663043297, Epoch SSIM: 0.4095858727271358, 	Loss:0.032403, MSELoss:0.004977, SSIM: 0.49938178062438965                    	Val Epoch Loss: 0.051870,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007001
+Task: InvProb, Epoch:40, Epoch Loss: 0.050674423575401306, Epoch MSE: 0.06586584183281047, Epoch SSIM: 0.40961879331618545, 	Loss:0.032450, MSELoss:0.004997, SSIM: 0.500015377998352                    	Val Epoch Loss: 0.051876,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007131
+Best state dict yet, with Val Epoch MSE: 0.051865 Val MSE 0.004985, found @ 48...
+Task: InvProb, Epoch:50, Epoch Loss: 0.05067353695631027, Epoch MSE: 0.06586487426079354, Epoch SSIM: 0.40961041796952485, 	Loss:0.032436, MSELoss:0.004990, SSIM: 0.4998377561569214                    	Val Epoch Loss: 0.051876,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.006985
+Task: InvProb, Epoch:60, Epoch Loss: 0.050675373524427414, Epoch MSE: 0.06586612270010998, Epoch SSIM: 0.40963258072733877, 	Loss:0.032430, MSELoss:0.004981, SSIM: 0.4998006224632263                    	Val Epoch Loss: 0.051874,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.006789
+Task: InvProb, Epoch:70, Epoch Loss: 0.05067145824432373, Epoch MSE: 0.06587010653485474, Epoch SSIM: 0.40954289289812246, 	Loss:0.032405, MSELoss:0.004983, SSIM: 0.49936723709106445                    	Val Epoch Loss: 0.051874,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.006918
+Task: InvProb, Epoch:80, Epoch Loss: 0.05067499727010727, Epoch MSE: 0.0658668876676802, Epoch SSIM: 0.4096214763571819, 	Loss:0.032423, MSELoss:0.004997, SSIM: 0.4995828866958618                    	Val Epoch Loss: 0.051868,Val MSE: 0.001471                    	Task: V2LR, MSELoss:0.006776
+Task: InvProb, Epoch:90, Epoch Loss: 0.05067521706223488, Epoch MSE: 0.06586682455656956, Epoch SSIM: 0.409625485924383, 	Loss:0.032451, MSELoss:0.004995, SSIM: 0.5000442862510681                    	Val Epoch Loss: 0.051882,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.006856
+Task: InvProb, Epoch:100, Epoch Loss: 0.050674162805080414, Epoch MSE: 0.06587184105602167, Epoch SSIM: 0.4095761599143346, 	Loss:0.032431, MSELoss:0.004978, SSIM: 0.49983179569244385                    	Val Epoch Loss: 0.051880,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007019
+Task: InvProb, Epoch:110, Epoch Loss: 0.050673164427280426, Epoch MSE: 0.06586358757579092, Epoch SSIM: 0.4096125757942597, 	Loss:0.032436, MSELoss:0.004987, SSIM: 0.49986016750335693                    	Val Epoch Loss: 0.051876,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007140
+Task: InvProb, Epoch:120, Epoch Loss: 0.05067422240972519, Epoch MSE: 0.06586728773097547, Epoch SSIM: 0.40960626393556593, 	Loss:0.032424, MSELoss:0.004982, SSIM: 0.49968206882476807                    	Val Epoch Loss: 0.051870,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.006634
+Task: InvProb, Epoch:130, Epoch Loss: 0.05067499727010727, Epoch MSE: 0.06586823528536266, Epoch SSIM: 0.40961286017050347, 	Loss:0.032406, MSELoss:0.004976, SSIM: 0.499433696269989                    	Val Epoch Loss: 0.051878,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.006712
+Task: InvProb, Epoch:140, Epoch Loss: 0.05067264288663864, Epoch MSE: 0.06586471260816021, Epoch SSIM: 0.40959679541488486, 	Loss:0.032439, MSELoss:0.004983, SSIM: 0.49993014335632324                    	Val Epoch Loss: 0.051891,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007104
+Task: InvProb, Epoch:150, Epoch Loss: 0.05067378655076027, Epoch MSE: 0.06586767456748627, Epoch SSIM: 0.40959664795547723, 	Loss:0.032431, MSELoss:0.004979, SSIM: 0.4998176097869873                    	Val Epoch Loss: 0.051871,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007007
+Task: InvProb, Epoch:160, Epoch Loss: 0.050672899931669235, Epoch MSE: 0.06586869709416836, Epoch SSIM: 0.4095755749444167, 	Loss:0.032434, MSELoss:0.004991, SSIM: 0.49979066848754883                    	Val Epoch Loss: 0.051873,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007057
+Task: InvProb, Epoch:170, Epoch Loss: 0.050671808421611786, Epoch MSE: 0.06586593234660693, Epoch SSIM: 0.4095753403256337, 	Loss:0.032417, MSELoss:0.004987, SSIM: 0.49954020977020264                    	Val Epoch Loss: 0.051867,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006865
+Task: InvProb, Epoch:180, Epoch Loss: 0.05067432299256325, Epoch MSE: 0.06586800464051369, Epoch SSIM: 0.40960332863032817, 	Loss:0.032459, MSELoss:0.004983, SSIM: 0.5002562999725342                    	Val Epoch Loss: 0.051883,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007097
+Task: InvProb, Epoch:190, Epoch Loss: 0.05067342892289162, Epoch MSE: 0.06586460554690347, Epoch SSIM: 0.4096104087680578, 	Loss:0.032427, MSELoss:0.004982, SSIM: 0.49974071979522705                    	Val Epoch Loss: 0.051871,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006832
+Task: InvProb, Epoch:199, Epoch Loss: 0.05067363753914833, Epoch MSE: 0.06586813352453191, Epoch SSIM: 0.4095912547657887, 	Loss:0.032436, MSELoss:0.004990, SSIM: 0.4998400807380676                    	Val Epoch Loss: 0.051870,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.006890
+Avg Test Loss: 0.050973116519550485 Avg Test MSE: 0.06599216489300307 Avg Test SSIM 0.41370775310198465, Last MSE Test Loss: 0.20303292572498322
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206143058_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206143058_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 48813.64854097366 seconds.
+0.38
+Config 0.38
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.0505077987909317, Epoch MSE: 0.06593210083927109, Epoch SSIM: 0.41054197113960983, 	Loss:0.032897, MSELoss:0.004976, SSIM: 0.5000946521759033                    	Val Epoch Loss: 0.051633,Val MSE: 0.001474                    	Task: V2LR, MSELoss:0.005278
+Best state dict yet, with Val Epoch MSE: 0.051633 Val MSE 0.004976, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.051625 Val MSE 0.004994, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.051618 Val MSE 0.004985, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.051610 Val MSE 0.004989, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.051610 Val MSE 0.004985, found @ 8...
+Task: InvProb, Epoch:10, Epoch Loss: 0.05042542144656181, Epoch MSE: 0.06587191656025727, Epoch SSIM: 0.40958216195305186, 	Loss:0.032898, MSELoss:0.004993, SSIM: 0.5000040531158447                    	Val Epoch Loss: 0.051613,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006946
+Best state dict yet, with Val Epoch MSE: 0.051610 Val MSE 0.004978, found @ 12...
+Best state dict yet, with Val Epoch MSE: 0.051607 Val MSE 0.004977, found @ 14...
+Task: InvProb, Epoch:20, Epoch Loss: 0.0504239983856678, Epoch MSE: 0.06587245572241196, Epoch SSIM: 0.409555904964606, 	Loss:0.032889, MSELoss:0.004988, SSIM: 0.49989354610443115                    	Val Epoch Loss: 0.051615,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.006880
+Best state dict yet, with Val Epoch MSE: 0.051604 Val MSE 0.004978, found @ 24...
+Task: InvProb, Epoch:30, Epoch Loss: 0.05042561888694763, Epoch MSE: 0.06587191372765573, Epoch SSIM: 0.40958539000401895, 	Loss:0.032875, MSELoss:0.004970, SSIM: 0.4997892379760742                    	Val Epoch Loss: 0.051610,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.006812
+Task: InvProb, Epoch:40, Epoch Loss: 0.05042584612965584, Epoch MSE: 0.06587490503163736, Epoch SSIM: 0.40957070494691533, 	Loss:0.032896, MSELoss:0.004984, SSIM: 0.5000396370887756                    	Val Epoch Loss: 0.051609,Val MSE: 0.001471                    	Task: V2LR, MSELoss:0.006968
+Best state dict yet, with Val Epoch MSE: 0.051602 Val MSE 0.004981, found @ 46...
+Best state dict yet, with Val Epoch MSE: 0.051602 Val MSE 0.004993, found @ 47...
+Task: InvProb, Epoch:50, Epoch Loss: 0.050424691289663315, Epoch MSE: 0.06587141045441816, Epoch SSIM: 0.4095734931901097, 	Loss:0.032901, MSELoss:0.004992, SSIM: 0.500066876411438                    	Val Epoch Loss: 0.051619,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007019
+Best state dict yet, with Val Epoch MSE: 0.051602 Val MSE 0.004983, found @ 57...
+Task: InvProb, Epoch:60, Epoch Loss: 0.05042703449726105, Epoch MSE: 0.06587385535169688, Epoch SSIM: 0.40959628764539957, 	Loss:0.032904, MSELoss:0.004990, SSIM: 0.5001283884048462                    	Val Epoch Loss: 0.051620,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.007152
+Task: InvProb, Epoch:70, Epoch Loss: 0.050422150641679764, Epoch MSE: 0.06587181357523604, Epoch SSIM: 0.40953004923959574, 	Loss:0.032861, MSELoss:0.004978, SSIM: 0.49950742721557617                    	Val Epoch Loss: 0.051607,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006834
+Best state dict yet, with Val Epoch MSE: 0.051600 Val MSE 0.004996, found @ 79...
+Task: InvProb, Epoch:80, Epoch Loss: 0.05042304843664169, Epoch MSE: 0.06587456639288575, Epoch SSIM: 0.4095276476194461, 	Loss:0.032850, MSELoss:0.004982, SSIM: 0.49930763244628906                    	Val Epoch Loss: 0.051608,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006706
+Task: InvProb, Epoch:90, Epoch Loss: 0.05042190104722977, Epoch MSE: 0.06587353585104969, Epoch SSIM: 0.40951546938469013, 	Loss:0.032856, MSELoss:0.004982, SSIM: 0.49940216541290283                    	Val Epoch Loss: 0.051608,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.006861
+Task: InvProb, Epoch:100, Epoch Loss: 0.05042466148734093, Epoch MSE: 0.06586988350621899, Epoch SSIM: 0.40958237254371244, 	Loss:0.032890, MSELoss:0.004992, SSIM: 0.4998924136161804                    	Val Epoch Loss: 0.051623,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006729
+Task: InvProb, Epoch:110, Epoch Loss: 0.050426043570041656, Epoch MSE: 0.06587323906971505, Epoch SSIM: 0.40958410520106553, 	Loss:0.032857, MSELoss:0.004991, SSIM: 0.4993656873703003                    	Val Epoch Loss: 0.051613,Val MSE: 0.001469                    	Task: V2LR, MSELoss:0.006937
+Task: InvProb, Epoch:120, Epoch Loss: 0.050426188856363297, Epoch MSE: 0.06587243859437876, Epoch SSIM: 0.40959133073687554, 	Loss:0.032875, MSELoss:0.004983, SSIM: 0.49970901012420654                    	Val Epoch Loss: 0.051610,Val MSE: 0.001464                    	Task: V2LR, MSELoss:0.006855
+Task: InvProb, Epoch:130, Epoch Loss: 0.05042477324604988, Epoch MSE: 0.06587317216096987, Epoch SSIM: 0.4095640142386158, 	Loss:0.032868, MSELoss:0.004981, SSIM: 0.49960219860076904                    	Val Epoch Loss: 0.051614,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.006813
+Best state dict yet, with Val Epoch MSE: 0.051598 Val MSE 0.004974, found @ 139...
+Task: InvProb, Epoch:140, Epoch Loss: 0.05042354017496109, Epoch MSE: 0.06587525039331922, Epoch SSIM: 0.40953136086463926, 	Loss:0.032885, MSELoss:0.004976, SSIM: 0.49990302324295044                    	Val Epoch Loss: 0.051616,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.006623
+Task: InvProb, Epoch:150, Epoch Loss: 0.0504249669611454, Epoch MSE: 0.06587769482828813, Epoch SSIM: 0.4095394337301453, 	Loss:0.032882, MSELoss:0.004981, SSIM: 0.49981963634490967                    	Val Epoch Loss: 0.051621,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.006867
+Task: InvProb, Epoch:160, Epoch Loss: 0.05042625591158867, Epoch MSE: 0.06587530071202309, Epoch SSIM: 0.4095748522877693, 	Loss:0.032864, MSELoss:0.004984, SSIM: 0.4995168447494507                    	Val Epoch Loss: 0.051609,Val MSE: 0.001472                    	Task: V2LR, MSELoss:0.006779
+Task: InvProb, Epoch:170, Epoch Loss: 0.05042503774166107, Epoch MSE: 0.06587145549020533, Epoch SSIM: 0.40957879802833, 	Loss:0.032899, MSELoss:0.004985, SSIM: 0.5000758171081543                    	Val Epoch Loss: 0.051617,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007125
+Task: InvProb, Epoch:180, Epoch Loss: 0.05042443424463272, Epoch MSE: 0.06587155308847135, Epoch SSIM: 0.40956843790908654, 	Loss:0.032885, MSELoss:0.004975, SSIM: 0.4999113082885742                    	Val Epoch Loss: 0.051616,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007187
+Task: InvProb, Epoch:190, Epoch Loss: 0.05042129009962082, Epoch MSE: 0.06586859371554207, Epoch SSIM: 0.4095359055573742, 	Loss:0.032894, MSELoss:0.004990, SSIM: 0.4999629259109497                    	Val Epoch Loss: 0.051609,Val MSE: 0.001470                    	Task: V2LR, MSELoss:0.007045
+Task: InvProb, Epoch:199, Epoch Loss: 0.05042493715882301, Epoch MSE: 0.06586855108870471, Epoch SSIM: 0.40959496767570575, 	Loss:0.032859, MSELoss:0.004987, SSIM: 0.49941694736480713                    	Val Epoch Loss: 0.051609,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.006854
+Avg Test Loss: 0.05073089717856298 Avg Test MSE: 0.0659966281047576 Avg Test SSIM 0.41374482536315915, Last MSE Test Loss: 0.20305834710597992
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206153908_v2lr.pth
+written to: ./models/v2lr/0.alpha.01.-1.1.20231206153908_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 52921.732224702835 seconds.
+0.37
+Config 0.37
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: InvProb, Epoch:0, Epoch Loss: 0.050287142395973206, Epoch MSE: 0.06593553581959592, Epoch SSIM: 0.4109681464980046, 	Loss:0.033359, MSELoss:0.004980, SSIM: 0.5002537965774536                    	Val Epoch Loss: 0.051390,Val MSE: 0.001472                    	Task: V2LR, MSELoss:0.005787
+Best state dict yet, with Val Epoch MSE: 0.051390 Val MSE 0.004980, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.051373 Val MSE 0.004976, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.051371 Val MSE 0.004983, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.051365 Val MSE 0.004983, found @ 5...
+Best state dict yet, with Val Epoch MSE: 0.051362 Val MSE 0.004984, found @ 6...
+Task: InvProb, Epoch:10, Epoch Loss: 0.050192732363939285, Epoch MSE: 0.06588182496679414, Epoch SSIM: 0.40978501610457896, 	Loss:0.033340, MSELoss:0.004990, SSIM: 0.49990880489349365                    	Val Epoch Loss: 0.051367,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007891
+Best state dict yet, with Val Epoch MSE: 0.051355 Val MSE 0.004990, found @ 11...
+Task: InvProb, Epoch:20, Epoch Loss: 0.050190091133117676, Epoch MSE: 0.06588265583814973, Epoch SSIM: 0.4097382039452592, 	Loss:0.033350, MSELoss:0.004984, SSIM: 0.5000939965248108                    	Val Epoch Loss: 0.051374,Val MSE: 0.001468                    	Task: V2LR, MSELoss:0.007995
+Task: InvProb, Epoch:30, Epoch Loss: 0.050192397087812424, Epoch MSE: 0.06588267850317607, Epoch SSIM: 0.4097746942192316, 	Loss:0.033328, MSELoss:0.004976, SSIM: 0.4997841715812683                    	Val Epoch Loss: 0.051363,Val MSE: 0.001466                    	Task: V2LR, MSELoss:0.007758
+Best state dict yet, with Val Epoch MSE: 0.051351 Val MSE 0.004979, found @ 39...
+Task: InvProb, Epoch:40, Epoch Loss: 0.05019214376807213, Epoch MSE: 0.06588211554420922, Epoch SSIM: 0.40977397772173085, 	Loss:0.033321, MSELoss:0.004982, SSIM: 0.4996446371078491                    	Val Epoch Loss: 0.051357,Val MSE: 0.001465                    	Task: V2LR, MSELoss:0.007822
+Task: InvProb, Epoch:50, Epoch Loss: 0.05019022896885872, Epoch MSE: 0.06588119835938566, Epoch SSIM: 0.40974895058820643, 	Loss:0.033310, MSELoss:0.004976, SSIM: 0.49950218200683594                    	Val Epoch Loss: 0.051354,Val MSE: 0.001467                    	Task: V2LR, MSELoss:0.007748
+/var/lib/slurm-llnl/slurmd/job2631115/slurm_script: line 24: 2514338 Killed                  python -u v2lr.py $1
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=2631115.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

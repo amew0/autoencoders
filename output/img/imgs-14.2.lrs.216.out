@@ -1,0 +1,69 @@
+2630764
+14.2.lrs.216
+running the pretrained one with the same config as the LR explorations
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+Config 216
+AutoencoderEIT(
+  (encoder): Sequential(
+    (0): Conv2d(1, 48, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (1): ReLU()
+    (2): Conv2d(48, 96, kernel_size=(2, 2), stride=(2, 2), padding=(2, 2))
+    (3): ReLU()
+    (4): Conv2d(96, 192, kernel_size=(3, 3), stride=(1, 1))
+    (5): ReLU()
+    (6): Conv2d(192, 24, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+    (7): ReLU()
+    (8): Flatten(start_dim=1, end_dim=-1)
+  )
+  (decoder): Sequential(
+    (0): Unflatten(dim=1, unflattened_size=(24, 3, 3))
+    (1): ConvTranspose2d(24, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+    (2): ConvTranspose2d(192, 96, kernel_size=(3, 3), stride=(1, 1))
+    (3): ReLU()
+    (4): ConvTranspose2d(96, 48, kernel_size=(2, 2), stride=(2, 2), padding=(2, 2))
+    (5): ReLU()
+    (6): ConvTranspose2d(48, 1, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), output_padding=(1, 1))
+  )
+)
+Task: Reconstruction, Epoch:0, Epoch Loss: 0.009585690684616566, Loss:0.014599, MSELoss:0.001898, SSIM: 0.2730095386505127                	Val Epoch Loss: 0.010464,Val MSE: 0.000201
+Best state dict yet, with Val Epoch MSE: 0.010464 Val MSE 0.001898, found @ 0...
+Best state dict yet, with Val Epoch MSE: 0.009456 Val MSE 0.001862, found @ 1...
+Best state dict yet, with Val Epoch MSE: 0.008745 Val MSE 0.001849, found @ 2...
+Best state dict yet, with Val Epoch MSE: 0.002725 Val MSE 0.000568, found @ 3...
+Best state dict yet, with Val Epoch MSE: 0.002067 Val MSE 0.000433, found @ 5...
+Best state dict yet, with Val Epoch MSE: 0.001758 Val MSE 0.000303, found @ 6...
+Best state dict yet, with Val Epoch MSE: 0.001726 Val MSE 0.000286, found @ 8...
+Best state dict yet, with Val Epoch MSE: 0.001693 Val MSE 0.000249, found @ 9...
+Task: Reconstruction, Epoch:10, Epoch Loss: 0.001369561767205596, Loss:0.002593, MSELoss:0.000352, SSIM: 0.048335254192352295                	Val Epoch Loss: 0.002190,Val MSE: 0.000064
+Best state dict yet, with Val Epoch MSE: 0.001284 Val MSE 0.000193, found @ 12...
+Best state dict yet, with Val Epoch MSE: 0.001207 Val MSE 0.000110, found @ 16...
+Best state dict yet, with Val Epoch MSE: 0.001065 Val MSE 0.000087, found @ 18...
+Task: Reconstruction, Epoch:20, Epoch Loss: 0.0009409015183337033, Loss:0.000983, MSELoss:0.000090, SSIM: 0.0187644362449646                	Val Epoch Loss: 0.001261,Val MSE: 0.000044
+Best state dict yet, with Val Epoch MSE: 0.000871 Val MSE 0.000078, found @ 23...
+Task: Reconstruction, Epoch:30, Epoch Loss: 0.0008727388922125101, Loss:0.001176, MSELoss:0.000118, SSIM: 0.022336602210998535                	Val Epoch Loss: 0.001385,Val MSE: 0.000051
+Task: Reconstruction, Epoch:40, Epoch Loss: 0.0008242425392381847, Loss:0.001862, MSELoss:0.000167, SSIM: 0.035566091537475586                	Val Epoch Loss: 0.001786,Val MSE: 0.000040
+Best state dict yet, with Val Epoch MSE: 0.000813 Val MSE 0.000074, found @ 41...
+Best state dict yet, with Val Epoch MSE: 0.000795 Val MSE 0.000042, found @ 44...
+Task: Reconstruction, Epoch:50, Epoch Loss: 0.0007755830301903188, Loss:0.000946, MSELoss:0.000072, SSIM: 0.018206119537353516                	Val Epoch Loss: 0.001034,Val MSE: 0.000046
+Best state dict yet, with Val Epoch MSE: 0.000777 Val MSE 0.000064, found @ 51...
+Task: Reconstruction, Epoch:60, Epoch Loss: 0.0007731402874924242, Loss:0.000693, MSELoss:0.000076, SSIM: 0.013094425201416016                	Val Epoch Loss: 0.000928,Val MSE: 0.000041
+Best state dict yet, with Val Epoch MSE: 0.000745 Val MSE 0.000058, found @ 61...
+Best state dict yet, with Val Epoch MSE: 0.000691 Val MSE 0.000042, found @ 63...
+Task: Reconstruction, Epoch:70, Epoch Loss: 0.0008769616833887994, Loss:0.001228, MSELoss:0.000131, SSIM: 0.023246586322784424                	Val Epoch Loss: 0.001144,Val MSE: 0.000070
+Task: Reconstruction, Epoch:80, Epoch Loss: 0.000801009708084166, Loss:0.000581, MSELoss:0.000090, SSIM: 0.010729968547821045                	Val Epoch Loss: 0.001115,Val MSE: 0.000055
+Best state dict yet, with Val Epoch MSE: 0.000686 Val MSE 0.000055, found @ 81...
+Task: Reconstruction, Epoch:90, Epoch Loss: 0.000778381188865751, Loss:0.001129, MSELoss:0.000118, SSIM: 0.021405696868896484                	Val Epoch Loss: 0.001892,Val MSE: 0.000102
+Task: Reconstruction, Epoch:100, Epoch Loss: 0.0007822242914699018, Loss:0.000431, MSELoss:0.000052, SSIM: 0.008094072341918945                	Val Epoch Loss: 0.000666,Val MSE: 0.000038
+Best state dict yet, with Val Epoch MSE: 0.000666 Val MSE 0.000052, found @ 100...
+Task: Reconstruction, Epoch:110, Epoch Loss: 0.0007625510334037244, Loss:0.000962, MSELoss:0.000104, SSIM: 0.01820969581604004                	Val Epoch Loss: 0.001069,Val MSE: 0.000055
+Task: Reconstruction, Epoch:120, Epoch Loss: 0.0007621521363034844, Loss:0.000784, MSELoss:0.000118, SSIM: 0.014494538307189941                	Val Epoch Loss: 0.001132,Val MSE: 0.000033
+Task: Reconstruction, Epoch:130, Epoch Loss: 0.0007137490320019424, Loss:0.001336, MSELoss:0.000109, SSIM: 0.02562391757965088                	Val Epoch Loss: 0.001424,Val MSE: 0.000051
+Task: Reconstruction, Epoch:140, Epoch Loss: 0.0007853647111915052, Loss:0.000749, MSELoss:0.000083, SSIM: 0.014147758483886719                	Val Epoch Loss: 0.001073,Val MSE: 0.000062
+Task: Reconstruction, Epoch:149, Epoch Loss: 0.0007163903210312128, Loss:0.001533, MSELoss:0.000171, SSIM: 0.02894413471221924                	Val Epoch Loss: 0.001536,Val MSE: 0.000060
+Avg Epoch Test Loss: 0.0006673887925401989, Last MSE Test Loss: 0.0008740568882785738
+written to: ./models/img/14.2.lrs.216.20231205214713_img.pth
+written to: ./models/img/14.2.lrs.216.20231205214713_img.pt
+written to: ./results/loss_tracker_img.csv
+Elapsed time: 3840.7122673988342 seconds.

@@ -1,0 +1,39 @@
+2635041
+1.3.1.b
+1.3.1 Dropout for first time
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+alpha 0.1
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))
+  (1): BatchNorm2d(6, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU()
+  (3): Dropout(p=0.3, inplace=False)
+  (4): Conv2d(6, 18, kernel_size=(5, 5), stride=(1, 1))
+  (5): BatchNorm2d(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (6): ReLU()
+  (7): Dropout(p=0.3, inplace=False)
+  (8): Conv2d(18, 54, kernel_size=(5, 5), stride=(1, 1))
+  (9): BatchNorm2d(54, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (10): ReLU()
+  (11): Dropout(p=0.3, inplace=False)
+  (12): Conv2d(54, 108, kernel_size=(3, 3), stride=(1, 1))
+  (13): BatchNorm2d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (14): ReLU()
+  (15): Dropout(p=0.3, inplace=False)
+  (16): Conv2d(108, 216, kernel_size=(2, 2), stride=(1, 1))
+  (17): BatchNorm2d(216, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (18): Flatten(start_dim=1, end_dim=-1)
+)
+Task: Training Epoch @ 000 L: 0.080659 M: 0.067150 S: 0.518686 -- Last: L: 0.073974 M: 0.006350 S: 0.514446 -- V2LR: Epoch M: 0.927860 Last M: 0.882922 !==! Task: Validation Epoch @ 000 L: 0.070284 M: 0.073244 S: 0.441635 -- Last: L: 0.052311 M: 0.004112 S: 0.364059 -- V2LR: Epoch M: 2.678770 Last M: 1.377077
+Task: Training Epoch @ 001 L: 0.068449 M: 0.067174 S: 0.433023 -- Last: L: 0.066434 M: 0.006243 S: 0.461626 -- V2LR: Epoch M: 0.884940 Last M: 0.890221 !==! Task: Validation Epoch @ 001 L: 0.065196 M: 0.073759 S: 0.405586 -- Last: L: 0.034130 M: 0.006908 S: 0.234563 -- V2LR: Epoch M: 2.893070 Last M: 2.749705
+Task: Training Epoch @ 002 L: 0.063377 M: 0.067259 S: 0.397385 -- Last: L: 0.061421 M: 0.006361 S: 0.426382 -- V2LR: Epoch M: 0.923031 Last M: 0.953019 !==! Task: Validation Epoch @ 002 L: 0.061589 M: 0.076653 S: 0.378254 -- Last: L: 0.023769 M: 0.013879 S: 0.156991 -- V2LR: Epoch M: 4.248754 Last M: 6.191746
+Task: Training Epoch @ 003 L: 0.061277 M: 0.067560 S: 0.382440 -- Last: L: 0.058098 M: 0.006715 S: 0.402822 -- V2LR: Epoch M: 0.997829 Last M: 1.040338 !==! Task: Validation Epoch @ 003 L: 0.058821 M: 0.082678 S: 0.354609 -- Last: L: 0.019709 M: 0.033117 S: 0.115023 -- V2LR: Epoch M: 6.655841 Last M: 14.451670
+Task: Training Epoch @ 005 L: 0.058681 M: 0.068355 S: 0.363676 -- Last: L: 0.052581 M: 0.007601 S: 0.363502 -- V2LR: Epoch M: 1.227549 Last M: 1.314736 !==! Task: Validation Epoch @ 005 L: 0.058474 M: 0.085829 S: 0.349966 -- Last: L: 0.018258 M: 0.032682 S: 0.105150 -- V2LR: Epoch M: 7.572821 Last M: 13.423064
+Task: Training Epoch @ 007 L: 0.055918 M: 0.069562 S: 0.343450 -- Last: L: 0.048029 M: 0.008828 S: 0.330709 -- V2LR: Epoch M: 1.651130 Last M: 1.768393 !==! Task: Validation Epoch @ 007 L: 0.056007 M: 0.107705 S: 0.317318 -- Last: L: 0.018187 M: 0.081899 S: 0.070127 -- V2LR: Epoch M: 16.036162 Last M: 32.797035
+Task: Testing Epoch @ 000 L: 0.055051 M: 0.099223 S: 0.316561 -- Last: L: 0.076447 M: 0.241866 S: 0.366588 -- V2LR: Epoch M: 13.569874 Last M: 15.915276
+written to: ./models/v2lr/1.3.1.b.20231208004112_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 6567.651163578033 seconds.

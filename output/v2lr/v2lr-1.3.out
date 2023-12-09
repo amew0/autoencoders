@@ -1,0 +1,191 @@
+2633586
+1.3
+from 1,16,16->216,1,1
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+0.1
+Config : alpha 0.1
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Conv2d(1, 6, kernel_size=(5, 5), stride=(1, 1))
+  (1): BatchNorm2d(6, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU()
+  (3): Conv2d(6, 18, kernel_size=(5, 5), stride=(1, 1))
+  (4): BatchNorm2d(18, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (5): ReLU()
+  (6): Conv2d(18, 54, kernel_size=(5, 5), stride=(1, 1))
+  (7): BatchNorm2d(54, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (8): ReLU()
+  (9): Conv2d(54, 108, kernel_size=(3, 3), stride=(1, 1))
+  (10): BatchNorm2d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (11): ReLU()
+  (12): Conv2d(108, 216, kernel_size=(2, 2), stride=(1, 1))
+  (13): BatchNorm2d(216, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (14): Flatten(start_dim=1, end_dim=-1)
+)
+Task: Training Epoch @ 0 L: 0.041636 M: 0.067987 S: 0.387084 -- Last: L: 0.029261 M: 0.009077 S: 0.315038 -- V2LR: Epoch M: 1.050981 Last M: 1.545849
+Task: Validation Epoch @ 0 L: 0.038580 M: 0.084145 S: 0.335170 -- Last: L: 0.012614 M: 0.020881 S: 0.116959 -- V2LR: Epoch M: 6.031455 Last M: 7.395356
+Digging!! Task: Training Epoch @ 0 L: 0.031289 M: 0.077467 S: 0.261579 -- Last: L: 0.021929 M: 0.016637 S: 0.225170 -- V2LR: Epoch M: 3.771262 Last M: 3.786884
+Digging!! Task: Training Epoch @ 0 L: 0.031230 M: 0.077520 S: 0.260870 -- Last: L: 0.021931 M: 0.016638 S: 0.225188 -- V2LR: Epoch M: 3.787360 Last M: 3.787896
+Digging!! Task: Training Epoch @ 0 L: 0.031271 M: 0.077483 S: 0.261368 -- Last: L: 0.022009 M: 0.016639 S: 0.226053 -- V2LR: Epoch M: 3.774759 Last M: 3.781797
+Digging!! Task: Training Epoch @ 0 L: 0.031199 M: 0.077543 S: 0.260501 -- Last: L: 0.022029 M: 0.016652 S: 0.226266 -- V2LR: Epoch M: 3.791664 Last M: 3.793199
+Digging!! Task: Training Epoch @ 0 L: 0.031224 M: 0.077519 S: 0.260795 -- Last: L: 0.021995 M: 0.016635 S: 0.225909 -- V2LR: Epoch M: 3.789141 Last M: 3.787914
+Digging!! Task: Training Epoch @ 0 L: 0.031230 M: 0.077508 S: 0.260885 -- Last: L: 0.021983 M: 0.016612 S: 0.225800 -- V2LR: Epoch M: 3.787020 Last M: 3.783335
+Digging!! Task: Training Epoch @ 0 L: 0.031234 M: 0.077523 S: 0.260910 -- Last: L: 0.022012 M: 0.016651 S: 0.226077 -- V2LR: Epoch M: 3.791871 Last M: 3.787791
+Digging!! Task: Training Epoch @ 0 L: 0.031248 M: 0.077498 S: 0.261090 -- Last: L: 0.022008 M: 0.016621 S: 0.226063 -- V2LR: Epoch M: 3.784175 Last M: 3.785492
+Digging!! Task: Training Epoch @ 0 L: 0.031215 M: 0.077530 S: 0.260684 -- Last: L: 0.021985 M: 0.016636 S: 0.225796 -- V2LR: Epoch M: 3.791258 Last M: 3.785065
+Digging!! Task: Training Epoch @ 0 L: 0.031315 M: 0.077402 S: 0.261942 -- Last: L: 0.022265 M: 0.016589 S: 0.228955 -- V2LR: Epoch M: 3.749706 Last M: 3.772128
+Digging!! Task: Training Epoch @ 0 L: 0.031221 M: 0.077516 S: 0.260775 -- Last: L: 0.022077 M: 0.016665 S: 0.226781 -- V2LR: Epoch M: 3.784304 Last M: 3.787439
+Digging!! Task: Training Epoch @ 0 L: 0.031203 M: 0.077533 S: 0.260551 -- Last: L: 0.022048 M: 0.016647 S: 0.226480 -- V2LR: Epoch M: 3.785673 Last M: 3.784398
+Digging!! Task: Training Epoch @ 0 L: 0.031464 M: 0.077304 S: 0.263708 -- Last: L: 0.022001 M: 0.016411 S: 0.226222 -- V2LR: Epoch M: 3.717691 Last M: 3.730020
+Digging!! Task: Training Epoch @ 0 L: 0.031330 M: 0.077402 S: 0.262104 -- Last: L: 0.022009 M: 0.016573 S: 0.226129 -- V2LR: Epoch M: 3.754577 Last M: 3.774432
+Digging!! Task: Training Epoch @ 0 L: 0.031301 M: 0.077429 S: 0.261756 -- Last: L: 0.021997 M: 0.016609 S: 0.225958 -- V2LR: Epoch M: 3.762098 Last M: 3.783273
+Digging!! Task: Training Epoch @ 0 L: 0.031210 M: 0.077536 S: 0.260623 -- Last: L: 0.022032 M: 0.016622 S: 0.226333 -- V2LR: Epoch M: 3.797559 Last M: 3.785951
+Digging!! Task: Training Epoch @ 0 L: 0.031223 M: 0.077533 S: 0.260771 -- Last: L: 0.021995 M: 0.016644 S: 0.225900 -- V2LR: Epoch M: 3.796454 Last M: 3.796539
+Digging!! Task: Training Epoch @ 0 L: 0.031304 M: 0.077466 S: 0.261744 -- Last: L: 0.022055 M: 0.016500 S: 0.226723 -- V2LR: Epoch M: 3.775608 Last M: 3.744948
+Digging!! Task: Training Epoch @ 0 L: 0.031266 M: 0.077487 S: 0.261303 -- Last: L: 0.023075 M: 0.017073 S: 0.237418 -- V2LR: Epoch M: 3.787820 Last M: 3.798584
+Digging!! Task: Training Epoch @ 0 L: 0.031261 M: 0.077508 S: 0.261230 -- Last: L: 0.023018 M: 0.017098 S: 0.236758 -- V2LR: Epoch M: 3.795413 Last M: 3.808003
+Digging!! Task: Training Epoch @ 0 L: 0.031257 M: 0.077503 S: 0.261189 -- Last: L: 0.023027 M: 0.017100 S: 0.236852 -- V2LR: Epoch M: 3.797488 Last M: 3.805983
+Digging!! Task: Training Epoch @ 0 L: 0.031265 M: 0.077508 S: 0.261264 -- Last: L: 0.023019 M: 0.017070 S: 0.236800 -- V2LR: Epoch M: 3.800472 Last M: 3.801860
+Digging!! Task: Training Epoch @ 0 L: 0.031275 M: 0.077477 S: 0.261409 -- Last: L: 0.022030 M: 0.016631 S: 0.226305 -- V2LR: Epoch M: 3.789403 Last M: 3.792320
+Digging!! Task: Training Epoch @ 0 L: 0.031238 M: 0.077507 S: 0.260972 -- Last: L: 0.021984 M: 0.016667 S: 0.225753 -- V2LR: Epoch M: 3.794291 Last M: 3.800178
+Digging!! Task: Training Epoch @ 0 L: 0.031230 M: 0.077513 S: 0.260876 -- Last: L: 0.027109 M: 0.016548 S: 0.282822 -- V2LR: Epoch M: 3.794428 Last M: 3.772938
+Digging!! Task: Training Epoch @ 0 L: 0.031289 M: 0.077527 S: 0.261509 -- Last: L: 0.023045 M: 0.017087 S: 0.237072 -- V2LR: Epoch M: 3.793560 Last M: 3.790728
+Digging!! Task: Training Epoch @ 0 L: 0.031303 M: 0.077515 S: 0.261685 -- Last: L: 0.023056 M: 0.017118 S: 0.237158 -- V2LR: Epoch M: 3.779931 Last M: 3.793116
+Digging!! Task: Training Epoch @ 0 L: 0.031235 M: 0.077553 S: 0.260889 -- Last: L: 0.023027 M: 0.017126 S: 0.236831 -- V2LR: Epoch M: 3.793264 Last M: 3.796816
+Digging!! Task: Training Epoch @ 0 L: 0.031315 M: 0.077471 S: 0.261870 -- Last: L: 0.023097 M: 0.017077 S: 0.237654 -- V2LR: Epoch M: 3.766962 Last M: 3.782597
+Digging!! Task: Training Epoch @ 0 L: 0.031273 M: 0.077545 S: 0.261316 -- Last: L: 0.023104 M: 0.017098 S: 0.237709 -- V2LR: Epoch M: 3.782540 Last M: 3.787355
+Digging!! Task: Training Epoch @ 0 L: 0.031318 M: 0.077555 S: 0.261804 -- Last: L: 0.023050 M: 0.017134 S: 0.237076 -- V2LR: Epoch M: 3.791978 Last M: 3.803516
+Digging!! Task: Training Epoch @ 0 L: 0.031332 M: 0.077514 S: 0.262010 -- Last: L: 0.023056 M: 0.017080 S: 0.237195 -- V2LR: Epoch M: 3.788842 Last M: 3.797427
+Digging!! Task: Training Epoch @ 0 L: 0.031393 M: 0.077444 S: 0.262766 -- Last: L: 0.023057 M: 0.016576 S: 0.237771 -- V2LR: Epoch M: 3.775011 Last M: 3.799497
+Digging!! Task: Training Epoch @ 0 L: 0.031417 M: 0.077427 S: 0.263044 -- Last: L: 0.023127 M: 0.016514 S: 0.238618 -- V2LR: Epoch M: 3.771106 Last M: 3.786031
+Digging!! Task: Training Epoch @ 0 L: 0.031525 M: 0.077256 S: 0.264435 -- Last: L: 0.023053 M: 0.016459 S: 0.237860 -- V2LR: Epoch M: 3.721707 Last M: 3.778317
+Digging!! Task: Training Epoch @ 0 L: 0.031446 M: 0.077352 S: 0.263455 -- Last: L: 0.022021 M: 0.016585 S: 0.226253 -- V2LR: Epoch M: 3.755521 Last M: 3.784179
+Digging!! Task: Training Epoch @ 0 L: 0.031356 M: 0.077384 S: 0.262421 -- Last: L: 0.023098 M: 0.017024 S: 0.237731 -- V2LR: Epoch M: 3.761086 Last M: 3.777656
+Digging!! Task: Training Epoch @ 0 L: 0.031298 M: 0.077458 S: 0.261689 -- Last: L: 0.026380 M: 0.016587 S: 0.274682 -- V2LR: Epoch M: 3.778983 Last M: 3.773070
+Digging!! Task: Training Epoch @ 0 L: 0.031379 M: 0.077424 S: 0.262627 -- Last: L: 0.022005 M: 0.016660 S: 0.225984 -- V2LR: Epoch M: 3.780333 Last M: 3.804892
+Digging!! Task: Training Epoch @ 0 L: 0.031326 M: 0.077478 S: 0.261981 -- Last: L: 0.023064 M: 0.016531 S: 0.237902 -- V2LR: Epoch M: 3.795804 Last M: 3.801879
+Digging!! Task: Training Epoch @ 0 L: 0.031426 M: 0.077338 S: 0.263248 -- Last: L: 0.023049 M: 0.017039 S: 0.237170 -- V2LR: Epoch M: 3.747159 Last M: 3.783998
+Digging!! Task: Training Epoch @ 0 L: 0.031301 M: 0.077497 S: 0.261679 -- Last: L: 0.023086 M: 0.017111 S: 0.237496 -- V2LR: Epoch M: 3.787852 Last M: 3.798933
+Digging!! Task: Training Epoch @ 0 L: 0.031333 M: 0.077456 S: 0.262087 -- Last: L: 0.023097 M: 0.017056 S: 0.237687 -- V2LR: Epoch M: 3.781581 Last M: 3.783663
+Digging!! Task: Training Epoch @ 0 L: 0.031373 M: 0.077367 S: 0.262627 -- Last: L: 0.023183 M: 0.016990 S: 0.238717 -- V2LR: Epoch M: 3.745426 Last M: 3.757536
+Digging!! Task: Training Epoch @ 0 L: 0.031313 M: 0.077447 S: 0.261875 -- Last: L: 0.023138 M: 0.017093 S: 0.238095 -- V2LR: Epoch M: 3.760729 Last M: 3.786884
+Digging!! Task: Training Epoch @ 0 L: 0.031268 M: 0.077485 S: 0.261330 -- Last: L: 0.023113 M: 0.017090 S: 0.237826 -- V2LR: Epoch M: 3.774621 Last M: 3.786198
+Digging!! Task: Training Epoch @ 0 L: 0.031273 M: 0.077498 S: 0.261373 -- Last: L: 0.023075 M: 0.017098 S: 0.237388 -- V2LR: Epoch M: 3.784917 Last M: 3.798217
+Digging!! Task: Training Epoch @ 0 L: 0.031265 M: 0.077496 S: 0.261281 -- Last: L: 0.023101 M: 0.017099 S: 0.237681 -- V2LR: Epoch M: 3.785505 Last M: 3.789987
+Digging!! Task: Training Epoch @ 0 L: 0.031278 M: 0.077541 S: 0.261375 -- Last: L: 0.021887 M: 0.016686 S: 0.224648 -- V2LR: Epoch M: 3.777901 Last M: 3.783682
+Digging!! Task: Training Epoch @ 0 L: 0.031258 M: 0.077539 S: 0.261154 -- Last: L: 0.021894 M: 0.016631 S: 0.224782 -- V2LR: Epoch M: 3.781819 Last M: 3.781308
+Digging!! Task: Training Epoch @ 0 L: 0.031273 M: 0.077515 S: 0.261353 -- Last: L: 0.022020 M: 0.016666 S: 0.226153 -- V2LR: Epoch M: 3.783775 Last M: 3.793001
+Digging!! Task: Training Epoch @ 0 L: 0.031270 M: 0.077515 S: 0.261321 -- Last: L: 0.021958 M: 0.016666 S: 0.225458 -- V2LR: Epoch M: 3.785495 Last M: 3.789932
+Digging!! Task: Training Epoch @ 0 L: 0.031293 M: 0.077449 S: 0.261642 -- Last: L: 0.022062 M: 0.016569 S: 0.226728 -- V2LR: Epoch M: 3.767678 Last M: 3.745610
+Digging!! Task: Training Epoch @ 0 L: 0.031229 M: 0.077515 S: 0.260861 -- Last: L: 0.022040 M: 0.016652 S: 0.226390 -- V2LR: Epoch M: 3.792985 Last M: 3.788504
+Digging!! Task: Training Epoch @ 0 L: 0.031565 M: 0.077177 S: 0.264967 -- Last: L: 0.021948 M: 0.016607 S: 0.225411 -- V2LR: Epoch M: 3.685760 Last M: 3.780181
+Digging!! Task: Training Epoch @ 0 L: 0.031303 M: 0.077473 S: 0.261735 -- Last: L: 0.021980 M: 0.016668 S: 0.225700 -- V2LR: Epoch M: 3.778056 Last M: 3.797454
+Digging!! Task: Training Epoch @ 0 L: 0.031241 M: 0.077497 S: 0.261016 -- Last: L: 0.022017 M: 0.016438 S: 0.226371 -- V2LR: Epoch M: 3.789058 Last M: 3.729399
+Digging!! Task: Training Epoch @ 0 L: 0.031234 M: 0.077522 S: 0.260910 -- Last: L: 0.021924 M: 0.016625 S: 0.225126 -- V2LR: Epoch M: 3.801518 Last M: 3.796396
+Digging!! Task: Training Epoch @ 0 L: 0.031287 M: 0.077464 S: 0.261562 -- Last: L: 0.021949 M: 0.016631 S: 0.225402 -- V2LR: Epoch M: 3.783058 Last M: 3.783972
+Digging!! Task: Training Epoch @ 0 L: 0.031254 M: 0.077506 S: 0.261144 -- Last: L: 0.021989 M: 0.016672 S: 0.225798 -- V2LR: Epoch M: 3.787167 Last M: 3.792561
+Digging!! Task: Training Epoch @ 0 L: 0.031248 M: 0.077498 S: 0.261095 -- Last: L: 0.022031 M: 0.016660 S: 0.226282 -- V2LR: Epoch M: 3.784996 Last M: 3.791034
+Digging!! Task: Training Epoch @ 0 L: 0.031236 M: 0.077522 S: 0.260931 -- Last: L: 0.021980 M: 0.016660 S: 0.225713 -- V2LR: Epoch M: 3.791515 Last M: 3.793788
+Digging!! Task: Training Epoch @ 0 L: 0.031261 M: 0.077496 S: 0.261242 -- Last: L: 0.021970 M: 0.016662 S: 0.225596 -- V2LR: Epoch M: 3.782590 Last M: 3.790110
+Digging!! Task: Training Epoch @ 0 L: 0.031228 M: 0.077535 S: 0.260833 -- Last: L: 0.021961 M: 0.016666 S: 0.225489 -- V2LR: Epoch M: 3.794828 Last M: 3.798288
+Digging!! Task: Training Epoch @ 0 L: 0.031226 M: 0.077523 S: 0.260823 -- Last: L: 0.021947 M: 0.016646 S: 0.225364 -- V2LR: Epoch M: 3.797777 Last M: 3.797350
+Digging!! Task: Training Epoch @ 0 L: 0.031258 M: 0.077497 S: 0.261201 -- Last: L: 0.021915 M: 0.016663 S: 0.224986 -- V2LR: Epoch M: 3.792818 Last M: 3.802748
+Digging!! Task: Training Epoch @ 0 L: 0.031230 M: 0.077531 S: 0.260855 -- Last: L: 0.021951 M: 0.016653 S: 0.225396 -- V2LR: Epoch M: 3.797086 Last M: 3.796308
+Digging!! Task: Training Epoch @ 0 L: 0.031208 M: 0.077531 S: 0.260613 -- Last: L: 0.021971 M: 0.016671 S: 0.225595 -- V2LR: Epoch M: 3.797739 Last M: 3.799130
+Digging!! Task: Training Epoch @ 0 L: 0.031255 M: 0.077560 S: 0.261098 -- Last: L: 0.021984 M: 0.016668 S: 0.225748 -- V2LR: Epoch M: 3.797047 Last M: 3.789834
+Digging!! Task: Training Epoch @ 0 L: 0.031248 M: 0.077522 S: 0.261067 -- Last: L: 0.022031 M: 0.016669 S: 0.226270 -- V2LR: Epoch M: 3.785721 Last M: 3.788385
+Digging!! Task: Training Epoch @ 0 L: 0.031239 M: 0.077529 S: 0.260955 -- Last: L: 0.022068 M: 0.016664 S: 0.226687 -- V2LR: Epoch M: 3.788975 Last M: 3.790531
+Digging!! Task: Training Epoch @ 0 L: 0.031255 M: 0.077530 S: 0.261129 -- Last: L: 0.021988 M: 0.016660 S: 0.225795 -- V2LR: Epoch M: 3.791916 Last M: 3.786727
+Digging!! Task: Training Epoch @ 0 L: 0.031251 M: 0.077499 S: 0.261123 -- Last: L: 0.022023 M: 0.016603 S: 0.226247 -- V2LR: Epoch M: 3.787106 Last M: 3.782924
+Digging!! Task: Training Epoch @ 0 L: 0.031231 M: 0.077518 S: 0.260878 -- Last: L: 0.023007 M: 0.017051 S: 0.236687 -- V2LR: Epoch M: 3.799313 Last M: 3.789512
+Digging!! Task: Training Epoch @ 0 L: 0.031251 M: 0.077519 S: 0.261100 -- Last: L: 0.023032 M: 0.017070 S: 0.236939 -- V2LR: Epoch M: 3.800883 Last M: 3.801004
+Digging!! Task: Training Epoch @ 0 L: 0.031266 M: 0.077522 S: 0.261260 -- Last: L: 0.023064 M: 0.017087 S: 0.237276 -- V2LR: Epoch M: 3.799739 Last M: 3.801069
+Digging!! Task: Training Epoch @ 0 L: 0.031265 M: 0.077519 S: 0.261253 -- Last: L: 0.022996 M: 0.017089 S: 0.236520 -- V2LR: Epoch M: 3.794985 Last M: 3.801944
+Digging!! Task: Training Epoch @ 0 L: 0.031263 M: 0.077545 S: 0.261206 -- Last: L: 0.023093 M: 0.017099 S: 0.237590 -- V2LR: Epoch M: 3.801398 Last M: 3.796578
+Digging!! Task: Training Epoch @ 0 L: 0.031232 M: 0.077546 S: 0.260856 -- Last: L: 0.023108 M: 0.017085 S: 0.237769 -- V2LR: Epoch M: 3.799706 Last M: 3.788889
+Digging!! Task: Training Epoch @ 0 L: 0.031235 M: 0.077529 S: 0.260908 -- Last: L: 0.023088 M: 0.017097 S: 0.237535 -- V2LR: Epoch M: 3.791585 Last M: 3.789644
+Digging!! Task: Training Epoch @ 0 L: 0.031242 M: 0.077545 S: 0.260968 -- Last: L: 0.023085 M: 0.017109 S: 0.237489 -- V2LR: Epoch M: 3.794096 Last M: 3.791610
+Digging!! Task: Training Epoch @ 0 L: 0.031223 M: 0.077550 S: 0.260751 -- Last: L: 0.023521 M: 0.016918 S: 0.242547 -- V2LR: Epoch M: 3.793304 Last M: 3.776007
+Digging!! Task: Training Epoch @ 0 L: 0.031221 M: 0.077540 S: 0.260742 -- Last: L: 0.023071 M: 0.017072 S: 0.237377 -- V2LR: Epoch M: 3.789767 Last M: 3.778077
+Digging!! Task: Training Epoch @ 0 L: 0.031275 M: 0.077478 S: 0.261418 -- Last: L: 0.021976 M: 0.016632 S: 0.225695 -- V2LR: Epoch M: 3.772867 Last M: 3.778938
+Digging!! Task: Training Epoch @ 0 L: 0.031263 M: 0.077466 S: 0.261288 -- Last: L: 0.022015 M: 0.016603 S: 0.226164 -- V2LR: Epoch M: 3.768614 Last M: 3.776279
+Digging!! Task: Training Epoch @ 0 L: 0.031369 M: 0.077391 S: 0.262551 -- Last: L: 0.021962 M: 0.016645 S: 0.225526 -- V2LR: Epoch M: 3.747927 Last M: 3.784418
+Digging!! Task: Training Epoch @ 0 L: 0.031295 M: 0.077480 S: 0.261636 -- Last: L: 0.022055 M: 0.016557 S: 0.226659 -- V2LR: Epoch M: 3.772293 Last M: 3.765668
+Digging!! Task: Training Epoch @ 0 L: 0.031276 M: 0.077471 S: 0.261427 -- Last: L: 0.021992 M: 0.016620 S: 0.225886 -- V2LR: Epoch M: 3.773174 Last M: 3.778617
+Digging!! Task: Training Epoch @ 0 L: 0.031243 M: 0.077495 S: 0.261043 -- Last: L: 0.021987 M: 0.016657 S: 0.225787 -- V2LR: Epoch M: 3.779237 Last M: 3.786308
+Digging!! Task: Training Epoch @ 0 L: 0.031230 M: 0.077524 S: 0.260862 -- Last: L: 0.023037 M: 0.017098 S: 0.236971 -- V2LR: Epoch M: 3.786411 Last M: 3.789236
+Digging!! Task: Training Epoch @ 0 L: 0.031251 M: 0.077497 S: 0.261128 -- Last: L: 0.023110 M: 0.017075 S: 0.237801 -- V2LR: Epoch M: 3.772831 Last M: 3.779425
+Digging!! Task: Training Epoch @ 0 L: 0.031242 M: 0.077544 S: 0.260977 -- Last: L: 0.023075 M: 0.017111 S: 0.237378 -- V2LR: Epoch M: 3.783826 Last M: 3.788419
+Digging!! Task: Training Epoch @ 0 L: 0.031455 M: 0.077416 S: 0.263487 -- Last: L: 0.022985 M: 0.017063 S: 0.236426 -- V2LR: Epoch M: 3.740648 Last M: 3.781140
+Digging!! Task: Training Epoch @ 0 L: 0.031278 M: 0.077550 S: 0.261371 -- Last: L: 0.023063 M: 0.017099 S: 0.237258 -- V2LR: Epoch M: 3.785672 Last M: 3.788405
+Digging!! Task: Training Epoch @ 0 L: 0.031288 M: 0.077545 S: 0.261480 -- Last: L: 0.029978 M: 0.016493 S: 0.314762 -- V2LR: Epoch M: 3.781021 Last M: 3.736396
+Digging!! Task: Training Epoch @ 0 L: 0.031433 M: 0.077356 S: 0.263306 -- Last: L: 0.023034 M: 0.017109 S: 0.236919 -- V2LR: Epoch M: 3.719918 Last M: 3.781771
+Digging!! Task: Training Epoch @ 0 L: 0.031243 M: 0.077557 S: 0.260973 -- Last: L: 0.023044 M: 0.017118 S: 0.237023 -- V2LR: Epoch M: 3.773940 Last M: 3.782981
+Digging!! Task: Training Epoch @ 0 L: 0.031253 M: 0.077544 S: 0.261092 -- Last: L: 0.023055 M: 0.017135 S: 0.237127 -- V2LR: Epoch M: 3.771849 Last M: 3.787566
+Digging!! Task: Training Epoch @ 0 L: 0.031429 M: 0.077340 S: 0.263282 -- Last: L: 0.022972 M: 0.016469 S: 0.236945 -- V2LR: Epoch M: 3.704854 Last M: 3.744125
+Digging!! Task: Training Epoch @ 0 L: 0.031268 M: 0.077559 S: 0.261249 -- Last: L: 0.022954 M: 0.016619 S: 0.236584 -- V2LR: Epoch M: 3.777378 Last M: 3.782043
+Digging!! Task: Training Epoch @ 0 L: 0.031356 M: 0.077475 S: 0.262320 -- Last: L: 0.022922 M: 0.016580 S: 0.236270 -- V2LR: Epoch M: 3.752599 Last M: 3.778435
+Digging!! Task: Training Epoch @ 0 L: 0.031297 M: 0.077513 S: 0.261622 -- Last: L: 0.023102 M: 0.017144 S: 0.237635 -- V2LR: Epoch M: 3.761488 Last M: 3.786189
+Digging!! Task: Training Epoch @ 0 L: 0.031213 M: 0.077584 S: 0.260612 -- Last: L: 0.042934 M: 0.007996 S: 0.468160 -- V2LR: Epoch M: 3.778503 Last M: 0.980474
+Digging!! Task: Training Epoch @ 0 L: 0.031359 M: 0.077446 S: 0.262379 -- Last: L: 0.023158 M: 0.016241 S: 0.239261 -- V2LR: Epoch M: 3.737232 Last M: 3.658139
+Digging!! Task: Training Epoch @ 0 L: 0.031305 M: 0.077476 S: 0.261748 -- Last: L: 0.023027 M: 0.017138 S: 0.236813 -- V2LR: Epoch M: 3.754829 Last M: 3.790733
+Digging!! Task: Training Epoch @ 0 L: 0.031244 M: 0.077562 S: 0.260972 -- Last: L: 0.023032 M: 0.017121 S: 0.236889 -- V2LR: Epoch M: 3.780537 Last M: 3.792546
+Digging!! Task: Training Epoch @ 0 L: 0.031434 M: 0.077351 S: 0.263321 -- Last: L: 0.023079 M: 0.016988 S: 0.237560 -- V2LR: Epoch M: 3.724868 Last M: 3.762818
+Digging!! Task: Training Epoch @ 0 L: 0.031285 M: 0.077464 S: 0.261541 -- Last: L: 0.023073 M: 0.017109 S: 0.237358 -- V2LR: Epoch M: 3.769559 Last M: 3.797488
+Digging!! Task: Training Epoch @ 0 L: 0.031231 M: 0.077549 S: 0.260846 -- Last: L: 0.022023 M: 0.016674 S: 0.226179 -- V2LR: Epoch M: 3.794239 Last M: 3.797998
+Digging!! Task: Training Epoch @ 0 L: 0.031407 M: 0.077374 S: 0.262997 -- Last: L: 0.022105 M: 0.016468 S: 0.227312 -- V2LR: Epoch M: 3.747665 Last M: 3.747255
+Digging!! Task: Training Epoch @ 0 L: 0.031249 M: 0.077466 S: 0.261134 -- Last: L: 0.021963 M: 0.016640 S: 0.225545 -- V2LR: Epoch M: 3.783560 Last M: 3.797958
+Digging!! Task: Training Epoch @ 0 L: 0.031231 M: 0.077516 S: 0.260877 -- Last: L: 0.021918 M: 0.016645 S: 0.225044 -- V2LR: Epoch M: 3.795358 Last M: 3.792352
+Digging!! Task: Training Epoch @ 0 L: 0.031210 M: 0.077535 S: 0.260629 -- Last: L: 0.021896 M: 0.016646 S: 0.224789 -- V2LR: Epoch M: 3.792910 Last M: 3.791162
+Digging!! Task: Training Epoch @ 0 L: 0.031296 M: 0.077457 S: 0.261673 -- Last: L: 0.022350 M: 0.015752 S: 0.230831 -- V2LR: Epoch M: 3.768895 Last M: 3.501705
+Digging!! Task: Training Epoch @ 0 L: 0.031304 M: 0.077400 S: 0.261827 -- Last: L: 0.023141 M: 0.017071 S: 0.238150 -- V2LR: Epoch M: 3.756693 Last M: 3.786564
+Digging!! Task: Training Epoch @ 0 L: 0.031221 M: 0.077485 S: 0.260801 -- Last: L: 0.022035 M: 0.016615 S: 0.226368 -- V2LR: Epoch M: 3.781089 Last M: 3.780411
+Digging!! Task: Training Epoch @ 0 L: 0.031202 M: 0.077513 S: 0.260559 -- Last: L: 0.021982 M: 0.016656 S: 0.225743 -- V2LR: Epoch M: 3.788900 Last M: 3.792025
+Digging!! Task: Training Epoch @ 0 L: 0.031190 M: 0.077521 S: 0.260418 -- Last: L: 0.022019 M: 0.016658 S: 0.226146 -- V2LR: Epoch M: 3.789797 Last M: 3.787911
+Digging!! Task: Training Epoch @ 0 L: 0.031441 M: 0.077307 S: 0.263451 -- Last: L: 0.022068 M: 0.016503 S: 0.226858 -- V2LR: Epoch M: 3.725405 Last M: 3.751859
+Digging!! Task: Training Epoch @ 0 L: 0.031278 M: 0.077418 S: 0.261510 -- Last: L: 0.023085 M: 0.017065 S: 0.237537 -- V2LR: Epoch M: 3.764481 Last M: 3.785462
+Digging!! Task: Training Epoch @ 0 L: 0.031216 M: 0.077499 S: 0.260736 -- Last: L: 0.023172 M: 0.016899 S: 0.238693 -- V2LR: Epoch M: 3.783738 Last M: 3.736041
+Digging!! Task: Training Epoch @ 0 L: 0.031648 M: 0.077154 S: 0.265919 -- Last: L: 0.022178 M: 0.016045 S: 0.228592 -- V2LR: Epoch M: 3.671072 Last M: 3.618422
+Digging!! Task: Training Epoch @ 0 L: 0.032312 M: 0.076293 S: 0.274254 -- Last: L: 0.022310 M: 0.016083 S: 0.230024 -- V2LR: Epoch M: 3.418491 Last M: 3.635272
+Digging!! Task: Training Epoch @ 0 L: 0.031307 M: 0.077331 S: 0.261937 -- Last: L: 0.022024 M: 0.016652 S: 0.226209 -- V2LR: Epoch M: 3.743399 Last M: 3.791046
+Digging!! Task: Training Epoch @ 0 L: 0.031328 M: 0.077398 S: 0.262089 -- Last: L: 0.022014 M: 0.016625 S: 0.226125 -- V2LR: Epoch M: 3.756487 Last M: 3.786363
+Digging!! Task: Training Epoch @ 0 L: 0.031280 M: 0.077468 S: 0.261481 -- Last: L: 0.023039 M: 0.016534 S: 0.237622 -- V2LR: Epoch M: 3.778406 Last M: 3.796423
+Digging!! Task: Training Epoch @ 0 L: 0.031558 M: 0.077182 S: 0.264888 -- Last: L: 0.023103 M: 0.016466 S: 0.238402 -- V2LR: Epoch M: 3.696660 Last M: 3.780818
+Digging!! Task: Training Epoch @ 0 L: 0.031764 M: 0.077018 S: 0.267355 -- Last: L: 0.023111 M: 0.016182 S: 0.238810 -- V2LR: Epoch M: 3.649815 Last M: 3.708537
+Digging!! Task: Training Epoch @ 0 L: 0.032107 M: 0.076536 S: 0.271707 -- Last: L: 0.023361 M: 0.016047 S: 0.241741 -- V2LR: Epoch M: 3.505859 Last M: 3.671646
+Digging!! Task: Training Epoch @ 0 L: 0.031788 M: 0.076814 S: 0.267848 -- Last: L: 0.023150 M: 0.016261 S: 0.239153 -- V2LR: Epoch M: 3.597110 Last M: 3.724508
+Digging!! Task: Training Epoch @ 0 L: 0.031976 M: 0.076680 S: 0.270094 -- Last: L: 0.023109 M: 0.016226 S: 0.238737 -- V2LR: Epoch M: 3.551605 Last M: 3.720027
+Digging!! Task: Training Epoch @ 0 L: 0.031484 M: 0.077154 S: 0.264096 -- Last: L: 0.022002 M: 0.016479 S: 0.226153 -- V2LR: Epoch M: 3.696226 Last M: 3.757133
+Digging!! Task: Training Epoch @ 0 L: 0.031437 M: 0.077240 S: 0.263476 -- Last: L: 0.022317 M: 0.016303 S: 0.229853 -- V2LR: Epoch M: 3.718477 Last M: 3.724932
+Digging!! Task: Training Epoch @ 0 L: 0.031373 M: 0.077318 S: 0.262679 -- Last: L: 0.021948 M: 0.016600 S: 0.225419 -- V2LR: Epoch M: 3.743136 Last M: 3.789733
+Digging!! Task: Training Epoch @ 0 L: 0.031251 M: 0.077476 S: 0.261151 -- Last: L: 0.021978 M: 0.016626 S: 0.225725 -- V2LR: Epoch M: 3.786436 Last M: 3.788095
+Digging!! Task: Training Epoch @ 0 L: 0.031300 M: 0.077434 S: 0.261742 -- Last: L: 0.021986 M: 0.016521 S: 0.225935 -- V2LR: Epoch M: 3.770810 Last M: 3.766710
+Digging!! Task: Training Epoch @ 0 L: 0.031289 M: 0.077395 S: 0.261665 -- Last: L: 0.021919 M: 0.016571 S: 0.225136 -- V2LR: Epoch M: 3.762599 Last M: 3.783043
+Digging!! Task: Training Epoch @ 0 L: 0.031222 M: 0.077510 S: 0.260788 -- Last: L: 0.021996 M: 0.016583 S: 0.225979 -- V2LR: Epoch M: 3.798007 Last M: 3.780199
+Digging!! Task: Training Epoch @ 0 L: 0.031244 M: 0.077477 S: 0.261070 -- Last: L: 0.021962 M: 0.016640 S: 0.225534 -- V2LR: Epoch M: 3.787494 Last M: 3.795152
+Digging!! Task: Training Epoch @ 0 L: 0.031231 M: 0.077512 S: 0.260884 -- Last: L: 0.028654 M: 0.016625 S: 0.299904 -- V2LR: Epoch M: 3.796389 Last M: 3.761722
+Digging!! Task: Training Epoch @ 0 L: 0.031210 M: 0.077542 S: 0.260619 -- Last: L: 0.021870 M: 0.016665 S: 0.224483 -- V2LR: Epoch M: 3.803311 Last M: 3.801316
+Digging!! Task: Training Epoch @ 0 L: 0.031257 M: 0.077496 S: 0.261195 -- Last: L: 0.023507 M: 0.016906 S: 0.242407 -- V2LR: Epoch M: 3.789538 Last M: 3.787765
+Digging!! Task: Training Epoch @ 0 L: 0.031221 M: 0.077539 S: 0.260750 -- Last: L: 0.029869 M: 0.016630 S: 0.313404 -- V2LR: Epoch M: 3.803763 Last M: 3.784521
+Digging!! Task: Training Epoch @ 0 L: 0.031229 M: 0.077534 S: 0.260839 -- Last: L: 0.043165 M: 0.007963 S: 0.470767 -- V2LR: Epoch M: 3.804046 Last M: 0.977765
+Digging!! Task: Training Epoch @ 0 L: 0.031274 M: 0.077460 S: 0.261422 -- Last: L: 0.023085 M: 0.017084 S: 0.237520 -- V2LR: Epoch M: 3.779647 Last M: 3.795619
+Digging!! Task: Training Epoch @ 0 L: 0.031228 M: 0.077525 S: 0.260837 -- Last: L: 0.023111 M: 0.017006 S: 0.237898 -- V2LR: Epoch M: 3.798560 Last M: 3.776204
+Digging!! Task: Training Epoch @ 0 L: 0.031209 M: 0.077541 S: 0.260610 -- Last: L: 0.021944 M: 0.016672 S: 0.225295 -- V2LR: Epoch M: 3.799514 Last M: 3.797603
+Digging!! Task: Training Epoch @ 0 L: 0.031208 M: 0.077532 S: 0.260609 -- Last: L: 0.021920 M: 0.016626 S: 0.225082 -- V2LR: Epoch M: 3.801126 Last M: 3.789783
+Digging!! Task: Training Epoch @ 0 L: 0.031198 M: 0.077536 S: 0.260498 -- Last: L: 0.021931 M: 0.016661 S: 0.225167 -- V2LR: Epoch M: 3.801801 Last M: 3.796000
+Digging!! Task: Training Epoch @ 0 L: 0.031196 M: 0.077535 S: 0.260471 -- Last: L: 0.021924 M: 0.016662 S: 0.225083 -- V2LR: Epoch M: 3.804294 Last M: 3.797045
+Digging!! Task: Training Epoch @ 0 L: 0.031215 M: 0.077514 S: 0.260708 -- Last: L: 0.021908 M: 0.016615 S: 0.224967 -- V2LR: Epoch M: 3.796034 Last M: 3.786197
+Digging!! Task: Training Epoch @ 0 L: 0.031242 M: 0.077505 S: 0.261012 -- Last: L: 0.028278 M: 0.016605 S: 0.295752 -- V2LR: Epoch M: 3.791095 Last M: 3.748910
+Digging!! Task: Training Epoch @ 0 L: 0.031387 M: 0.077365 S: 0.262786 -- Last: L: 0.023084 M: 0.017014 S: 0.237581 -- V2LR: Epoch M: 3.745058 Last M: 3.774482
+Digging!! Task: Training Epoch @ 0 L: 0.031208 M: 0.077521 S: 0.260623 -- Last: L: 0.022018 M: 0.016352 S: 0.226478 -- V2LR: Epoch M: 3.793160 Last M: 3.689726
+Digging!! Task: Training Epoch @ 0 L: 0.031228 M: 0.077485 S: 0.260881 -- Last: L: 0.021976 M: 0.016672 S: 0.225648 -- V2LR: Epoch M: 3.777608 Last M: 3.790313
+Digging!! Task: Training Epoch @ 0 L: 0.031183 M: 0.077529 S: 0.260334 -- Last: L: 0.022051 M: 0.016674 S: 0.226487 -- V2LR: Epoch M: 3.788144 Last M: 3.790756
+Digging!! Task: Training Epoch @ 0 L: 0.031448 M: 0.077353 S: 0.263479 -- Last: L: 0.022192 M: 0.016333 S: 0.228428 -- V2LR: Epoch M: 3.728437 Last M: 3.692786
+Digging!! Task: Training Epoch @ 0 L: 0.031359 M: 0.077313 S: 0.262530 -- Last: L: 0.021997 M: 0.016639 S: 0.225921 -- V2LR: Epoch M: 3.724941 Last M: 3.786253
+Digging!! Task: Training Epoch @ 0 L: 0.031210 M: 0.077516 S: 0.260645 -- Last: L: 0.021950 M: 0.016656 S: 0.225380 -- V2LR: Epoch M: 3.786636 Last M: 3.788247
+Task: Testing Epoch @ 0 L: 0.038436 M: 0.082726 S: 0.335153 -- Last: L: 0.062886 M: 0.205300 S: 0.470618 -- V2LR: Epoch M: 6.267419 Last M: 0.716817
+written to: ./models/v2lr/1.3.20231207050345_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 6403.912476539612 seconds.

@@ -1,9 +1,10 @@
 #!/bin/bash
-#SBATCH --nodes=4
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name=v2lr-auto-vscode
-#SBATCH --time=4:59:59
-#SBATCH --partition=prod
+#SBATCH --time=08:00:00
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
 #SBATCH --output=./output/v2lr/v2lr-%j.out
 

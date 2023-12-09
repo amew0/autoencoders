@@ -43,7 +43,6 @@ Available Classes:
     (not recommended)
     v16toi24 + (0014.pt)
 """
-
 """
 LAYER exp
 """
@@ -67,12 +66,34 @@ def kspo(input_size, output_size):
                         possible_params.append((k, s, p, op))
     return possible_params
 
-def optimizer_build(optimizer_config,model):
+def optimizer_build(optimizer_config,model:torch.nn.Module):
     if 'Adam' in optimizer_config:
         adam = optimizer_config['Adam']
         return torch.optim.Adam(model.parameters(),
             lr=adam['learning_rate'],
             weight_decay=adam['weight_decay'])
+    
+    elif 'LBFSG' in optimizer_config:
+        return torch.optim.LBFGS(model.parameters())
+    
+    elif 'SGD' in optimizer_config:
+        sgd = optimizer_config['SGD']
+        return torch.optim.SGD(model.parameters(),
+            lr=sgd['learning_rate'],
+            weight_decay=sgd['weight_decay'],
+            momentum=sgd['momentum'])
+    
+    elif 'RMSprop' in optimizer_config:
+        rmsprop = optimizer_config['RMSprop']
+        return torch.optim.RMSprop(model.parameters(),
+            lr=rmsprop['learning_rate'],
+            weight_decay=rmsprop['weight_decay'])
+    
+    elif 'Adagrad' in optimizer_config:
+        adagrad = optimizer_config['Adagrad']
+        return torch.optim.Adagrad(model.parameters(),
+            lr=adagrad['learning_rate'],
+            weight_decay=adagrad['weight_decay'])
 
 """
 DATA LOADING
@@ -272,23 +293,25 @@ class Autoencoder_Linear(nn.Module):
 V2LR
 """
 class V2ImgLR (nn.Module):
-    def __init__(self):
+    def __init__(self,recon_path="./models/img/14.2.1.retraining.2.20231130014311_img.pt",train_recon=False):
         super().__init__()
-        # model = torch.load("./models/v2lr/2_1.2.1.1.20231117023937_v2lr.pt")
-        # for param in model.parameters():
-        #     param.requires_grad = False
-        self.v2lr = None
-        # 1.3 with hidden linear
-        # self.v2lr = nn.Sequential(
-        #     nn.Flatten(),
-        #     nn.Linear(256, 64),
-        #     nn.ReLU(),
-        #     nn.Linear(64, 216)
-        # )
+        recon = torch.load(recon_path)
+        print(f"Reconstructor from: {recon_path}")
+        if not train_recon:
+            for param in recon.parameters():
+                param.requires_grad = False
+        self.recon = recon
 
-    def forward(self,x):
-        mapped = self.v2lr(x)
-        return mapped
+        self.v2lr = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(256, 216)
+        )
+
+    def forward(self,diff,img):
+        mapped = self.v2lr(diff)
+        lr = self.recon.encoder(img)
+        reconstructed = self.recon.decoder(mapped)
+        return mapped,lr,reconstructed
 
 """
 INVERSE PROBLEM
@@ -456,3 +479,23 @@ class vAE(nn.Module): # not recommended
         encoded = self.encoder(transformed)
         decoded = self.decoder(encoded)
         return transformed,encoded,decoded
+
+class LossTracker:
+    def __init__(self,job="Training"):
+        self.epoch_loss = 0.0
+        self.epoch_mse_loss = 0.0
+        self.epoch_ssim = 0.0
+        self.epoch_loss_lr = 0.0
+
+        self.loss = np.inf
+        self.mse_loss = np.inf
+        self.ssim = np.inf
+        self.mse_loss_lr = np.inf
+
+        self.job = job
+
+        self.best_epoch = 0
+
+
+    def __str__(self):
+        return f"Task: {self.job} Epoch @ {self.best_epoch:03d} L: {self.epoch_loss:.6f} M: {self.epoch_mse_loss:.6f} S: {self.epoch_ssim:.6f} -- Last: L: {self.loss:.6f} M: {self.mse_loss:.6f} S: {self.ssim:.6f} -- V2LR: Epoch M: {self.epoch_loss_lr:.6f} Last M: {self.mse_loss_lr:.6f}"

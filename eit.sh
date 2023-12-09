@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name=img-auto-vscode
-#SBATCH --time=8:59:59
+#SBATCH --time=4:59:59
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --account=kunf0007
@@ -18,6 +18,7 @@ module purge
 module load miniconda/3
 
 conda activate eit
+echo $j
 echo $1
 echo $2
 python -u eit.py $1
