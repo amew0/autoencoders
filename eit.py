@@ -1,23 +1,9 @@
-'''
-This script is only for image reconstruction
-
-Note the following:
-Reconstructor (at least the first architecture) will be from Ibrar's presentation
-21 (input with minmaxscaler and tanh) (final layer tanh input )
-    21.1 (input with tanh final with tanh)
-
-Autoencoder (will be modified Autoencoder_config (where 0014.pt is))
-14.1 (first mod to 0014.pt LR to 108)
-
-Autoencoder complete linear
-'''
 import sys
 import time
 import csv
 from datetime import datetime
 from copy import deepcopy
 import numpy as np
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -25,12 +11,12 @@ from torchsummary import summary
 from torchvision import transforms
 from torch.utils.data import DataLoader,random_split
 from torchmetrics.image import StructuralSimilarityIndexMeasure
-
 from utils.classes import *
+
 print("Importing finished!!")
 
 start = time.time()
-seed,batch_size,epochs = 64,4,150
+seed,batch_size,epochs = 64,4,200
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"{device} is going to be used!!")
 
@@ -44,7 +30,7 @@ TASK = "img"
 CONDUCTANCE_VALUES = ""
 DIFFS_IMGS_TRAIN_PATH = "./data/eit/diffs_imgs_train.csv"
 DIFFS_IMGS_TEST_PATH = "./data/eit/diffs_imgs_test.csv"
-recon_path = "./models/img/14.2.1.retraining.2.20231130014311_img.pt"
+recon_path = "./models/img/14.2.2.20231210034221_img.pt"# "./models/img/14.2.1.retraining.2.20231130014311_img.pt" # "./models/img/14.2.1.20231116190651_img.pt" #"./models/img/14.2.20231110000321.pt"
 
 diff_transform = transforms.Compose([transforms.ToTensor()])
 img_transform = transforms.Compose([transforms.ToTensor()])
@@ -62,56 +48,64 @@ val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 print(f"Dataset loaded!! Length (train dataset) - {len(train_dataset)}")
 
-def play(job="Training",dataloader:DataLoader=train_dataloader,recon:nn.Module=None,mse=None,ssim=None,optimizer=None,scale_to_input = False):
-    recon.train() if job=="Training" else recon.eval()
-    epoch_loss = 0.0
+trainer = LossTracker("Training")
+validator = LossTracker("Validation")
+tester = LossTracker("Testing")
+
+def compute_mse_aoi(recons,preds):
+    mses_aoi = torch.tensor(0.0, device=device)
+    for recon,pred in zip(recons,preds):
+        vals,counts = recon.unique(return_counts=True)
+
+        foreground_value = vals[counts.argmin()]
+        aoi = (recon == foreground_value).nonzero()
+        xmin=aoi[:,1].min()
+        xmax=aoi[:,1].max()
+        ymin=aoi[:,2].min()
+        ymax=aoi[:,2].max()
+        recon_aoi = recon[:, xmin:xmax + 1, ymin:ymax + 1]
+        pred_aoi = pred[:, xmin:xmax + 1, ymin:ymax + 1]
+
+        mse_aoi=F.mse_loss(recon_aoi, pred_aoi)
+        mses_aoi += mse_aoi
+
+    mse_aoi = mses_aoi/len(recons)
+    return mse_aoi
+
+def play(dataloader:DataLoader=None,
+         tracker:LossTracker=None,
+         recon:nn.Module=None,
+         ssim=None,optimizer=None):    
+    
+    recon.train()  if tracker.job=="Training" else recon.eval()
+    
     for i, (_, batch_img) in enumerate(dataloader):
         batch_img = batch_img.to(device)
         _,batch_decoded = recon(batch_img)
         
-        if scale_to_input:
-            min_value = batch_decoded.min()
-            max_value = batch_decoded.max()
-            batch_decoded = (batch_decoded - min_value) / (max_value - min_value) \
-                * (batch_img.max() - batch_img.min()) + batch_img.min()
+        # scale_to_input removed from here
             
-        mse_loss = F.mse_loss(batch_img, batch_decoded).requires_grad_()
-        ssim_value = 1 - ssim(batch_img, batch_decoded).requires_grad_()
-
-        loss = alpha*mse_loss + beta*ssim_value
-
-        if job == "Training": # batch
+        mse_loss = F.mse_loss(batch_img, batch_decoded)
+        ssim_value = 1 - ssim(batch_img, batch_decoded) 
+        mse_aoi = compute_mse_aoi(batch_img,batch_decoded)
+        loss = mse_aoi
+     
+        if tracker.job == "Training": # batch
             optimizer.zero_grad()
-            loss.backward(retain_graph=True)
+            loss.backward()
             optimizer.step()
-        epoch_loss += loss.item()
 
+        tracker.epoch_mse_loss += mse_loss.item()
+        tracker.epoch_ssim += ssim_value.item()
+        tracker.epoch_loss += loss.item()
 
-    epoch_loss /= len(dataloader)
-    if job == "Training": # epoch
+    tracker.epoch_mse_loss /= len(dataloader)
+    tracker.epoch_ssim /= len(dataloader)
+    tracker.epoch_loss /= len(dataloader)
 
-        optimizer.zero_grad()
-        epoch_loss = torch.tensor(epoch_loss,device=device,requires_grad=True)
-        optimizer.step()
+    # epoch rebackprog removed from here
+    return tracker
 
-    return epoch_loss, mse_loss, ssim_value, loss
-
-def ksp_helper (w):
-    if w == 4: return (3,1,0),(3,1,0,0)
-    elif w == 3: return (3,2,1),(3,2,1,1)
-    elif w == 2: return (3,2,0),(3,2,0,1)
-    else: raise ValueError("w should be 2,3,4")
-
-# configs = [
-#     (12,4,*ksp_helper(4)),#192
-#     (18,3,*ksp_helper(3)),#162
-#     (16,3,*ksp_helper(3)),#144
-#     (8,4,*ksp_helper(4)),#128
-#     (6,4,*ksp_helper(4)),#96
-#     (8,3,*ksp_helper(3)),#72
-#     (5,3,*ksp_helper(3)),#45
-#     (6,2,*ksp_helper(2)),#24
-# ]
 configs=[216]
 for i,config in enumerate(configs):
     print(f"Config {config}")
@@ -121,65 +115,58 @@ for i,config in enumerate(configs):
     MODEL_STATEDICT_SAVE_PATH = f"./models/{TASK}/{id_config}_{TASK}.pth"
     MODEL_SAVE_PATH = MODEL_STATEDICT_SAVE_PATH[:-1] # pt instead of pth
 
-    # f,w,ksp_,kspo_ = config
     recon = torch.load(recon_path)
-    # recon.encoder = nn.Sequential(
-    #     *recon.encoder[:6],
-    #     nn.Conv2d(192, f, *ksp_),
-    #     nn.BatchNorm2d(f),
-    #     nn.ReLU(),
-    #     nn.Flatten()
-    # )
-    # recon.decoder = nn.Sequential(
-    #     nn.Unflatten(1, (f, w, w)),
-    #     nn.ConvTranspose2d(f, 192, *kspo_),
-    #     nn.BatchNorm2d(192),
-    #     nn.ReLU(),
-    #     *recon.decoder[2:]
-    # )
     recon = recon.to(device)
     print(recon)
 
-    mse = nn.MSELoss()
     ssim = StructuralSimilarityIndexMeasure(reduction='elementwise_mean').to(device)
     
-    optimizer_config = {'Adam': {'learning_rate':1e-3,'weight_decay':1e-5}}
+    optimizer_config = {'Adam': {'learning_rate':1e-4,'weight_decay':1e-5}}
     optimizer = optimizer_build(optimizer_config,recon)
 
     best_recon = deepcopy(recon)
     min_loss = np.inf
-    best_epoch = -1
-
-    alpha = 0.5  # Weight for MSE Loss
-    beta = 0.05 # Weight for SSIM
+    best_epoch = 0
 
     train_losses = []
+    last_printed = 0
     for epoch in range(epochs):
-        epoch_loss, mse_loss, ssim_value, loss = play("Training",train_dataloader,recon,mse,ssim,optimizer)
-        train_losses.append(loss.item())
+        trainer = play(train_dataloader,trainer,recon,ssim,optimizer)
+        train_losses.append(trainer.epoch_mse_loss)
         
         with torch.no_grad():
-            val_epoch_loss,val_mse_loss,_,_=play("Validation",val_dataloader,recon,mse,ssim)
+            validator =play(val_dataloader,validator,recon,ssim)
 
-        if (epoch % 10 == 0) or (epoch == epochs - 1):
-            print(f'Task: Reconstruction, Epoch:{epoch}, Epoch Loss: {epoch_loss}, Loss:{loss.item():.6f}, MSELoss:{mse_loss:.6f}, SSIM: {ssim_value}\
-                \tVal Epoch Loss: {val_epoch_loss:.6f},Val MSE: {val_mse_loss:.6f}')
-
-        if val_epoch_loss < min_loss:
-            min_loss = val_epoch_loss
+        if validator.epoch_loss < min_loss :
+            min_loss = validator.epoch_loss
+            
+            del best_recon
             best_recon = deepcopy(recon)
+            
             best_epoch = epoch
-            print(f"Best state dict yet, with Val Epoch MSE: {min_loss:.6f} Val MSE {mse_loss:.6f}, found @ {epoch}...")
+            trainer.best_epoch = best_epoch
+            validator.best_epoch = best_epoch
+
+            print(f"{trainer} !==! {validator}")
+            last_printed = epoch
         
+        if epoch - last_printed > 20:
+            last_printed = epoch
+
+            # note that this is not the best epoch
+            trainer.best_epoch = epoch
+            validator.best_epoch = epoch
+            print(f"Early stopping!! {trainer} !==! {validator}")
+            break
+
+    del recon
     recon = deepcopy(best_recon)
     with torch.no_grad():
-        test_epoch_loss,test_mse_loss,_,_=play("Testing",test_dataloader,recon,mse,ssim)
+        tester = play(test_dataloader,tester,recon,ssim)
         
-        train_losses.append(test_epoch_loss)
-        print(f"Avg Epoch Test Loss: {test_epoch_loss}, Last MSE Test Loss: {test_mse_loss}")
+        train_losses.append(tester.epoch_loss)
+        print(tester)
 
-    torch.save(recon.state_dict(), MODEL_STATEDICT_SAVE_PATH)
-    print(f"written to: {MODEL_STATEDICT_SAVE_PATH}")
     torch.save(recon, MODEL_SAVE_PATH) # this saves the model as-is
     print(f"written to: {MODEL_SAVE_PATH}")
 
@@ -188,4 +175,6 @@ for i,config in enumerate(configs):
         writer.writerow(train_losses)
 
     print(f"written to: {LOSS_TRACKER_PATH}")
-    print(f"Elapsed time: {time.time() - start} seconds.")
+    end = time.time()
+    print(f"Elapsed time: {end - start} seconds.")
+    start = end

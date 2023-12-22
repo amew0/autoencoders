@@ -1,0 +1,19 @@
+2645008
+1.4.1c
+(mse_loss / (ssim_value+1e-6))
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: Training Epoch @ 000 L: 0.084362 M: 0.065858 S: 0.792544  -- V2LR: Epoch M: 0.008309 !==! Task: Validation Epoch @ 000 L: 0.087710 M: 0.068028 S: 0.790851  -- V2LR: Epoch M: 0.008584
+Tolerance: 3!! Task: Training Epoch @ 021 L: 0.084306 M: 0.065826 S: 0.793556  -- V2LR: Epoch M: 0.008713 !==! Task: Validation Epoch @ 021 L: 0.087750 M: 0.068061 S: 0.791810  -- V2LR: Epoch M: 0.008713
+Tolerance: 2!! Task: Training Epoch @ 042 L: 0.084305 M: 0.065824 S: 0.793500  -- V2LR: Epoch M: 0.008606 !==! Task: Validation Epoch @ 042 L: 0.087759 M: 0.068062 S: 0.791351  -- V2LR: Epoch M: 0.008821
+Tolerance: 1!! Task: Training Epoch @ 063 L: 0.084299 M: 0.065819 S: 0.793484  -- V2LR: Epoch M: 0.008598 !==! Task: Validation Epoch @ 063 L: 0.087749 M: 0.068051 S: 0.791342  -- V2LR: Epoch M: 0.008494
+Task: Testing Epoch @ 000 L: 0.084872 M: 0.065964 S: 0.791417  -- V2LR: Epoch M: 0.008472
+written to: ./models/v2lr/1.4.1c.20231210213634_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 1305.2574951648712 seconds.

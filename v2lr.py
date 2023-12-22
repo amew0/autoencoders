@@ -16,7 +16,7 @@ from utils.classes import *
 print("Importing finished!!")
 
 start = time.time()
-seed,batch_size,epochs = 64,4,200
+seed,batch_size,epochs = 64,8,200
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"{device} is going to be used!!")
 
@@ -52,172 +52,176 @@ trainer = LossTracker("Training")
 validator = LossTracker("Validation")
 tester = LossTracker("Testing")
 
+def compute_mse_aoi(recons,preds):
+    mses_aoi = torch.tensor(0.0, device=device)
+    for recon,pred in zip(recons,preds):
+        vals,counts = recon.unique(return_counts=True)
+        
+        foreground_value = vals[counts.argmin()]
+        aoi = (recon == foreground_value).nonzero()
+        xmin=aoi[:,1].min()
+        xmax=aoi[:,1].max()
+        ymin=aoi[:,2].min()
+        ymax=aoi[:,2].max()
+        recon_aoi = recon[:, xmin:xmax + 1, ymin:ymax + 1]
+        pred_aoi = pred[:, xmin:xmax + 1, ymin:ymax + 1]
+
+        mse_aoi=F.mse_loss(recon_aoi, pred_aoi)
+        mses_aoi += mse_aoi
+
+    mse_aoi = mses_aoi/len(recons)
+    return mse_aoi
+
+def stretch_diff(batch_diff):
+    batch_capsule = torch.zeros((batch_diff.shape[0],batch_diff.shape[1],batch_diff.shape[2]*2,batch_diff.shape[3]*2))
+    for i,diff in enumerate(batch_diff): # batch_diff.shape = (32,1,16,16)
+        diff = diff.squeeze()
+        mask = torch.triu(torch.ones_like(diff), diagonal=1)
+
+        # Apply the mask to select the upper triangle
+        upper_triangle = mask*3
+        lower_triangle = (1 - mask)
+
+        capsule = torch.zeros((diff.shape[0]*2,diff.shape[1]*2))
+        capsule[:16,:16] = diff
+        capsule[:16,16:] = lower_triangle
+        capsule[16:,:16] = upper_triangle
+
+        batch_capsule[i] = capsule
+    
+    return batch_capsule
+
+def adjusted_mse(batch_img, batch_recon):
+    mask = (torch.Tensor(batch_img) != 0.00312).float()
+    num_valid_pixels = torch.sum(mask)
+    squared_diff = (batch_img - batch_recon).to(device)**2 * mask.to(device)
+    mse = torch.sum(squared_diff) / (num_valid_pixels)
+
+    return mse 
+
+criterion = VGGPerceptualLoss().to(device)
+
 def play(dataloader:DataLoader=None,
          tracker:LossTracker=None,
          v2lr:nn.Module=None,
-         mse=None,ssim=None,optimizer=None,
-         scale_to_input = False):
+         ssim=None,optimizer=None):
     
     v2lr.train() if tracker.job=="Training" else v2lr.eval()
-
+    if tracker.best_epoch == -1 and tracker.job == "Training":
+        print("Ready to TRAIN!!")
     for i, (batch_diff, batch_img) in enumerate(dataloader):
+        # batch_diff = stretch_diff(batch_diff)
         batch_diff = batch_diff.to(device)
         batch_img = batch_img.to(device)
         batch_mapped, batch_lr, batch_recon_v = v2lr(batch_diff,batch_img)
 
-        if scale_to_input: # tempting but never was it :)
-            min_value = batch_recon_v.min()
-            max_value = batch_recon_v.max()
-
-            batch_recon_v = (batch_recon_v - min_value) / (1e-8+max_value - min_value) \
-                * (batch_img.max() - batch_img.min()) + batch_img.min()
+        # scale_to_input removed from here
+        mse_loss = F.mse_loss(batch_img, batch_recon_v)
+        # ssim_value = (ssim(batch_img, batch_recon_v) + 1) / 2
+        ssim_value = 1 - ssim(batch_img, batch_recon_v) 
+        # mse_aoi = compute_mse_aoi(batch_img,batch_recon_v)
+        # loss = 0.5*mse_aoi + 10*mse_loss + 2*ssim_value
+        # loss = (mse_loss / (ssim_value+1e-6))
+        mse_loss_lr = F.mse_loss(batch_lr, batch_mapped)
         
-        mse_loss = F.mse_loss(batch_img, batch_recon_v).requires_grad_()
-        ssim_value = 1 - ssim(batch_img, batch_recon_v).requires_grad_() 
-        loss = alpha*mse_loss + beta*ssim_value
-     
+        # l1_reg = torch.tensor(0., requires_grad=True)
+        # for param in v2lr.parameters():
+        #     l1_reg = l1_reg + torch.norm(param, 1)
+
+        # Add L1 regularization to the loss
+        # loss = mse_aoi + mse_loss_lr + 1e-2*l1_reg
+        # pcc=torch.cat([batch_img.reshape(-1), batch_recon_v.reshape(-1)]).reshape(-1,576*batch_size)
+        # pcc=torch.corrcoef(pcc)[0,1]
+
+        # loss = ((1-pcc) + ssim_value)/2
+        vgg_loss = criterion(batch_img,batch_recon_v)
+        # adj_mse = adjusted_mse(batch_img,batch_recon_v)
+        
+        # max_img=torch.max(batch_img.view(-1,576), dim=1)[0]
+        # max_recon=torch.max(batch_recon_v.view(-1,576), dim=1)[0]
+        # min_img=torch.min(batch_img.view(-1,576), dim=1)[0]
+        # min_recon=torch.min(batch_recon_v.view(-1,576), dim=1)[0]
+
+        # max_loss = torch.mean(torch.square(max_img - max_recon))
+        # min_loss = torch.mean(torch.square(min_img - min_recon))
+        
+        # loss = vgg_loss+10*mse_loss  + max_loss
+        loss = vgg_loss+mse_loss
+    
+        
         if tracker.job == "Training": # batch
             optimizer.zero_grad()
             # loss.backward(retain_graph=True)
             loss.backward()
             optimizer.step()
 
-        tracker.mse_loss = mse_loss.item()
-        tracker.ssim = ssim_value.item()
-        tracker.loss = loss.item()
-        tracker.mse_loss_lr = mse(batch_lr, batch_mapped)
+        # tracker.mse_loss = mse_loss.item()
+        # tracker.ssim = ssim_value.item()
+        # tracker.loss = loss.item()
+        # tracker.mse_loss_lr = mse_loss_lr.item()
 
-        tracker.epoch_mse_loss += tracker.mse_loss
-        tracker.epoch_ssim += tracker.ssim
-        tracker.epoch_loss += tracker.loss
-        tracker.epoch_loss_lr += tracker.mse_loss_lr.item()
+        tracker.epoch_mse_loss += mse_loss.item()
+        tracker.epoch_ssim += ssim_value.item()
+        tracker.epoch_loss += loss.item()
+        tracker.epoch_loss_lr += mse_loss_lr.item()
 
-    tracker.epoch_mse_loss /= len(dataloader)
-    tracker.epoch_ssim /= len(dataloader)
-    tracker.epoch_loss /= len(dataloader)
-    tracker.epoch_loss_lr /= len(dataloader)
+    tracker.epoch_mse_loss /= (i+1)
+    tracker.epoch_ssim /= (i+1)
+    tracker.epoch_loss /= (i+1)
+    tracker.epoch_loss_lr /= (i+1)
 
-    # if tracker.job == "Training": # epoch
-
-    #     optimizer.zero_grad()
-    #     epoch_loss = torch.tensor(tracker.epoch_loss,device=device,requires_grad=True)
-    #     epoch_loss.backward()
-    #     optimizer.step()
+    # epoch rebackprog removed from here
     return tracker
 
-# '''
-# configs = [nn.Sequential(
-    nn.Conv2d(1,6,5,1,0),
-    nn.BatchNorm2d(6),
-    nn.ReLU(),
-    nn.Dropout(0.3),
+idk=[-1]
+for i in enumerate(idk):
 
-    nn.Conv2d(6,18,5,1,0),
-    nn.BatchNorm2d(18),
-    nn.ReLU(),
-    nn.Dropout(0.3),
-    
-    nn.Conv2d(18,54,5,1,0),
-    nn.BatchNorm2d(54),
-    nn.ReLU(),
-    nn.Dropout(0.3),
-    
-    nn.Conv2d(54,108,3,1,0),
-    nn.BatchNorm2d(108),   
-    nn.ReLU(),
-    nn.Dropout(0.3),
-    
-    nn.Conv2d(108,216,2,1,0),
-    nn.BatchNorm2d(216),
-    nn.Flatten()
-# )]
-# '''
-'''
-factors = [6,8,9,12,18,27,36,54,72,108]
-configs = [
-    nn.Sequential(
-    nn.Conv2d(1,a,5,1,0),
-    nn.BatchNorm2d(a),
-    nn.ReLU(),
-    nn.Conv2d(a,b,5,1,0),
-    nn.BatchNorm2d(b),
-    nn.ReLU(),
-    nn.Conv2d(b,c,5,1,0),
-    nn.BatchNorm2d(c),
-    nn.ReLU(),
-    nn.Conv2d(c,d,3,1,0),
-    nn.BatchNorm2d(d),   
-    nn.ReLU(),
-    nn.Conv2d(d,216,2,1,0),
-    nn.BatchNorm2d(216),
-    nn.Flatten()
-) 
-for a in factors\
-for b in factors\
-for c in factors\
-for d in factors\
-if a < b and b < c and c < d
-]
-'''
-# alphas = [0.1]
-
-# alphas = [i/100 for i in range(9,39)][::2]
-configs = [-1]
-learning_rate = 5e-3
-momentum = 0.9
-weight_decay = 1e-5
-optimizers = [
-    # {'LBFGS': {}},
-    {'SGD': {'learning_rate':learning_rate, 'weight_decay':weight_decay,'momentum':momentum}},
-    {'RMSprop': {'learning_rate':learning_rate, 'weight_decay':weight_decay}},
-    {'Adagrad': {'learning_rate':learning_rate, 'weight_decay':weight_decay}},
-    {'Adam': {'learning_rate':learning_rate, 'weight_decay':weight_decay}}
-]
-for i,optimizer_config in enumerate(optimizers):
-    alpha=0.01
-    print(f"optimzer {optimizer_config}")
     nownow = datetime.now()
     id_config = f"{CONDUCTANCE_VALUES}{ID}.{nownow.strftime('%Y%m%d%H%M%S%f')[:14]}"
     LOSS_TRACKER_PATH = f'./results/loss_tracker_{TASK}.csv'
     MODEL_STATEDICT_SAVE_PATH = f"./models/{TASK}/{id_config}_{TASK}.pth"
     MODEL_SAVE_PATH = MODEL_STATEDICT_SAVE_PATH[:-1] # pt instead of pth
 
-    # v2lr = V2ImgLR(recon_path)
+    v2lr = V2ImgLR(recon_path,train_recon=True)
     # v2lr.v2lr = config
-    v2lr = torch.load("./models/v2lr/0.alpha.01.20231206000636_v2lr.pt")
+    # v2lr = torch.load("./models/v2lr/0.alpha.01.20231206000636_v2lr.pt")
+    # v2lr = torch.load("./models/v2lr/1.5.vgg.b.1.20231221023841_v2lr.pt",map_location=device)
     v2lr = v2lr.to(device)
-    print(v2lr.v2lr)
+    # for d in v2lr.recon.decoder.parameters():
+    #     d.requires_grad = False
+
+    # for v in v2lr.v2lr.parameters():
+    #     v.requires_grad = True
+    summary(v2lr.v2lr,(1,16,16))
+    # print(v2lr.recon.decoder)
+    summary(v2lr.recon.decoder,(216))
     # summary(v2lr,(1,16,16))
     
-    mse = nn.MSELoss()
     ssim = StructuralSimilarityIndexMeasure(reduction='elementwise_mean').to(device)
     
-    # optimizer_config = {'Adam': {'learning_rate':3e-5,}}
+    optimizer_config = {'Adam': {'learning_rate':1e-3, 'weight_decay':0}}    
     optimizer = optimizer_build(optimizer_config,v2lr)
 
     best_v2lr = deepcopy(v2lr)
     min_loss = np.inf
     best_epoch = 0
 
-    alpha = alpha  # Weight for MSE Loss
-    beta = 0.1584*(1-alpha) # Weight for SSIM
-
     train_losses = []
     last_printed = 0
+    tolerance = 3
     for epoch in range(epochs):
-        trainer = play(train_dataloader,trainer,v2lr,mse,ssim,optimizer)
-        train_losses.append(trainer.loss)
+        trainer = play(train_dataloader,trainer,v2lr,ssim,optimizer)
+        train_losses.append(trainer.epoch_mse_loss)
         
         with torch.no_grad():
-            validator =play(val_dataloader,validator,v2lr,mse,ssim)
+            validator =play(val_dataloader,validator,v2lr,ssim)
 
         if validator.epoch_loss < min_loss:
-
-            min_loss = validator.epoch_loss
+            min_loss = validator.epoch_loss 
+            
             del best_v2lr
             best_v2lr = deepcopy(v2lr)
             best_epoch = epoch
-
             trainer.best_epoch = best_epoch
             validator.best_epoch = best_epoch
 
@@ -225,24 +229,25 @@ for i,optimizer_config in enumerate(optimizers):
             last_printed = epoch
         
         if epoch - last_printed > 20:
-            print(f"Digging!! {trainer} !==! {validator}")
             last_printed = epoch
 
             # note that this is not the best epoch
             trainer.best_epoch = epoch
             validator.best_epoch = epoch
+            print(f"Tolerance: {tolerance}!! {trainer} !==! {validator}")
+            tolerance -= 1
+            
+        if tolerance == 0:
+            break
 
     del v2lr
     v2lr = deepcopy(best_v2lr)
     with torch.no_grad():
-        tester = play(test_dataloader,tester,v2lr,mse,ssim)
+        tester = play(test_dataloader,tester,v2lr,ssim)
         
         train_losses.append(tester.epoch_loss)
-        # print(f"Avg Test Loss: {test_epoch_loss} Avg Test MSE: {test_epoch_mse} Avg Test SSIM {test_epoch_ssim}, Last MSE Test Loss: {test_mse_loss}")
         print(tester)
 
-    # torch.save(v2lr.state_dict(), MODEL_STATEDICT_SAVE_PATH)
-    # print(f"written to: {MODEL_STATEDICT_SAVE_PATH}")
     torch.save(v2lr, MODEL_SAVE_PATH) # this saves the model as-is
     print(f"written to: {MODEL_SAVE_PATH}")
 

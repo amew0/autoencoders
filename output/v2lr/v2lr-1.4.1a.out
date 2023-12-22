@@ -1,0 +1,26 @@
+2642045
+1.4.1a
+loss = mse_aoi+mse
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=256, out_features=216, bias=True)
+)
+Task: Training Epoch @ 000 L: 4.571926 M: 0.064627 S: 0.430186  -- V2LR: Epoch M: 0.196756 !==! Task: Validation Epoch @ 000 L: 4.499387 M: 0.066606 S: 0.433973  -- V2LR: Epoch M: 0.365806
+Task: Training Epoch @ 001 L: 4.532015 M: 0.064227 S: 0.430907  -- V2LR: Epoch M: 0.459211 !==! Task: Validation Epoch @ 001 L: 4.486160 M: 0.066495 S: 0.434705  -- V2LR: Epoch M: 0.578003
+Task: Training Epoch @ 002 L: 4.522308 M: 0.064173 S: 0.431334  -- V2LR: Epoch M: 0.668172 !==! Task: Validation Epoch @ 002 L: 4.477035 M: 0.066686 S: 0.432499  -- V2LR: Epoch M: 0.854622
+Task: Training Epoch @ 003 L: 4.507402 M: 0.064690 S: 0.425114  -- V2LR: Epoch M: 1.124586 !==! Task: Validation Epoch @ 003 L: 4.462821 M: 0.067842 S: 0.419275  -- V2LR: Epoch M: 1.515008
+Task: Training Epoch @ 004 L: 4.498008 M: 0.065448 S: 0.417906  -- V2LR: Epoch M: 1.654754 !==! Task: Validation Epoch @ 004 L: 4.458650 M: 0.068028 S: 0.418396  -- V2LR: Epoch M: 1.842505
+Task: Training Epoch @ 005 L: 4.493789 M: 0.065559 S: 0.416278  -- V2LR: Epoch M: 1.944046 !==! Task: Validation Epoch @ 005 L: 4.452895 M: 0.068033 S: 0.416604  -- V2LR: Epoch M: 2.111227
+Task: Training Epoch @ 007 L: 4.486553 M: 0.065727 S: 0.414485  -- V2LR: Epoch M: 2.313187 !==! Task: Validation Epoch @ 007 L: 4.450423 M: 0.068248 S: 0.414703  -- V2LR: Epoch M: 2.354231
+Task: Training Epoch @ 008 L: 4.485186 M: 0.065734 S: 0.414335  -- V2LR: Epoch M: 2.378685 !==! Task: Validation Epoch @ 008 L: 4.447998 M: 0.068229 S: 0.415257  -- V2LR: Epoch M: 2.392542
+Task: Training Epoch @ 010 L: 4.483426 M: 0.065675 S: 0.414318  -- V2LR: Epoch M: 2.430017 !==! Task: Validation Epoch @ 010 L: 4.446299 M: 0.068164 S: 0.414896  -- V2LR: Epoch M: 2.449253
+Task: Training Epoch @ 011 L: 4.485269 M: 0.065697 S: 0.414114  -- V2LR: Epoch M: 2.447824 !==! Task: Validation Epoch @ 011 L: 4.446161 M: 0.068183 S: 0.415776  -- V2LR: Epoch M: 2.456613
+Task: Training Epoch @ 012 L: 4.485029 M: 0.065737 S: 0.413839  -- V2LR: Epoch M: 2.467631 !==! Task: Validation Epoch @ 012 L: 4.441167 M: 0.068088 S: 0.414808  -- V2LR: Epoch M: 2.457003
+Early stopping!! Task: Training Epoch @ 033 L: 4.483010 M: 0.065685 S: 0.414343  -- V2LR: Epoch M: 2.494264 !==! Task: Validation Epoch @ 033 L: 4.450952 M: 0.068235 S: 0.413418  -- V2LR: Epoch M: 2.491307
+Task: Testing Epoch @ 000 L: 4.591600 M: 0.066068 S: 0.414430  -- V2LR: Epoch M: 2.463113
+written to: ./models/v2lr/1.4.1a.20231210044618_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 1148.827670097351 seconds.

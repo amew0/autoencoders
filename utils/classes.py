@@ -4,6 +4,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
+import torchvision
 from torchvision import transforms
 
 from typing import Union, Optional
@@ -104,12 +105,16 @@ class DiffImg(Dataset):
             self, 
             csv_file: str, 
             diff_transform: Optional[Union[None, transforms.Compose]] = None,  
-            img_transform: Optional[Union[None, transforms.Compose]] = None
+            img_transform: Optional[Union[None, transforms.Compose]] = None,
+            npf: bool = True,
+            zero_background: bool = True
         ) -> None:
         self.data = pd.read_csv(csv_file,header=None)
         
         self.diff_transform = diff_transform
         self.img_transform = img_transform
+        self.npf = npf # -ve pressure filter
+        self.zero_background = zero_background
 
     def __len__(self) -> int:
         return len(self.data)
@@ -119,6 +124,9 @@ class DiffImg(Dataset):
         
         diff = diff_image_data[:256]
         image = diff_image_data[256:]
+        
+        if self.zero_background:
+            image = image - 0.00312
         
         diff = diff.reshape(16,16)
         image = image.reshape(24,24)
@@ -132,6 +140,10 @@ class DiffImg(Dataset):
         
         if self.img_transform:
             image = self.img_transform(image)
+
+        if self.npf:
+            if image.max() == 0.0:
+                return self.__getitem__((idx + 1) % len(self.data))
 
         return (diff ,image)
 
@@ -295,17 +307,52 @@ V2LR
 class V2ImgLR (nn.Module):
     def __init__(self,recon_path="./models/img/14.2.1.retraining.2.20231130014311_img.pt",train_recon=False):
         super().__init__()
-        recon = torch.load(recon_path)
-        print(f"Reconstructor from: {recon_path}")
-        if not train_recon:
-            for param in recon.parameters():
-                param.requires_grad = False
-        self.recon = recon
+        # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # recon = torch.load(recon_path,map_location=device)
+        # print(f"Reconstructor from: {recon_path}")
+        # if not train_recon:
+        #     for param in recon.parameters():
+        #         param.requires_grad = False
+        
+        encoder = nn.Sequential(
+            nn.Flatten(),
+            nn.Linear(576,216), # a dummy encoder
+            nn.ReLU()
+        )
+        decoder = nn.Sequential(
+            nn.Unflatten(1, (24, 3, 3)),
+            ResidualBlockk(24, 192, 3, 2, 1, 1),
+            nn.BatchNorm2d(192),
+            ResidualBlockk(192, 96, 3, 1, 0),
+            nn.BatchNorm2d(96),
+            ResidualBlockk(96, 48, 2, 2, 2, 0),
+            nn.BatchNorm2d(48),
+            ResidualBlockk(48, 1, 3, 2, 1, 1),
+            nn.BatchNorm2d(1)
+        )
+        self.recon = nn.ModuleDict(
+            {"encoder":encoder,
+             "decoder":decoder}
+        )
 
         self.v2lr = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(256, 216)
+            # nn.Flatten(),
+            # nn.Linear(256, 216)
+            ResidualBlock(1,6,5,1,0),
+            nn.BatchNorm2d(6),
+            ResidualBlock(6,18,5,1,0),
+            nn.BatchNorm2d(18),
+            ResidualBlock(18,54,5,1,0),
+            nn.BatchNorm2d(54),
+            ResidualBlock(54,108,3,1,0),
+            nn.BatchNorm2d(108),   
+            ResidualBlock(108,216,2,1,0),
+            nn.BatchNorm2d(216),
+            nn.Flatten()
         )
+
+        self.scale_max = nn.Parameter(torch.Tensor([1e-2]), requires_grad=True)
+        self.scale_min = nn.Parameter(torch.Tensor([1e-2]), requires_grad=True)
 
     def forward(self,diff,img):
         mapped = self.v2lr(diff)
@@ -434,6 +481,23 @@ class ResidualBlock(nn.Module): # reset model
         out = self.relu(out)
         return out
     
+class ResidualBlockk(nn.Module):
+    def __init__(self, in_channels, out_channels, kernel_size, stride, padding, output_padding=0):
+        super().__init__()
+        self.conv1 = nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride, padding, output_padding)
+        self.conv2 = nn.ConvTranspose2d(out_channels, out_channels, 3, 1, 1)
+        self.relu = nn.ReLU()
+        self.skip = nn.ConvTranspose2d(in_channels, out_channels, 1, 1, 0)
+    def forward(self, x):
+        out = self.conv2(self.relu(self.conv1(x)))
+        skip = self.skip(x)
+        f = (out.size(2) - skip.size(2))//2
+        t = out.size(2) - skip.size(2) - f
+        skip = nn.functional.pad(skip, (f, t, f, t))
+        out = out + skip
+        out = self.relu(out)
+        return out
+    
 class VoltageAE_base(nn.Module): # from scratch
     def __init__(self):
         super().__init__()
@@ -480,6 +544,31 @@ class vAE(nn.Module): # not recommended
         decoded = self.decoder(encoded)
         return transformed,encoded,decoded
 
+class VGGPerceptualLoss(nn.Module):
+    def __init__(self, resize=True):
+        super().__init__()
+        vgg16 = torchvision.models.vgg16(pretrained=True,progress=False).eval()
+        for p in vgg16.parameters():
+            p.requires_grad = False
+        blocks = []
+        blocks.append(vgg16.features[:4])
+        blocks.append(vgg16.features[4:9])
+        blocks.append(vgg16.features[9:16])
+        blocks.append(vgg16.features[16:23])
+        self.blocks = torch.nn.ModuleList(blocks)
+
+    def forward(self, input:torch.Tensor, target:torch.Tensor):
+        input = input.repeat(1, 3, 1, 1)
+        target = target.repeat(1, 3, 1, 1)
+        loss = 0.0
+        x = input
+        y = target
+        for i, block in enumerate(self.blocks):
+            x = block(x)
+            y = block(y)
+            loss += torch.nn.functional.l1_loss(x, y)
+        return loss
+
 class LossTracker:
     def __init__(self,job="Training"):
         self.epoch_loss = 0.0
@@ -487,15 +576,15 @@ class LossTracker:
         self.epoch_ssim = 0.0
         self.epoch_loss_lr = 0.0
 
-        self.loss = np.inf
-        self.mse_loss = np.inf
-        self.ssim = np.inf
-        self.mse_loss_lr = np.inf
+        # self.loss = np.inf
+        # self.mse_loss = np.inf
+        # self.ssim = np.inf
+        # self.mse_loss_lr = np.inf
 
         self.job = job
 
-        self.best_epoch = 0
+        self.best_epoch = -1
 
 
     def __str__(self):
-        return f"Task: {self.job} Epoch @ {self.best_epoch:03d} L: {self.epoch_loss:.6f} M: {self.epoch_mse_loss:.6f} S: {self.epoch_ssim:.6f} -- Last: L: {self.loss:.6f} M: {self.mse_loss:.6f} S: {self.ssim:.6f} -- V2LR: Epoch M: {self.epoch_loss_lr:.6f} Last M: {self.mse_loss_lr:.6f}"
+        return f"Task: {self.job} Epoch @ {self.best_epoch:03d} L: {self.epoch_loss:.6f} M: {self.epoch_mse_loss:.6f} S: {self.epoch_ssim:.6f}  -- V2LR: Epoch M: {self.epoch_loss_lr:.6f}"

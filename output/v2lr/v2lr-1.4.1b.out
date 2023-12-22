@@ -1,0 +1,35 @@
+2644464
+1.4.1b
+change in diff image
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+Sequential(
+  (0): Flatten(start_dim=1, end_dim=-1)
+  (1): Linear(in_features=1024, out_features=512, bias=True)
+  (2): ReLU()
+  (3): Linear(in_features=512, out_features=216, bias=True)
+)
+Task: Training Epoch @ 000 L: 0.066156 M: 0.066156 S: 0.522431  -- V2LR: Epoch M: 14.620796 !==! Task: Validation Epoch @ 000 L: 0.069362 M: 0.069362 S: 0.461250  -- V2LR: Epoch M: 172.409576
+Task: Training Epoch @ 001 L: 0.066434 M: 0.066434 S: 0.471491  -- V2LR: Epoch M: 2603.058851 !==! Task: Validation Epoch @ 001 L: 0.068325 M: 0.068325 S: 0.447666  -- V2LR: Epoch M: 91.241858
+Task: Training Epoch @ 002 L: 0.066300 M: 0.066300 S: 0.469242  -- V2LR: Epoch M: 1096.803481 !==! Task: Validation Epoch @ 002 L: 0.068323 M: 0.068323 S: 0.446072  -- V2LR: Epoch M: 0.773428
+Task: Training Epoch @ 003 L: 0.066487 M: 0.066487 S: 0.512623  -- V2LR: Epoch M: 13.552925 !==! Task: Validation Epoch @ 003 L: 0.068313 M: 0.068313 S: 0.454233  -- V2LR: Epoch M: 0.078668
+Task: Training Epoch @ 005 L: 0.066319 M: 0.066319 S: 0.493372  -- V2LR: Epoch M: 23.317305 !==! Task: Validation Epoch @ 005 L: 0.068243 M: 0.068243 S: 0.493700  -- V2LR: Epoch M: 10.392762
+Early stopping!! Task: Training Epoch @ 026 L: 0.066371 M: 0.066371 S: 0.503422  -- V2LR: Epoch M: 59.594929 !==! Task: Validation Epoch @ 026 L: 0.068307 M: 0.068307 S: 0.441614  -- V2LR: Epoch M: 0.009214
+Early stopping!! Task: Training Epoch @ 047 L: 0.066327 M: 0.066327 S: 0.463848  -- V2LR: Epoch M: 3910.231567 !==! Task: Validation Epoch @ 047 L: 0.068332 M: 0.068332 S: 0.448700  -- V2LR: Epoch M: 16.391809
+Task: Training Epoch @ 048 L: 0.066164 M: 0.066164 S: 0.498125  -- V2LR: Epoch M: 35.686119 !==! Task: Validation Epoch @ 048 L: 0.068231 M: 0.068231 S: 0.534417  -- V2LR: Epoch M: 315.210655
+Early stopping!! Task: Training Epoch @ 069 L: 0.066372 M: 0.066372 S: 0.495957  -- V2LR: Epoch M: 20.845337 !==! Task: Validation Epoch @ 069 L: 0.068281 M: 0.068281 S: 0.472108  -- V2LR: Epoch M: 11.424076
+Early stopping!! Task: Training Epoch @ 090 L: 0.066461 M: 0.066461 S: 0.512753  -- V2LR: Epoch M: 10.430192 !==! Task: Validation Epoch @ 090 L: 0.068340 M: 0.068340 S: 0.522374  -- V2LR: Epoch M: 33.340941
+Early stopping!! Task: Training Epoch @ 111 L: 0.066500 M: 0.066500 S: 0.516449  -- V2LR: Epoch M: 8.534955 !==! Task: Validation Epoch @ 111 L: 0.068311 M: 0.068311 S: 0.452939  -- V2LR: Epoch M: 1.367075
+Task: Training Epoch @ 113 L: 0.066267 M: 0.066267 S: 0.479040  -- V2LR: Epoch M: 74.992048 !==! Task: Validation Epoch @ 113 L: 0.068225 M: 0.068225 S: 0.470259  -- V2LR: Epoch M: 7.488577
+Task: Training Epoch @ 123 L: 0.066256 M: 0.066256 S: 0.461884  -- V2LR: Epoch M: 1225.053955 !==! Task: Validation Epoch @ 123 L: 0.068219 M: 0.068219 S: 0.484291  -- V2LR: Epoch M: 10.243717
+Task: Training Epoch @ 126 L: 0.066232 M: 0.066232 S: 0.482874  -- V2LR: Epoch M: 85.297621 !==! Task: Validation Epoch @ 126 L: 0.068212 M: 0.068212 S: 0.483157  -- V2LR: Epoch M: 6.722730
+Early stopping!! Task: Training Epoch @ 147 L: 0.066445 M: 0.066445 S: 0.505504  -- V2LR: Epoch M: 48.838485 !==! Task: Validation Epoch @ 147 L: 0.068291 M: 0.068291 S: 0.464695  -- V2LR: Epoch M: 1435.197165
+Task: Training Epoch @ 158 L: 0.066420 M: 0.066420 S: 0.500390  -- V2LR: Epoch M: 12.165765 !==! Task: Validation Epoch @ 158 L: 0.068190 M: 0.068190 S: 0.437235  -- V2LR: Epoch M: 0.016893
+Task: Training Epoch @ 166 L: 0.066292 M: 0.066292 S: 0.492669  -- V2LR: Epoch M: 31.981973 !==! Task: Validation Epoch @ 166 L: 0.068177 M: 0.068177 S: 0.466530  -- V2LR: Epoch M: 2.180719
+Early stopping!! Task: Training Epoch @ 187 L: 0.066293 M: 0.066293 S: 0.480519  -- V2LR: Epoch M: 75.381918 !==! Task: Validation Epoch @ 187 L: 0.068695 M: 0.068695 S: 0.609780  -- V2LR: Epoch M: 149.196592
+Task: Testing Epoch @ 000 L: 0.066051 M: 0.066051 S: 0.460875  -- V2LR: Epoch M: 2.177914
+written to: ./models/v2lr/1.4.1b.20231210183232_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 4206.6749885082245 seconds.

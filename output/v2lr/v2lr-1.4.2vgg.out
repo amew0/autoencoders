@@ -1,0 +1,125 @@
+2686325
+1.4.2vgg
+vggloss
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Reconstructor from: ./models/img/14.2.1.retraining.2.20231130014311_img.pt
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+   ConvTranspose2d-3             [-1, 96, 8, 8]         165,984
+              ReLU-4             [-1, 96, 8, 8]               0
+   ConvTranspose2d-5           [-1, 48, 12, 12]          18,480
+              ReLU-6           [-1, 48, 12, 12]               0
+   ConvTranspose2d-7            [-1, 1, 24, 24]             433
+================================================================
+Total params: 226,561
+Trainable params: 226,561
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.26
+Params size (MB): 0.86
+Estimated Total Size (MB): 1.12
+----------------------------------------------------------------
+Ready to TRAIN!!
+Task: Training Epoch @ 000 L: 1.449996 M: 0.065909 S: 0.428299  -- V2LR: Epoch M: 0.282172 !==! Task: Validation Epoch @ 000 L: 3.168158 M: 65.556854 S: 0.423894  -- V2LR: Epoch M: 1978043.817961
+Task: Training Epoch @ 001 L: 1.432384 M: 0.065869 S: 0.436829  -- V2LR: Epoch M: 0.076497 !==! Task: Validation Epoch @ 001 L: 1.485998 M: 0.132632 S: 0.421507  -- V2LR: Epoch M: 6188.382074
+Task: Training Epoch @ 002 L: 1.424978 M: 0.065823 S: 0.434856  -- V2LR: Epoch M: 0.046587 !==! Task: Validation Epoch @ 002 L: 1.448269 M: 0.068062 S: 0.434390  -- V2LR: Epoch M: 5.212424
+Task: Training Epoch @ 003 L: 1.421446 M: 0.065812 S: 0.435900  -- V2LR: Epoch M: 0.032394 !==! Task: Validation Epoch @ 003 L: 1.425248 M: 0.068037 S: 0.433363  -- V2LR: Epoch M: 0.053012
+Task: Training Epoch @ 004 L: 1.416742 M: 0.065803 S: 0.435656  -- V2LR: Epoch M: 0.025840 !==! Task: Validation Epoch @ 004 L: 1.419397 M: 0.068013 S: 0.431917  -- V2LR: Epoch M: 0.023391
+Task: Training Epoch @ 005 L: 1.413731 M: 0.065795 S: 0.435415  -- V2LR: Epoch M: 0.022992 !==! Task: Validation Epoch @ 005 L: 1.428110 M: 0.067996 S: 0.425684  -- V2LR: Epoch M: 0.059856
+Task: Training Epoch @ 010 L: 1.397112 M: 0.065724 S: 0.434566  -- V2LR: Epoch M: 0.021914 !==! Task: Validation Epoch @ 010 L: 1.406832 M: 0.067943 S: 0.427263  -- V2LR: Epoch M: 0.023604
+Task: Training Epoch @ 012 L: 1.389474 M: 0.065659 S: 0.432700  -- V2LR: Epoch M: 0.025281 !==! Task: Validation Epoch @ 012 L: 1.402129 M: 0.067879 S: 0.424808  -- V2LR: Epoch M: 0.025550
+Task: Training Epoch @ 014 L: 1.373797 M: 0.065562 S: 0.433438  -- V2LR: Epoch M: 0.028873 !==! Task: Validation Epoch @ 014 L: 1.370972 M: 0.067854 S: 0.430670  -- V2LR: Epoch M: 0.033233
+Task: Training Epoch @ 016 L: 1.363469 M: 0.065489 S: 0.433498  -- V2LR: Epoch M: 0.032958 !==! Task: Validation Epoch @ 016 L: 1.353729 M: 0.067737 S: 0.429737  -- V2LR: Epoch M: 0.036617
+Task: Training Epoch @ 019 L: 1.345560 M: 0.065393 S: 0.431740  -- V2LR: Epoch M: 0.039341 !==! Task: Validation Epoch @ 019 L: 1.325679 M: 0.067725 S: 0.431044  -- V2LR: Epoch M: 0.041305
+Task: Training Epoch @ 020 L: 1.337974 M: 0.065334 S: 0.431580  -- V2LR: Epoch M: 0.041047 !==! Task: Validation Epoch @ 020 L: 1.321334 M: 0.067653 S: 0.429908  -- V2LR: Epoch M: 0.055901
+Task: Training Epoch @ 021 L: 1.334396 M: 0.065276 S: 0.431148  -- V2LR: Epoch M: 0.042215 !==! Task: Validation Epoch @ 021 L: 1.321484 M: 0.067649 S: 0.428415  -- V2LR: Epoch M: 0.053202
+Task: Training Epoch @ 023 L: 1.327641 M: 0.065218 S: 0.430243  -- V2LR: Epoch M: 0.043124 !==! Task: Validation Epoch @ 023 L: 1.310176 M: 0.067476 S: 0.430321  -- V2LR: Epoch M: 0.071232
+Task: Training Epoch @ 024 L: 1.324252 M: 0.065184 S: 0.430594  -- V2LR: Epoch M: 0.044382 !==! Task: Validation Epoch @ 024 L: 1.305376 M: 0.067464 S: 0.427141  -- V2LR: Epoch M: 0.047392
+Task: Training Epoch @ 027 L: 1.315617 M: 0.065102 S: 0.429133  -- V2LR: Epoch M: 0.048365 !==! Task: Validation Epoch @ 027 L: 1.292545 M: 0.067349 S: 0.428845  -- V2LR: Epoch M: 0.048581
+Task: Training Epoch @ 030 L: 1.317841 M: 0.065096 S: 0.429153  -- V2LR: Epoch M: 0.047820 !==! Task: Validation Epoch @ 030 L: 1.297442 M: 0.067325 S: 0.428931  -- V2LR: Epoch M: 0.054175
+Task: Training Epoch @ 035 L: 1.303366 M: 0.064915 S: 0.427614  -- V2LR: Epoch M: 0.053234 !==! Task: Validation Epoch @ 035 L: 1.287750 M: 0.067319 S: 0.425806  -- V2LR: Epoch M: 0.055686
+Task: Training Epoch @ 039 L: 1.297546 M: 0.064848 S: 0.426670  -- V2LR: Epoch M: 0.054253 !==! Task: Validation Epoch @ 039 L: 1.280812 M: 0.067231 S: 0.425033  -- V2LR: Epoch M: 0.056812
+Task: Training Epoch @ 040 L: 1.293626 M: 0.064775 S: 0.425564  -- V2LR: Epoch M: 0.054654 !==! Task: Validation Epoch @ 040 L: 1.281183 M: 0.067165 S: 0.424723  -- V2LR: Epoch M: 0.053619
+Task: Training Epoch @ 041 L: 1.295785 M: 0.064817 S: 0.425899  -- V2LR: Epoch M: 0.054114 !==! Task: Validation Epoch @ 041 L: 1.282693 M: 0.067130 S: 0.425078  -- V2LR: Epoch M: 0.055071
+Task: Training Epoch @ 043 L: 1.294726 M: 0.064795 S: 0.426238  -- V2LR: Epoch M: 0.054027 !==! Task: Validation Epoch @ 043 L: 1.283810 M: 0.067060 S: 0.423720  -- V2LR: Epoch M: 0.065227
+Task: Training Epoch @ 053 L: 1.285771 M: 0.064554 S: 0.423622  -- V2LR: Epoch M: 0.055464 !==! Task: Validation Epoch @ 053 L: 1.274224 M: 0.066851 S: 0.425712  -- V2LR: Epoch M: 0.055172
+Task: Training Epoch @ 059 L: 1.283389 M: 0.064477 S: 0.422932  -- V2LR: Epoch M: 0.056900 !==! Task: Validation Epoch @ 059 L: 1.267430 M: 0.066837 S: 0.423908  -- V2LR: Epoch M: 0.056249
+Task: Training Epoch @ 061 L: 1.285489 M: 0.064477 S: 0.423385  -- V2LR: Epoch M: 0.056514 !==! Task: Validation Epoch @ 061 L: 1.263804 M: 0.066777 S: 0.422685  -- V2LR: Epoch M: 0.059175
+Task: Training Epoch @ 066 L: 1.283363 M: 0.064448 S: 0.422595  -- V2LR: Epoch M: 0.056189 !==! Task: Validation Epoch @ 066 L: 1.271163 M: 0.066693 S: 0.423295  -- V2LR: Epoch M: 0.056395
+Task: Training Epoch @ 072 L: 1.278379 M: 0.064340 S: 0.421914  -- V2LR: Epoch M: 0.055779 !==! Task: Validation Epoch @ 072 L: 1.259021 M: 0.066644 S: 0.421375  -- V2LR: Epoch M: 0.055821
+Task: Training Epoch @ 078 L: 1.275472 M: 0.064290 S: 0.421295  -- V2LR: Epoch M: 0.055259 !==! Task: Validation Epoch @ 078 L: 1.268188 M: 0.066640 S: 0.420298  -- V2LR: Epoch M: 0.054847
+Task: Training Epoch @ 082 L: 1.273860 M: 0.064223 S: 0.420920  -- V2LR: Epoch M: 0.056153 !==! Task: Validation Epoch @ 082 L: 1.262577 M: 0.066568 S: 0.419313  -- V2LR: Epoch M: 0.073784
+Task: Training Epoch @ 083 L: 1.275244 M: 0.064242 S: 0.420694  -- V2LR: Epoch M: 0.055081 !==! Task: Validation Epoch @ 083 L: 1.263567 M: 0.066523 S: 0.420239  -- V2LR: Epoch M: 0.056834
+Task: Training Epoch @ 098 L: 1.273147 M: 0.064186 S: 0.420144  -- V2LR: Epoch M: 0.054318 !==! Task: Validation Epoch @ 098 L: 1.260616 M: 0.066416 S: 0.419840  -- V2LR: Epoch M: 0.070458
+Task: Training Epoch @ 107 L: 1.271778 M: 0.064171 S: 0.419279  -- V2LR: Epoch M: 0.056157 !==! Task: Validation Epoch @ 107 L: 1.262992 M: 0.066371 S: 0.418329  -- V2LR: Epoch M: 0.055770
+Task: Training Epoch @ 118 L: 1.268848 M: 0.064050 S: 0.418292  -- V2LR: Epoch M: 0.056899 !==! Task: Validation Epoch @ 118 L: 1.257876 M: 0.066347 S: 0.420039  -- V2LR: Epoch M: 0.059168
+Task: Training Epoch @ 123 L: 1.267317 M: 0.064029 S: 0.418860  -- V2LR: Epoch M: 0.055642 !==! Task: Validation Epoch @ 123 L: 1.258261 M: 0.066301 S: 0.419705  -- V2LR: Epoch M: 0.055516
+Task: Training Epoch @ 124 L: 1.268513 M: 0.064067 S: 0.418543  -- V2LR: Epoch M: 0.056135 !==! Task: Validation Epoch @ 124 L: 1.252027 M: 0.066250 S: 0.419147  -- V2LR: Epoch M: 0.055029
+Tolerance: 3!! Task: Training Epoch @ 145 L: 1.269369 M: 0.064053 S: 0.419003  -- V2LR: Epoch M: 0.054652 !==! Task: Validation Epoch @ 145 L: 1.265940 M: 0.066633 S: 0.420907  -- V2LR: Epoch M: 0.051850
+Task: Training Epoch @ 151 L: 1.265235 M: 0.064003 S: 0.417790  -- V2LR: Epoch M: 0.054216 !==! Task: Validation Epoch @ 151 L: 1.254469 M: 0.066190 S: 0.417884  -- V2LR: Epoch M: 0.056157
+Task: Training Epoch @ 162 L: 1.264865 M: 0.063933 S: 0.418089  -- V2LR: Epoch M: 0.053602 !==! Task: Validation Epoch @ 162 L: 1.253701 M: 0.066060 S: 0.414761  -- V2LR: Epoch M: 0.055362
+Task: Training Epoch @ 171 L: 1.261644 M: 0.063827 S: 0.416623  -- V2LR: Epoch M: 0.052880 !==! Task: Validation Epoch @ 171 L: 1.247729 M: 0.066044 S: 0.416883  -- V2LR: Epoch M: 0.050783
+Tolerance: 2!! Task: Training Epoch @ 192 L: 1.264142 M: 0.063903 S: 0.417255  -- V2LR: Epoch M: 0.053467 !==! Task: Validation Epoch @ 192 L: 1.262743 M: 0.066721 S: 0.418871  -- V2LR: Epoch M: 0.069020
+Task: Testing Epoch @ -01 L: 1.248766 M: 0.063977 S: 0.414938  -- V2LR: Epoch M: 0.051747
+written to: ./models/v2lr/1.4.2vgg.20231219004459_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 11458.825800180435 seconds.
