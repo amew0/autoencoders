@@ -1,0 +1,514 @@
+2705193
+2.1f
+loss=0-7
+Importing finished!!
+cuda is going to be used!!
+Dataset loaded!! Length (train dataset) - 19200
+/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+LossID: 0
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+              ReLU-3            [-1, 192, 6, 6]               0
+   ConvTranspose2d-4            [-1, 192, 6, 6]         331,968
+   ConvTranspose2d-5            [-1, 192, 3, 3]           4,800
+              ReLU-6            [-1, 192, 6, 6]               0
+    ResidualBlockk-7            [-1, 192, 6, 6]               0
+       BatchNorm2d-8            [-1, 192, 6, 6]             384
+   ConvTranspose2d-9             [-1, 96, 8, 8]         165,984
+             ReLU-10             [-1, 96, 8, 8]               0
+  ConvTranspose2d-11             [-1, 96, 8, 8]          83,040
+  ConvTranspose2d-12             [-1, 96, 6, 6]          18,528
+             ReLU-13             [-1, 96, 8, 8]               0
+   ResidualBlockk-14             [-1, 96, 8, 8]               0
+      BatchNorm2d-15             [-1, 96, 8, 8]             192
+  ConvTranspose2d-16           [-1, 48, 12, 12]          18,480
+             ReLU-17           [-1, 48, 12, 12]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          20,784
+  ConvTranspose2d-19             [-1, 48, 8, 8]           4,656
+             ReLU-20           [-1, 48, 12, 12]               0
+   ResidualBlockk-21           [-1, 48, 12, 12]               0
+      BatchNorm2d-22           [-1, 48, 12, 12]              96
+  ConvTranspose2d-23            [-1, 1, 24, 24]             433
+             ReLU-24            [-1, 1, 24, 24]               0
+  ConvTranspose2d-25            [-1, 1, 24, 24]              10
+  ConvTranspose2d-26            [-1, 1, 12, 12]              49
+             ReLU-27            [-1, 1, 24, 24]               0
+   ResidualBlockk-28            [-1, 1, 24, 24]               0
+      BatchNorm2d-29            [-1, 1, 24, 24]               2
+================================================================
+Total params: 691,070
+Trainable params: 691,070
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.01
+Params size (MB): 2.64
+Estimated Total Size (MB): 3.64
+----------------------------------------------------------------
+Ready to TRAIN!!
+Task: Training Epoch @ 000 L: 0.222767 M: 0.222767 S: 0.773704 V: 2.328349 M_LR: 0.680974 !==! Task: Validation Epoch @ 000 L: 5.231395 M: 5.231395 S: 0.617280 V: 2.924908 M_LR: 14082.537824
+Task: Training Epoch @ 002 L: 0.063239 M: 0.063239 S: 0.592025 V: 1.644976 M_LR: 0.639352 !==! Task: Validation Epoch @ 002 L: 3.406546 M: 3.406546 S: 0.608081 V: 1.966340 M_LR: 1942.326548
+Task: Training Epoch @ 003 L: 0.062586 M: 0.062586 S: 0.564565 V: 1.642578 M_LR: 0.584675 !==! Task: Validation Epoch @ 003 L: 0.070048 M: 0.070048 S: 0.575711 V: 1.695617 M_LR: 5.712815
+Task: Training Epoch @ 004 L: 0.061898 M: 0.061898 S: 0.538781 V: 1.635682 M_LR: 0.572839 !==! Task: Validation Epoch @ 004 L: 0.063859 M: 0.063859 S: 0.540793 V: 1.664530 M_LR: 3.730137
+Tolerance: 3!! Task: Training Epoch @ 025 L: 0.055407 M: 0.055407 S: 0.442532 V: 1.545035 M_LR: 0.611560 !==! Task: Validation Epoch @ 025 L: 0.343296 M: 0.343296 S: 0.462875 V: 1.632309 M_LR: 12.219724
+Tolerance: 2!! Task: Training Epoch @ 046 L: 0.044406 M: 0.044406 S: 0.366630 V: 1.422097 M_LR: 0.686905 !==! Task: Validation Epoch @ 046 L: 0.076053 M: 0.076053 S: 0.448443 V: 1.566230 M_LR: 0.765906
+Tolerance: 1!! Task: Training Epoch @ 067 L: 0.037035 M: 0.037035 S: 0.326272 V: 1.308541 M_LR: 0.739089 !==! Task: Validation Epoch @ 067 L: 0.088803 M: 0.088803 S: 0.474699 V: 1.571307 M_LR: 9.553421
+Task: Testing Epoch @ -01 L: 0.093096 M: 0.093096 S: 0.541251 V: 1.676697 M_LR: 4.743237
+written to: ./models/v2lr/2.1f.20231226123007_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 2300.070006608963 seconds.
+LossID: 1
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+              ReLU-3            [-1, 192, 6, 6]               0
+   ConvTranspose2d-4            [-1, 192, 6, 6]         331,968
+   ConvTranspose2d-5            [-1, 192, 3, 3]           4,800
+              ReLU-6            [-1, 192, 6, 6]               0
+    ResidualBlockk-7            [-1, 192, 6, 6]               0
+       BatchNorm2d-8            [-1, 192, 6, 6]             384
+   ConvTranspose2d-9             [-1, 96, 8, 8]         165,984
+             ReLU-10             [-1, 96, 8, 8]               0
+  ConvTranspose2d-11             [-1, 96, 8, 8]          83,040
+  ConvTranspose2d-12             [-1, 96, 6, 6]          18,528
+             ReLU-13             [-1, 96, 8, 8]               0
+   ResidualBlockk-14             [-1, 96, 8, 8]               0
+      BatchNorm2d-15             [-1, 96, 8, 8]             192
+  ConvTranspose2d-16           [-1, 48, 12, 12]          18,480
+             ReLU-17           [-1, 48, 12, 12]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          20,784
+  ConvTranspose2d-19             [-1, 48, 8, 8]           4,656
+             ReLU-20           [-1, 48, 12, 12]               0
+   ResidualBlockk-21           [-1, 48, 12, 12]               0
+      BatchNorm2d-22           [-1, 48, 12, 12]              96
+  ConvTranspose2d-23            [-1, 1, 24, 24]             433
+             ReLU-24            [-1, 1, 24, 24]               0
+  ConvTranspose2d-25            [-1, 1, 24, 24]              10
+  ConvTranspose2d-26            [-1, 1, 12, 12]              49
+             ReLU-27            [-1, 1, 24, 24]               0
+   ResidualBlockk-28            [-1, 1, 24, 24]               0
+      BatchNorm2d-29            [-1, 1, 24, 24]               2
+================================================================
+Total params: 691,070
+Trainable params: 691,070
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.01
+Params size (MB): 2.64
+Estimated Total Size (MB): 3.64
+----------------------------------------------------------------
+Task: Training Epoch @ 000 L: 0.061128 M: 3.366343 S: 0.061248 V: 7.174926 M_LR: 0.738485 !==! Task: Validation Epoch @ 000 L: 0.125152 M: 281004678.903795 S: 0.125795 V: 16368.491015 M_LR: 23.613203
+Tolerance: 3!! Task: Training Epoch @ 021 L: 0.000705 M: 887.547213 S: 0.000705 V: 39.476145 M_LR: 0.680661 !==! Task: Validation Epoch @ 021 L: nan M: 105314817373384067172532224.000000 S: nan V: 2816612288168.681152 M_LR: 7062640.605561
+Tolerance: 2!! Task: Training Epoch @ 042 L: 0.004841 M: 2120.608934 S: 0.004841 V: 122.128774 M_LR: 0.722228 !==! Task: Validation Epoch @ 042 L: nan M: 2067738064316030039097344.000000 S: nan V: 427228525260.047974 M_LR: 37715399879.487480
+Tolerance: 1!! Task: Training Epoch @ 063 L: 0.003696 M: 4188.941577 S: 0.003696 V: 169.522126 M_LR: 0.610683 !==! Task: Validation Epoch @ 063 L: nan M: inf S: nan V: 215518299937655360.000000 M_LR: 16440785663253524480.000000
+Task: Testing Epoch @ -01 L: 0.107645 M: 307735537.086835 S: 0.108242 V: 19233.702784 M_LR: 17.639888
+written to: ./models/v2lr/2.1f.20231226130822_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 2284.0480411052704 seconds.
+LossID: 2
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+              ReLU-3            [-1, 192, 6, 6]               0
+   ConvTranspose2d-4            [-1, 192, 6, 6]         331,968
+   ConvTranspose2d-5            [-1, 192, 3, 3]           4,800
+              ReLU-6            [-1, 192, 6, 6]               0
+    ResidualBlockk-7            [-1, 192, 6, 6]               0
+       BatchNorm2d-8            [-1, 192, 6, 6]             384
+   ConvTranspose2d-9             [-1, 96, 8, 8]         165,984
+             ReLU-10             [-1, 96, 8, 8]               0
+  ConvTranspose2d-11             [-1, 96, 8, 8]          83,040
+  ConvTranspose2d-12             [-1, 96, 6, 6]          18,528
+             ReLU-13             [-1, 96, 8, 8]               0
+   ResidualBlockk-14             [-1, 96, 8, 8]               0
+      BatchNorm2d-15             [-1, 96, 8, 8]             192
+  ConvTranspose2d-16           [-1, 48, 12, 12]          18,480
+             ReLU-17           [-1, 48, 12, 12]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          20,784
+  ConvTranspose2d-19             [-1, 48, 8, 8]           4,656
+             ReLU-20           [-1, 48, 12, 12]               0
+   ResidualBlockk-21           [-1, 48, 12, 12]               0
+      BatchNorm2d-22           [-1, 48, 12, 12]              96
+  ConvTranspose2d-23            [-1, 1, 24, 24]             433
+             ReLU-24            [-1, 1, 24, 24]               0
+  ConvTranspose2d-25            [-1, 1, 24, 24]              10
+  ConvTranspose2d-26            [-1, 1, 12, 12]              49
+             ReLU-27            [-1, 1, 24, 24]               0
+   ResidualBlockk-28            [-1, 1, 24, 24]               0
+      BatchNorm2d-29            [-1, 1, 24, 24]               2
+================================================================
+Total params: 691,070
+Trainable params: 691,070
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.01
+Params size (MB): 2.64
+Estimated Total Size (MB): 3.64
+----------------------------------------------------------------
+Tolerance: 3!! Task: Training Epoch @ 021 L: 0.083149 M: 0.579121 S: 0.057046 V: 2.971924 M_LR: 0.300152 !==! Task: Validation Epoch @ 021 L: nan M: inf S: nan V: 348680582420233322496.000000 M_LR: 529499005649714392596480.000000
+Tolerance: 2!! Task: Training Epoch @ 042 L: 0.340435 M: 0.065967 S: 0.354880 V: 1.474555 M_LR: 0.250601 !==! Task: Validation Epoch @ 042 L: nan M: inf S: nan V: 8019105930705250304.000000 M_LR: 585573363908878336000.000000
+Tolerance: 1!! Task: Training Epoch @ 063 L: 0.340435 M: 0.065967 S: 0.354880 V: 1.474555 M_LR: 0.250601 !==! Task: Validation Epoch @ 063 L: nan M: inf S: nan V: 8019105930705250304.000000 M_LR: 585573363908878336000.000000
+Task: Testing Epoch @ -01 L: 27815305599474.894531 M: 556306113117033.125000 S: 0.423016 V: 3572753.985066 M_LR: 17647650600870422528.000000
+written to: ./models/v2lr/2.1f.20231226134626_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 2270.1298661231995 seconds.
+LossID: 3
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+              ReLU-3            [-1, 192, 6, 6]               0
+   ConvTranspose2d-4            [-1, 192, 6, 6]         331,968
+   ConvTranspose2d-5            [-1, 192, 3, 3]           4,800
+              ReLU-6            [-1, 192, 6, 6]               0
+    ResidualBlockk-7            [-1, 192, 6, 6]               0
+       BatchNorm2d-8            [-1, 192, 6, 6]             384
+   ConvTranspose2d-9             [-1, 96, 8, 8]         165,984
+             ReLU-10             [-1, 96, 8, 8]               0
+  ConvTranspose2d-11             [-1, 96, 8, 8]          83,040
+  ConvTranspose2d-12             [-1, 96, 6, 6]          18,528
+             ReLU-13             [-1, 96, 8, 8]               0
+   ResidualBlockk-14             [-1, 96, 8, 8]               0
+      BatchNorm2d-15             [-1, 96, 8, 8]             192
+  ConvTranspose2d-16           [-1, 48, 12, 12]          18,480
+             ReLU-17           [-1, 48, 12, 12]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          20,784
+  ConvTranspose2d-19             [-1, 48, 8, 8]           4,656
+             ReLU-20           [-1, 48, 12, 12]               0
+   ResidualBlockk-21           [-1, 48, 12, 12]               0
+      BatchNorm2d-22           [-1, 48, 12, 12]              96
+  ConvTranspose2d-23            [-1, 1, 24, 24]             433
+             ReLU-24            [-1, 1, 24, 24]               0
+  ConvTranspose2d-25            [-1, 1, 24, 24]              10
+  ConvTranspose2d-26            [-1, 1, 12, 12]              49
+             ReLU-27            [-1, 1, 24, 24]               0
+   ResidualBlockk-28            [-1, 1, 24, 24]               0
+      BatchNorm2d-29            [-1, 1, 24, 24]               2
+================================================================
+Total params: 691,070
+Trainable params: 691,070
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.01
+Params size (MB): 2.64
+Estimated Total Size (MB): 3.64
+----------------------------------------------------------------
+Tolerance: 3!! Task: Training Epoch @ 021 L: 0.038536 M: 0.065966 S: 0.354883 V: 1.474555 M_LR: 0.262979 !==! Task: Validation Epoch @ 021 L: nan M: inf S: nan V: 1.486754 M_LR: 1698748830802594012069888.000000
+Tolerance: 2!! Task: Training Epoch @ 042 L: 0.038536 M: 0.065966 S: 0.354883 V: 1.474555 M_LR: 0.262979 !==! Task: Validation Epoch @ 042 L: nan M: inf S: nan V: 1.486754 M_LR: 1698748830802594012069888.000000
+Tolerance: 1!! Task: Training Epoch @ 063 L: 0.038536 M: 0.065966 S: 0.354883 V: 1.474555 M_LR: 0.262979 !==! Task: Validation Epoch @ 063 L: nan M: inf S: nan V: 1.486754 M_LR: 1698748830802594012069888.000000
+Task: Testing Epoch @ -01 L: 7747280377499739.000000 M: 77473172353600448.000000 S: 0.777098 V: 45246432.752457 M_LR: 3555362437269857239040.000000
+written to: ./models/v2lr/2.1f.20231226142416_v2lr.pt
+written to: ./results/loss_tracker_v2lr.csv
+Elapsed time: 2251.7527770996094 seconds.
+LossID: 4
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 6, 12, 12]             156
+              ReLU-2            [-1, 6, 12, 12]               0
+            Conv2d-3            [-1, 6, 12, 12]             330
+            Conv2d-4            [-1, 6, 16, 16]              12
+              ReLU-5            [-1, 6, 12, 12]               0
+     ResidualBlock-6            [-1, 6, 12, 12]               0
+       BatchNorm2d-7            [-1, 6, 12, 12]              12
+            Conv2d-8             [-1, 18, 8, 8]           2,718
+              ReLU-9             [-1, 18, 8, 8]               0
+           Conv2d-10             [-1, 18, 8, 8]           2,934
+           Conv2d-11           [-1, 18, 12, 12]             126
+             ReLU-12             [-1, 18, 8, 8]               0
+    ResidualBlock-13             [-1, 18, 8, 8]               0
+      BatchNorm2d-14             [-1, 18, 8, 8]              36
+           Conv2d-15             [-1, 54, 4, 4]          24,354
+             ReLU-16             [-1, 54, 4, 4]               0
+           Conv2d-17             [-1, 54, 4, 4]          26,298
+           Conv2d-18             [-1, 54, 8, 8]           1,026
+             ReLU-19             [-1, 54, 4, 4]               0
+    ResidualBlock-20             [-1, 54, 4, 4]               0
+      BatchNorm2d-21             [-1, 54, 4, 4]             108
+           Conv2d-22            [-1, 108, 2, 2]          52,596
+             ReLU-23            [-1, 108, 2, 2]               0
+           Conv2d-24            [-1, 108, 2, 2]         105,084
+           Conv2d-25            [-1, 108, 4, 4]           5,940
+             ReLU-26            [-1, 108, 2, 2]               0
+    ResidualBlock-27            [-1, 108, 2, 2]               0
+      BatchNorm2d-28            [-1, 108, 2, 2]             216
+           Conv2d-29            [-1, 216, 1, 1]          93,528
+             ReLU-30            [-1, 216, 1, 1]               0
+           Conv2d-31            [-1, 216, 1, 1]         420,120
+           Conv2d-32            [-1, 216, 2, 2]          23,544
+             ReLU-33            [-1, 216, 1, 1]               0
+    ResidualBlock-34            [-1, 216, 1, 1]               0
+      BatchNorm2d-35            [-1, 216, 1, 1]             432
+          Flatten-36                  [-1, 216]               0
+================================================================
+Total params: 759,570
+Trainable params: 759,570
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 0.24
+Params size (MB): 2.90
+Estimated Total Size (MB): 3.14
+----------------------------------------------------------------
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+         Unflatten-1             [-1, 24, 3, 3]               0
+   ConvTranspose2d-2            [-1, 192, 6, 6]          41,664
+              ReLU-3            [-1, 192, 6, 6]               0
+   ConvTranspose2d-4            [-1, 192, 6, 6]         331,968
+   ConvTranspose2d-5            [-1, 192, 3, 3]           4,800
+              ReLU-6            [-1, 192, 6, 6]               0
+    ResidualBlockk-7            [-1, 192, 6, 6]               0
+       BatchNorm2d-8            [-1, 192, 6, 6]             384
+   ConvTranspose2d-9             [-1, 96, 8, 8]         165,984
+             ReLU-10             [-1, 96, 8, 8]               0
+  ConvTranspose2d-11             [-1, 96, 8, 8]          83,040
+  ConvTranspose2d-12             [-1, 96, 6, 6]          18,528
+             ReLU-13             [-1, 96, 8, 8]               0
+   ResidualBlockk-14             [-1, 96, 8, 8]               0
+      BatchNorm2d-15             [-1, 96, 8, 8]             192
+  ConvTranspose2d-16           [-1, 48, 12, 12]          18,480
+             ReLU-17           [-1, 48, 12, 12]               0
+  ConvTranspose2d-18           [-1, 48, 12, 12]          20,784
+  ConvTranspose2d-19             [-1, 48, 8, 8]           4,656
+             ReLU-20           [-1, 48, 12, 12]               0
+   ResidualBlockk-21           [-1, 48, 12, 12]               0
+      BatchNorm2d-22           [-1, 48, 12, 12]              96
+  ConvTranspose2d-23            [-1, 1, 24, 24]             433
+             ReLU-24            [-1, 1, 24, 24]               0
+  ConvTranspose2d-25            [-1, 1, 24, 24]              10
+  ConvTranspose2d-26            [-1, 1, 12, 12]              49
+             ReLU-27            [-1, 1, 24, 24]               0
+   ResidualBlockk-28            [-1, 1, 24, 24]               0
+      BatchNorm2d-29            [-1, 1, 24, 24]               2
+================================================================
+Total params: 691,070
+Trainable params: 691,070
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.00
+Forward/backward pass size (MB): 1.01
+Params size (MB): 2.64
+Estimated Total Size (MB): 3.64
+----------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/kunet.ae/100053678/eit/autoencoders/v2lr.py", line 291, in <module>
+    trainer = play(train_dataloader,trainer,v2lr,ssim,optimizer,lossid=i)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/kunet.ae/100053678/eit/autoencoders/v2lr.py", line 154, in play
+    loss.backward()
+    ^^^^^^^^^^^^^
+  File "/home/kunet.ae/100053678/.conda/envs/eit/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1695, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'CompositionalMetric' object has no attribute 'backward'

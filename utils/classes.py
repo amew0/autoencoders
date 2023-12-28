@@ -107,6 +107,7 @@ class DiffImg(Dataset):
             diff_transform: Optional[Union[None, transforms.Compose]] = None,  
             img_transform: Optional[Union[None, transforms.Compose]] = None,
             npf: bool = True,
+            ppf: bool = False,
             zero_background: bool = True
         ) -> None:
         self.data = pd.read_csv(csv_file,header=None)
@@ -114,7 +115,17 @@ class DiffImg(Dataset):
         self.diff_transform = diff_transform
         self.img_transform = img_transform
         self.npf = npf # -ve pressure filter
+        self.ppf = ppf # +ve pressure filter
         self.zero_background = zero_background
+
+        if npf:
+            print("NPF")
+        if ppf:
+            print("PPF")
+        if npf and ppf:
+            import sys
+            print("NPF and PPF are true....Exiting!")
+            sys.exit()
 
     def __len__(self) -> int:
         return len(self.data)
@@ -144,6 +155,11 @@ class DiffImg(Dataset):
         if self.npf:
             if image.max() == 0.0:
                 return self.__getitem__((idx + 1) % len(self.data))
+        
+        if self.ppf:
+            if image.min() == 0.0:
+                return self.__getitem__((idx + 1) % len(self.data))
+            
 
         return (diff ,image)
 
@@ -350,9 +366,6 @@ class V2ImgLR (nn.Module):
             nn.BatchNorm2d(216),
             nn.Flatten()
         )
-
-        self.scale_max = nn.Parameter(torch.Tensor([1e-2]), requires_grad=True)
-        self.scale_min = nn.Parameter(torch.Tensor([1e-2]), requires_grad=True)
 
     def forward(self,diff,img):
         mapped = self.v2lr(diff)
@@ -575,11 +588,7 @@ class LossTracker:
         self.epoch_mse_loss = 0.0
         self.epoch_ssim = 0.0
         self.epoch_loss_lr = 0.0
-
-        # self.loss = np.inf
-        # self.mse_loss = np.inf
-        # self.ssim = np.inf
-        # self.mse_loss_lr = np.inf
+        self.epoch_vgg_loss = 0.0
 
         self.job = job
 
@@ -587,4 +596,4 @@ class LossTracker:
 
 
     def __str__(self):
-        return f"Task: {self.job} Epoch @ {self.best_epoch:03d} L: {self.epoch_loss:.6f} M: {self.epoch_mse_loss:.6f} S: {self.epoch_ssim:.6f}  -- V2LR: Epoch M: {self.epoch_loss_lr:.6f}"
+        return f"Task: {self.job} Epoch @ {self.best_epoch:03d} L: {self.epoch_loss:.6f} M: {self.epoch_mse_loss:.6f} S: {self.epoch_ssim:.6f} V: {self.epoch_vgg_loss:.6f} M_LR: {self.epoch_loss_lr:.6f}"

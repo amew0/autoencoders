@@ -35,8 +35,8 @@ recon_path = "./models/img/14.2.1.retraining.2.20231130014311_img.pt" # "./model
 diff_transform = transforms.Compose([transforms.ToTensor()])
 img_transform = transforms.Compose([transforms.ToTensor()])
 
-train_dataset = DiffImg(csv_file=DIFFS_IMGS_TRAIN_PATH, diff_transform=diff_transform, img_transform=img_transform)
-test_dataset = DiffImg(csv_file=DIFFS_IMGS_TEST_PATH, diff_transform=diff_transform, img_transform=img_transform)
+train_dataset = DiffImg(csv_file=DIFFS_IMGS_TRAIN_PATH, diff_transform=diff_transform, img_transform=img_transform,npf=False,ppf=False,zero_background=True)
+test_dataset = DiffImg(csv_file=DIFFS_IMGS_TEST_PATH, diff_transform=diff_transform, img_transform=img_transform,npf=False,ppf=False,zero_background=True)
 
 generator = torch.Generator().manual_seed(seed)
 train_size = int(0.8 * len(train_dataset)) 
@@ -92,7 +92,7 @@ def stretch_diff(batch_diff):
     return batch_capsule
 
 def adjusted_mse(batch_img, batch_recon):
-    mask = (torch.Tensor(batch_img) != 0.00312).float()
+    mask = (torch.Tensor(batch_img) != 0.0).float() # check if batch_img is translated to 0~
     num_valid_pixels = torch.sum(mask)
     squared_diff = (batch_img - batch_recon).to(device)**2 * mask.to(device)
     mse = torch.sum(squared_diff) / (num_valid_pixels)
@@ -104,94 +104,186 @@ criterion = VGGPerceptualLoss().to(device)
 def play(dataloader:DataLoader=None,
          tracker:LossTracker=None,
          v2lr:nn.Module=None,
-         ssim=None,optimizer=None):
+         ssim=None,optimizer=None,
+         lossid=0):
     
     v2lr.train() if tracker.job=="Training" else v2lr.eval()
     if tracker.best_epoch == -1 and tracker.job == "Training":
         print("Ready to TRAIN!!")
     for i, (batch_diff, batch_img) in enumerate(dataloader):
-        # batch_diff = stretch_diff(batch_diff)
         batch_diff = batch_diff.to(device)
         batch_img = batch_img.to(device)
         batch_mapped, batch_lr, batch_recon_v = v2lr(batch_diff,batch_img)
 
         # scale_to_input removed from here
         mse_loss = F.mse_loss(batch_img, batch_recon_v)
-        # ssim_value = (ssim(batch_img, batch_recon_v) + 1) / 2
         ssim_value = 1 - ssim(batch_img, batch_recon_v) 
-        # mse_aoi = compute_mse_aoi(batch_img,batch_recon_v)
-        # loss = 0.5*mse_aoi + 10*mse_loss + 2*ssim_value
-        # loss = (mse_loss / (ssim_value+1e-6))
+        vgg_loss = criterion(batch_img,batch_recon_v)
         mse_loss_lr = F.mse_loss(batch_lr, batch_mapped)
         
-        # l1_reg = torch.tensor(0., requires_grad=True)
-        # for param in v2lr.parameters():
-        #     l1_reg = l1_reg + torch.norm(param, 1)
+        # 0 MSE
+        if lossid==0:
+            loss = mse_loss
+        # 1 SSIM
+        elif lossid==1:
+            loss=ssim_value
+        # 2 alpha*mse + (1-alpha)*ssim
+        elif lossid==2:
+            alpha=0.05
+            loss = alpha*mse_loss + (1-alpha)*ssim_value
+        # 3 alpha*mse + (1-alpha)*0.1*ssim
+        elif lossid==3:
+            alpha=0.1
+            loss = alpha*mse_loss + (1-alpha)*0.1*ssim_value
+        # 4 mse/ssim+1
+        elif lossid==4:
+            loss=mse_loss/(ssim_value+1)
+        # 5 mse_aoi
+        elif lossid==5:
+            loss = adjusted_mse(batch_img,batch_recon_v)
+        # 6 vgg_loss
+        elif lossid==6:
+            loss=vgg_loss
+        # 7 vgg_loss+10*mse_aoi
+        elif lossid==7:
+            loss=vgg_loss+10*adjusted_mse(batch_img,batch_recon_v) 
 
-        # Add L1 regularization to the loss
-        # loss = mse_aoi + mse_loss_lr + 1e-2*l1_reg
-        # pcc=torch.cat([batch_img.reshape(-1), batch_recon_v.reshape(-1)]).reshape(-1,576*batch_size)
-        # pcc=torch.corrcoef(pcc)[0,1]
-
-        # loss = ((1-pcc) + ssim_value)/2
-        vgg_loss = criterion(batch_img,batch_recon_v)
-        # adj_mse = adjusted_mse(batch_img,batch_recon_v)
-        
-        # max_img=torch.max(batch_img.view(-1,576), dim=1)[0]
-        # max_recon=torch.max(batch_recon_v.view(-1,576), dim=1)[0]
-        # min_img=torch.min(batch_img.view(-1,576), dim=1)[0]
-        # min_recon=torch.min(batch_recon_v.view(-1,576), dim=1)[0]
-
-        # max_loss = torch.mean(torch.square(max_img - max_recon))
-        # min_loss = torch.mean(torch.square(min_img - min_recon))
-        
-        # loss = vgg_loss+10*mse_loss  + max_loss
-        loss = vgg_loss+mse_loss
-    
-        
         if tracker.job == "Training": # batch
             optimizer.zero_grad()
             # loss.backward(retain_graph=True)
             loss.backward()
             optimizer.step()
 
-        # tracker.mse_loss = mse_loss.item()
-        # tracker.ssim = ssim_value.item()
-        # tracker.loss = loss.item()
-        # tracker.mse_loss_lr = mse_loss_lr.item()
 
         tracker.epoch_mse_loss += mse_loss.item()
         tracker.epoch_ssim += ssim_value.item()
         tracker.epoch_loss += loss.item()
         tracker.epoch_loss_lr += mse_loss_lr.item()
+        tracker.epoch_vgg_loss += vgg_loss.item()
 
     tracker.epoch_mse_loss /= (i+1)
     tracker.epoch_ssim /= (i+1)
     tracker.epoch_loss /= (i+1)
     tracker.epoch_loss_lr /= (i+1)
+    tracker.epoch_vgg_loss /= (i+1)
 
     # epoch rebackprog removed from here
     return tracker
 
-idk=[-1]
-for i in enumerate(idk):
+if ID=="0f.3":
+    v2l = nn.Sequential(
+        nn.Flatten(),
+        nn.Linear(256,216),
+        # nn.ReLU(),
+    )
+    v2lr_path = "./models/v2lr/0f.1.20231226165034_v2lr.pt"
 
+elif ID=="1f.3":
+    v2l = nn.Sequential(
+        nn.Flatten(),
+        nn.Linear(256, 128),
+        nn.ReLU(),
+        nn.Linear(128,216),
+        nn.ReLU()
+    )
+    v2lr_path = "./models/v2lr/1f.1.20231226165408_v2lr.pt"
+
+elif ID=="1.1f.3":
+    v2l = nn.Sequential(
+        nn.Flatten(),
+        nn.Linear(256, 128),
+        nn.ReLU(),
+        nn.Linear(128,128),
+        nn.ReLU(),
+        nn.Linear(128,216),
+        nn.ReLU()
+    )
+    v2lr_path = "./models/v2lr/1.1f.1.20231226165615_v2lr.pt"
+
+elif ID=="1.2f.3":
+    v2l = nn.Sequential(
+        nn.Flatten(),
+        nn.Linear(256, 324),
+        nn.ReLU(),
+        nn.Linear(324,256),
+        nn.ReLU(),
+        nn.Linear(256,324),
+        nn.ReLU(),
+        nn.Linear(324,216),
+        nn.ReLU()
+    )
+    v2lr_path = "./models/v2lr/1.2f.1.20231226184514_v2lr.pt"
+
+elif ID=="2f.3":
+    v2l = nn.Sequential(
+        nn.Conv2d(1,6,5,1,0),
+        nn.Conv2d(6,6,3,1,1),
+        nn.BatchNorm2d(6),
+        nn.ReLU(),
+        
+        nn.Conv2d(6,18,5,1,0),
+        nn.Conv2d(18,18,3,1,1),
+        nn.BatchNorm2d(18),
+        nn.ReLU(),
+        
+        nn.Conv2d(18,54,5,1,0),
+        nn.Conv2d(54,54,3,1,1),
+        nn.BatchNorm2d(54),
+        nn.ReLU(),
+        
+        nn.Conv2d(54,108,3,1,0),
+        nn.Conv2d(108,108,3,1,1),
+        nn.BatchNorm2d(108),
+        nn.ReLU(),   
+        
+        nn.Conv2d(108,216,2,1,0),
+        nn.Conv2d(216,216,3,1,1),
+        nn.BatchNorm2d(216),
+        nn.ReLU(),
+        
+        nn.Flatten()
+    )
+    v2lr_path = "./models/v2lr/2f.1.20231226191152_v2lr.pt"
+
+elif ID=="2.1f.3":
+    v2l = nn.Sequential(
+            ResidualBlock(1,6,5,1,0),
+            nn.BatchNorm2d(6),
+            ResidualBlock(6,18,5,1,0),
+            nn.BatchNorm2d(18),
+            ResidualBlock(18,54,5,1,0),
+            nn.BatchNorm2d(54),
+            ResidualBlock(54,108,3,1,0),
+            nn.BatchNorm2d(108),   
+            ResidualBlock(108,216,2,1,0),
+            nn.BatchNorm2d(216),
+            nn.Flatten()
+        )
+    v2lr_path = "./models/v2lr/2.1f.1.20231226195929_v2lr.pt"
+
+# idk=[-1]
+for i in [7]:
+    # if i ==0:
+    #     continue
+    print(f"LossID: {i}")
     nownow = datetime.now()
     id_config = f"{CONDUCTANCE_VALUES}{ID}.{nownow.strftime('%Y%m%d%H%M%S%f')[:14]}"
     LOSS_TRACKER_PATH = f'./results/loss_tracker_{TASK}.csv'
     MODEL_STATEDICT_SAVE_PATH = f"./models/{TASK}/{id_config}_{TASK}.pth"
     MODEL_SAVE_PATH = MODEL_STATEDICT_SAVE_PATH[:-1] # pt instead of pth
 
-    v2lr = V2ImgLR(recon_path,train_recon=True)
+    # v2lr = V2ImgLR(recon_path,train_recon=True)
     # v2lr.v2lr = config
     # v2lr = torch.load("./models/v2lr/0.alpha.01.20231206000636_v2lr.pt")
-    # v2lr = torch.load("./models/v2lr/1.5.vgg.b.1.20231221023841_v2lr.pt",map_location=device)
+    # v2lr = torch.load("./models/v2lr/1.5.vgg.ppf.20231223191000_v2lr.pt",map_location=device)
+    v2lr = torch.load(v2lr_path,map_location=device)
+    # v2lr.v2lr = v2l
     v2lr = v2lr.to(device)
-    # for d in v2lr.recon.decoder.parameters():
-    #     d.requires_grad = False
+    for d in v2lr.recon.decoder.parameters():
+        d.requires_grad = False
 
-    # for v in v2lr.v2lr.parameters():
-    #     v.requires_grad = True
+    for v in v2lr.v2lr.parameters():
+        v.requires_grad = True
     summary(v2lr.v2lr,(1,16,16))
     # print(v2lr.recon.decoder)
     summary(v2lr.recon.decoder,(216))
@@ -210,14 +302,14 @@ for i in enumerate(idk):
     last_printed = 0
     tolerance = 3
     for epoch in range(epochs):
-        trainer = play(train_dataloader,trainer,v2lr,ssim,optimizer)
+        trainer = play(train_dataloader,trainer,v2lr,ssim,optimizer,lossid=i)
         train_losses.append(trainer.epoch_mse_loss)
         
         with torch.no_grad():
-            validator =play(val_dataloader,validator,v2lr,ssim)
+            validator = play(val_dataloader,validator,v2lr,ssim,lossid=i)
 
-        if validator.epoch_loss < min_loss:
-            min_loss = validator.epoch_loss 
+        if validator.epoch_mse_loss < min_loss:
+            min_loss = validator.epoch_mse_loss
             
             del best_v2lr
             best_v2lr = deepcopy(v2lr)
@@ -243,7 +335,7 @@ for i in enumerate(idk):
     del v2lr
     v2lr = deepcopy(best_v2lr)
     with torch.no_grad():
-        tester = play(test_dataloader,tester,v2lr,ssim)
+        tester = play(test_dataloader,tester,v2lr,ssim,lossid=i)
         
         train_losses.append(tester.epoch_loss)
         print(tester)
